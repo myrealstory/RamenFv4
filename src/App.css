@@ -1,0 +1,68 @@
+/* @value white: #fff; */
+
+
+
+
+/**_____NavBar_________**/
+.NavBar{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navLogo{
+  width: 5rem;
+}
+
+.navUL{
+  display: flex;
+  justify-content: space-between;
+  width: 45rem;
+  /* align-items: center; */
+}
+.navUL li{
+  font-size: 1rem;
+  padding: 1rem 1rem;
+  font-weight: 100;
+}
+
+.navLogin {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding-top: 1.2rem;
+}
+
+.navLi>i {
+  transform: scale(1.2);
+  margin-right: 1rem;
+  /* padding-top: 1rem; */
+}
+
+.navLi>a {
+  transform: scale(1.2);
+  width: 100%;
+}
+
+.white {
+  color: white;
+  fill: white;
+}
+.mr-3 {
+  margin-right: 1.5rem;
+}
+.mt-3{
+  margin-top: 1.5rem;
+}
+.mt-2{
+  margin-top: 1rem;
+}
+.mt-1{
+  margin-top: 0.5rem;
+}
+.Login_Red {
+  font-size: 1.1rem;
+  padding-top: 1rem !important;
+  margin-right: 1rem;
+}
