@@ -81,8 +81,8 @@ img{
 }
 .RamenMain>.RamenTitle {
     position: absolute;
-    /* width: 50rem; */
-    margin-left: 5rem;
+    width: 55vw;
+    /* margin-left: 2vw; */
     z-index: 2;
     left: 0;
 }
@@ -341,6 +341,10 @@ content: '';
     margin-left: 20%;
     margin-top: 1vh;
 }
+.Sec4Title p {
+    font-size: 1.5vw;
+    margin-top: 1.8vh;
+}
 .Sec4Title a p {
     color: white;
 }
@@ -362,6 +366,11 @@ content: '';
 .NewsBox h3{
     width: 60%;
     text-align: left;
+font-size: 1.5vw !important;
+}
+
+.NewsBox h5{
+    font-size: 1vw !important;
 }
 
 .NewsBox:hover{

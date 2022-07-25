@@ -4,6 +4,10 @@
 
 
 /**_____NavBar_________**/
+.nav {
+  display: flex;
+  align-items: center;
+}
 .NavBar{
   width: 90%;
   margin: 0 auto;
@@ -12,18 +16,18 @@
 }
 
 .navLogo{
-  width: 5rem;
+  width: 1vw;
 }
 
 .navUL{
   display: flex;
   justify-content: space-between;
-  width: 45rem;
+  width: 53vw;
   /* align-items: center; */
 }
 .navUL li{
-  font-size: 1rem;
-  padding: 1rem 1rem;
+  font-size: 1.2vw;
+  padding: .5vh 1vw;
   font-weight: 100;
 }
 
@@ -31,17 +35,23 @@
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  padding-top: 1.2rem;
+  padding-top: 1.2vw;
 }
 
+.navLogin > ul {
+  width: 17vw;
+}
+.navLi {
+  width: 3vw;
+}
 .navLi>i {
-  transform: scale(1.2);
-  margin-right: 1rem;
+  transform: scale(1.2vw);
+  margin-right: 1vw;
   /* padding-top: 1rem; */
 }
 
 .navLi>a {
-  transform: scale(1.2);
+  transform: scale(1.2vw);
   width: 100%;
 }
 
@@ -50,19 +60,25 @@
   fill: white;
 }
 .mr-3 {
-  margin-right: 1.5rem;
+  margin-right: 1.5vw;
 }
 .mt-3{
-  margin-top: 1.5rem;
+  margin-top: 1.5vh;
 }
 .mt-2{
-  margin-top: 1rem;
+  margin-top: 1vh;
 }
 .mt-1{
-  margin-top: 0.5rem;
+  margin-top: 0.5vh;
 }
 .Login_Red {
-  font-size: 1.1rem;
+  font-size: 1.1vw;
   padding-top: 1rem !important;
   margin-right: 1rem;
 }
+
+@media screen and (max-width: 1200px ){
+  .navLi > a,i {
+    transform: scale(0.5);
+  }
+} 
