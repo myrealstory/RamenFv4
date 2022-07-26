@@ -4,6 +4,7 @@ function SliderContent({ activeIndex, imageSlider }) {
   return (
     <section>
       {imageSlider.map((slide, index) => {
+        return(
         <div
           className={index === activeIndex ? "slides active" : "inactive"}
           key={index}
@@ -15,8 +16,8 @@ function SliderContent({ activeIndex, imageSlider }) {
           <div className="Sec5Image">
             <img src={slide.Image} alt="" />
           </div>
-        </div>
-      })}
+        </div>)
+})}
       
     </section>
   );

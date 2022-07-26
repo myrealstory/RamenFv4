@@ -4,6 +4,7 @@ import FileMenuInfo from "../Api/MenuApi";
 import SliderContent from "../Slider/SliderContent";
 import Arrows from "../Slider/Arrows";
 import Dots from "../Slider/Dots";
+// import ImageSlide from '../Slider/pictureslide';
 
 
 

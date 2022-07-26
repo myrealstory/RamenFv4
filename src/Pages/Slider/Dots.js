@@ -3,11 +3,13 @@ import React from 'react'
 function Dots ({ activeIndex, onclick , imageSlider}) {
   return (
     <div className='all-dots'>
-        {imageSlider.map((slide,index)=>(
+        {imageSlider.map((slide,index)=>{
+          return(
             <span key={index} className={`${activeIndex === index ? "dot active-dot":"dot"}`}
             onClick={()=> onclick(index)}
             ></span>
-        ))}
+          )
+})}
     </div>
   );
 }
