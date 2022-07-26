@@ -29,6 +29,7 @@ function Section05(props) {
 
   const [activeIndex, setActiveIndex] = useState(0);
   // const imageSlider =menuData[0].filter((v)=> v.Discount === '1');
+  const len = (v) => {return v.length -1 }
   useEffect(()=>{
     
   },[])
@@ -52,9 +53,9 @@ function Section05(props) {
             <SliderContent activeIndex={activeIndex} imageSlider={imageSlider} index={index}/>
           
           <Arrows prevSlide={() => {
-            setActiveIndex(activeIndex < 1 ? imageSlider -1  : activeIndex - 1);
+            setActiveIndex(activeIndex < 1 ? len(imageSlider)  : activeIndex - 1);
           }} nextSlide={() => {
-            setActiveIndex(activeIndex === imageSlider -1 ? 0 : activeIndex + 1);
+            setActiveIndex(activeIndex === len(imageSlider) ? 0 : activeIndex + 1);
           }}/>
           <Dots
             activeIndex={activeIndex}
