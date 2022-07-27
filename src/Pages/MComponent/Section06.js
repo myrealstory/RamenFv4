@@ -1,35 +1,39 @@
 import React from "react";
-import Nav from "../components/nav";
-import { Link } from "react-router-dom";
 import "../CSS/Main.css";
-import RamenFont from "../img/background/title02.png";
-import RamenCup from "../img/Laksa_Alpha.png";
-import AutoBG from "../components/autoBG";
+import {ControlTranslate} from '../components/interactive/ControlTranslate'
+import { ScrollableArea, ScrollableAreaContext } from '../components/interactive/ScrollableArea'
+import { useGlobalMouseMove } from '../components/hooks/useGlobalMouseMove'
+import Driver6BG from '../img/Sec6/Driver_BG.png'
+import Driverpic from '../img/Sec6/driver_1.png'
 
-function Section01() {
+function Section06() {
+  const OFFSET = 0.37;
   return (
     <div className="SecStyle">
-      <div className="MContainer">
-        <Nav />
-        <div className="w100 RamenSec1">
-          <span className="AniseAndChili"></span>
-          <span className="LemonAndGarlic"></span>
-          <Link to="/" className="d-flex RamenMain">
-            <div className="RamenTitle">
-              <img src={RamenFont} alt="" />
+      <div className="Sec6container">
+        {/* ControllTranslate mouseoffsetX 和 Y 說的是*/ }
+          <ControlTranslate scrollFromY={0} scrollToY={ -700 * OFFSET } mouseOffsetX={-10} mouseOffsetY={10}>
+            <div className="position-relative d-flex justify-content-start">
+              <img src={Driver6BG} alt="" className="Sec6driverBG" />
             </div>
-            <div className="CupRamen">
-              <img src={RamenCup} alt="" />
+          </ControlTranslate>
+          <ControlTranslate scrollFromY={0} scrollToY={-1000 * OFFSET} mouseOffsetX={-50} mouseOffsetY={20}>
+            <div className="position-relative d-flex justify-content-start">
+              <img src={Driverpic} alt="" className="Sec6driver"/>
             </div>
-          </Link>
-          <div className="RamenFBG">
-            <AutoBG />
-          </div>
-          <div></div>
-        </div>
+          </ControlTranslate>
+          <ControlTranslate scrollFromY={0} scrollToY={-800 * OFFSET} mouseOffsetX={-80} mouseOffsetY={5}>
+            <div className="position-relative d-flex justify-content-center Sec6Orderbox">
+              <div className="" style={{'z-index':'10'}}>
+                <p>讓我們把熱騰騰的異國美味帶到你身邊</p>
+                <div className="d-flex sec6Title" ><p>我們有</p><p className="bigRed">外送</p><p>了！</p></div>
+                <button>外送點起來</button>
+              </div>
+            </div>
+          </ControlTranslate>
       </div>
     </div>
   );
 }
 
-export default Section01;
+export default Section06;

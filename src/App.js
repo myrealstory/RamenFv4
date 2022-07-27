@@ -7,6 +7,8 @@ import React, { useState,useEffect } from 'react'
 import TestDraw from "./test/TestDraw";
 import FileMenuInfo, { LIST_GET_MENUS } from "./Pages/Api/MenuApi";
 import FileNewsInfo, { LIST_GET_NEWS } from "./configs/AjaxPath";
+import {GlobalScrollProvider} from './Pages/components/hooks/useGlobalScroll'
+import {GlobalMouseMoveProvider} from './Pages/components/hooks/useGlobalMouseMove'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // export const getMenuInfo = async () => {
 //   const response = await fetch(LIST_GET_NEWS);
@@ -14,6 +16,16 @@ import FileNewsInfo, { LIST_GET_NEWS } from "./configs/AjaxPath";
 //   console.log(responseJson);
 //   return responseJson;
 // };
+function Wrapper ({children}) {
+  return (
+    <GlobalScrollProvider>
+      <GlobalMouseMoveProvider>
+        {children}
+      </GlobalMouseMoveProvider>
+    </GlobalScrollProvider>
+  );
+}
+
 
 
 function App() {
@@ -38,6 +50,7 @@ function App() {
   
 
     return (
+      <Wrapper>
       <Router>
         {/* <Nav /> */}
         <FileNewsInfo.Provider value={[newsData, setNewsData]}>
@@ -51,6 +64,7 @@ function App() {
           </FileMenuInfo.Provider>
         </FileNewsInfo.Provider>
       </Router>
+      </Wrapper>
     );
 }
 

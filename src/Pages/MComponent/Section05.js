@@ -53,9 +53,9 @@ function Section05(props) {
             <SliderContent activeIndex={activeIndex} imageSlider={imageSlider} index={index}/>
           
           <Arrows prevSlide={() => {
-            setActiveIndex(activeIndex < 1 ? len(imageSlider)  : activeIndex - 1);
+            setActiveIndex(activeIndex < 1 ? index-1  : activeIndex - 1);
           }} nextSlide={() => {
-            setActiveIndex(activeIndex === len(imageSlider) ? 0 : activeIndex + 1);
+            setActiveIndex(activeIndex === index ? 0 : activeIndex + 1);
           }}/>
           <Dots
             activeIndex={activeIndex}

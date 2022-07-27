@@ -10,6 +10,7 @@ import Section04 from "./MComponent/Section04";
 import Section05 from "./MComponent/Section05";
 import Section06 from "./MComponent/Section06";
 import Section07 from "./MComponent/Section07";
+import Footer from './components/footer'
 
 
 
@@ -49,11 +50,10 @@ function MainPage() {
           <Section06 />
         </FullpageSection>
 
-        <FullpageSection style={SectionStyle}>
-          <Section07 />
-        </FullpageSection>
+        <Footer/>
       </FullPageSections>
     </Fullpage>
+    
   );
 };
 

@@ -10,6 +10,7 @@ body {
 :root {
     --primary: #7a0000;
     --secondary: #FFB710;
+    --orange:#EC391E;
     --white: white;
     --black: rgb(36, 36, 36);
     --widths: 100%;
@@ -542,4 +543,77 @@ font-size: 1.5vw !important;
 .active-dot,
 .dot:hover {
     background-color: rgba(255,255,255,0.5);
+}
+
+/*_____Sec6_____*/
+
+.Sec6container{
+    width: 80%;
+    height: 80vh;
+}
+
+.Sec6driverBG {
+    position: absolute;
+    width: 80vw;
+    height: 60vh;
+    top: 10vh;
+    left: 0vw;
+    
+}
+.Sec6driver{
+    position: absolute;
+    width: 32vw;
+    height: 45vh;
+    top: 20vh;
+    right: 5vw;
+}
+
+.Sec6Orderbox{
+    text-align: center;
+    width: 45vw;
+    height: 45vh;
+    position: relative;
+    transform: translateX(10vw) translateY(-5vh);
+}
+
+.Sec6Orderbox::after{
+    position: absolute;
+    content: '';
+    background-image: url('../img/Sec6/Chatbox.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;height: 100%;
+    top: 0;
+    left: 0;
+
+
+}
+
+
+
+.bigRed{
+    color: var(--primary);
+    font-weight:700;
+}
+
+.Sec6Orderbox p {
+    font-size: .9rem;
+    letter-spacing: 0.2rem;
+    padding-top: 3vh;
+    margin-bottom: 0 !important;
+}
+.sec6Title p{
+    font-size: 3rem;
+    padding-top: 0!important;
+}
+.Sec6Orderbox button {
+    margin-top: 1vh;
+    margin-right: 4vw;
+    background-color: var(--orange);
+    width: 20vw;
+    height: 6vh;
+    border: 0 !important;
+    border-radius: 25px;
+    color: var(--white);
+    font-size: 1rem;
 }
