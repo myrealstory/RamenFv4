@@ -24,12 +24,12 @@ function Nav() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/" className="nav-link" href="#">
+                <Link to="/FoodMenu" className="nav-link" href="#">
                   FOOD MENU
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/" className="nav-link" href="#">
+                <Link to="/Recipe" className="nav-link" href="#">
                   ORDERS
                 </Link>
               </li>
@@ -56,7 +56,7 @@ function Nav() {
               </li>
               <li>
                 <Link to="/" className="Login_Red">
-                  Login  /
+                  Login /
                 </Link>
               </li>
               <li>
