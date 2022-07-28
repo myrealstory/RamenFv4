@@ -1,7 +1,10 @@
 /* @value white: #fff; */
 
 
-
+p{
+  margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+}
 
 /**_____NavBar_________**/
 .nav {
@@ -108,7 +111,83 @@
   background-position: center;
   background-size: 150%;
   width: 100%;
-  height: 20vh;
+  height: 30vh;
   position:absolute;
-  bottom: 15vh;
+  bottom: 14vh;
+  
+  font-family: 'Exo 2', sans-serif;
+}
+.FootInfo{
+  display: flex;
+  justify-content: center;
+  color: white;
+
+}
+.FootLogo{
+  width: 8vw;
+}
+
+.FootContent{
+  width: 15vw;
+}
+.FPhone{
+  font-size: 2.5rem;
+  padding: 0!important;
+  margin: 0!important;
+}
+
+.FcontentTitle{
+  font-size: 1rem;
+  font-weight: 100;
+  margin: 0 !important;
+}
+.Fdate {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0 !important;
+}
+.FEmail{
+  font-size:1.2rem;
+}
+
+.Emailbox {
+  height: 4vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Emailinput {
+  height: 3.1vh;
+  width: 80%;
+  border: 0;
+  font-size: 1rem;
+}
+.EboxCenter{
+   display: flex;
+  justify-content: center;
+  width: 21vw;
+}
+
+.emailBtn::before{
+  position: absolute;
+  content: '';
+  display: block;
+  background-image: url('./Pages/img/SVG/Emailbtn.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;height: 100%;
+  top: 0;
+  left: 0;
+}
+.emailBtn{
+  width: 6vw;height: 3vh;
+  border: 0px solid rgba(0,0,0,0);
+  position: relative;
+}
+.copyright{
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 100;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
 }
