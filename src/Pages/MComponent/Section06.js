@@ -10,7 +10,7 @@ function Section06() {
   const OFFSET = 0.37;
   return (
     <div className="SecStyle">
-      <div className="Sec6container">
+      <div className="Sec6container mt-5">
         {/* ControllTranslate mouseoffsetX 和 Y 說的是*/ }
           <ControlTranslate scrollFromY={0} scrollToY={ -700 * OFFSET } mouseOffsetX={-10} mouseOffsetY={10}>
             <div className="position-relative d-flex justify-content-start">
@@ -26,7 +26,7 @@ function Section06() {
             <div className="position-relative d-flex justify-content-center Sec6Orderbox">
               <div className="" style={{'z-index':'10'}}>
                 <p>讓我們把熱騰騰的異國美味帶到你身邊</p>
-                <div className="d-flex sec6Title" ><p>我們有</p><p className="bigRed">外送</p><p>了！</p></div>
+                <div className="d-flex sec6Title" ><span>我們有</span><span className="bigRed">外送</span><span>了！</span></div>
                 <button>外送點起來</button>
               </div>
             </div>

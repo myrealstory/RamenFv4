@@ -1,7 +1,15 @@
 
 import "./App.css";
+
+
+
 import FoodMenu from './Pages/components/FoodMenu'
-import MainPage  from "./Pages/Main";
+import MainPage from "./Pages/Main";
+import Recipe from './Pages/MComponent/Recipe'
+import RecipePage1 from "./Pages/MComponent/side/RecipePage1";
+import RecipePage2 from "./Pages/MComponent/side/RecipePage2";
+
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState,useEffect } from 'react'
 import TestDraw from "./test/TestDraw";
@@ -51,19 +59,30 @@ function App() {
 
     return (
       <Wrapper>
-      <Router>
-        {/* <Nav /> */}
-        <FileNewsInfo.Provider value={[newsData, setNewsData]}>
-          <FileMenuInfo.Provider value={[menuData, setMenuData]}>
-            <Routes>
-              <Route path="/" element={<MainPage />}></Route>
-              <Route path="/FoodMenu" element={<FoodMenu />}></Route>
-              <Route path="/testDraw" element={<TestDraw />}></Route>
-              {/* <Route path="/" element={  }></Route> */}
-            </Routes>
-          </FileMenuInfo.Provider>
-        </FileNewsInfo.Provider>
-      </Router>
+        <Router>
+          {/* <Nav /> */}
+          <FileNewsInfo.Provider value={[newsData, setNewsData]}>
+            <FileMenuInfo.Provider value={[menuData, setMenuData]}>
+              <Routes>
+                <Route path="/" element={<MainPage />}></Route>
+
+                <Route path="/FoodMenu" element={<FoodMenu />}></Route>
+
+                <Route path="/Recipe" element={<Recipe />}></Route>
+                <Route
+                  path="/Recipe/RecipePage1"
+                  element={<RecipePage1 />}
+                ></Route>
+                <Route
+                  path="/Recipe/RecipePage2"
+                  element={<RecipePage2 />}
+                ></Route>
+                
+                {/* <Route path="/" element={  }></Route> */}
+              </Routes>
+            </FileMenuInfo.Provider>
+          </FileNewsInfo.Provider>
+        </Router>
       </Wrapper>
     );
 }

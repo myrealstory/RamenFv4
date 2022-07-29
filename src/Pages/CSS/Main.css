@@ -470,6 +470,7 @@ font-size: 1.5vw !important;
     position: relative;
     display: flex;
     background-color: var(--white);
+    transition: all 0.5s ease-in;
 }
 
 .prev,
@@ -548,32 +549,31 @@ font-size: 1.5vw !important;
 /*_____Sec6_____*/
 
 .Sec6container{
-    width: 80%;
-    height: 80vh;
+    width: 70%;
+    height: 70vh;
 }
 
 .Sec6driverBG {
     position: absolute;
-    width: 80vw;
+    width: 60vw;
     height: 60vh;
-    top: 10vh;
+    top: -10vh;
     left: 0vw;
-    
 }
 .Sec6driver{
     position: absolute;
-    width: 32vw;
-    height: 45vh;
-    top: 20vh;
-    right: 5vw;
+    width: 25vw;
+    height: 50vh;
+    top: -5vh;
+    right: 0vw;
 }
 
 .Sec6Orderbox{
     text-align: center;
-    width: 45vw;
-    height: 45vh;
+    width: 35vw;
+    height: 35vh;
     position: relative;
-    transform: translateX(10vw) translateY(-5vh);
+    transform: translateX(20vw) translateY(-15vh);
 }
 
 .Sec6Orderbox::after{
@@ -585,12 +585,59 @@ font-size: 1.5vw !important;
     width: 100%;height: 100%;
     top: 0;
     left: 0;
-
-
+}
+.bigRed{
+    color: var(--primary);
+    font-weight:700;
 }
 
+.Sec6Orderbox p {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    padding-top: 3vh;
+    padding-right: 3vw;
+    margin-bottom: 0 !important;
+}
+.sec6Title span{
+    font-size: 4.5rem;
+    padding-top: 0!important;
+}
+.Sec6Orderbox button {
+    margin-top: 0.2vh;
+    margin-right: 4vw;
+    background-color: var(--orange);
+    width: 15vw;
+    height: 6vh;
+    border: 0 !important;
+    border-radius: 25px;
+    color: var(--white);
+    font-size: 1.5rem;
+}
 
+@media screen and (max-width:1200px){
 
+.Sec6driverBG {
+    width: 80vw;
+    height: 60vh;
+    top: 10vh;
+    left: 0vw;
+}
+.Sec6driver{
+    width: 32vw;
+    height: 45vh;
+    top: 20vh;
+    right: 5vw;
+}
+
+.Sec6Orderbox{
+    width: 45vw;
+    height: 45vh;
+}
+
+.Sec6Orderbox::after{
+    top: 0;
+    left: 0;
+}
 .bigRed{
     color: var(--primary);
     font-weight:700;
@@ -600,20 +647,17 @@ font-size: 1.5vw !important;
     font-size: .9rem;
     letter-spacing: 0.2rem;
     padding-top: 3vh;
-    margin-bottom: 0 !important;
+    padding-right:0;
 }
-.sec6Title p{
+.sec6Title span{
     font-size: 3rem;
-    padding-top: 0!important;
 }
 .Sec6Orderbox button {
     margin-top: 1vh;
     margin-right: 4vw;
-    background-color: var(--orange);
     width: 20vw;
     height: 6vh;
-    border: 0 !important;
-    border-radius: 25px;
-    color: var(--white);
     font-size: 1rem;
+}
+
 }

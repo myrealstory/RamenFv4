@@ -30,7 +30,7 @@ function MainPage() {
         <FullpageSection style={SectionStyle}>
           <Section01 />
         </FullpageSection>
-        
+
         <FullpageSection style={SectionStyle}>
           <Section02 />
         </FullpageSection>
@@ -48,12 +48,12 @@ function MainPage() {
 
         <FullpageSection style={SectionStyle}>
           <Section06 />
+          <Footer />
         </FullpageSection>
 
-        <Footer/>
+        <Footer />
       </FullPageSections>
     </Fullpage>
-    
   );
 };
 
