@@ -17,6 +17,7 @@ import FileMenuInfo, { LIST_GET_MENUS } from "./Pages/Api/MenuApi";
 import FileNewsInfo, { LIST_GET_NEWS } from "./configs/AjaxPath";
 import {GlobalScrollProvider} from './Pages/components/hooks/useGlobalScroll'
 import {GlobalMouseMoveProvider} from './Pages/components/hooks/useGlobalMouseMove'
+import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // export const getMenuInfo = async () => {
 //   const response = await fetch(LIST_GET_NEWS);
@@ -25,12 +26,16 @@ import {GlobalMouseMoveProvider} from './Pages/components/hooks/useGlobalMouseMo
 //   return responseJson;
 // };
 function Wrapper ({children}) {
+  const [activeLogin , setActiveLogin] =useState(false);
+
   return (
+    <LoginProvider.Provider value={{activeLogin, setActiveLogin}}>
     <GlobalScrollProvider>
       <GlobalMouseMoveProvider>
         {children}
       </GlobalMouseMoveProvider>
     </GlobalScrollProvider>
+    </LoginProvider.Provider>
   );
 }
 

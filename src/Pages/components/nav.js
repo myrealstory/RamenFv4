@@ -1,11 +1,15 @@
-import React from 'react'; //ES6 JS
+import React,{useContext, useState} from 'react'; //ES6 JS
 import { Link } from 'react-router-dom';
 import LOGO from '../img/Logo.png'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { Button } from 'react-bootstrap'
+import LoginProvider from './LoginComponents/LoginProvider';
 // import '../App.css'
 
 function Nav() {
+
+  const [timedPopup, setTimedPopup]= useState(false);
+  const {setActiveLogin}= useContext(LoginProvider);
   
     return (
       <nav className="navbar navbar-expand-lg">
@@ -55,9 +59,12 @@ function Nav() {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="Login_Red">
+                <Link to="/" className="Login_Red" onClick={()=>{
+                  setActiveLogin(true)
+                }}>
                   Login /
                 </Link>
+                
               </li>
               <li>
                 <Link to="/" className="pl-2 Login_Red">
