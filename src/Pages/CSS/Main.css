@@ -769,6 +769,7 @@ font-size: 1.5vw !important;
     border: 3px solid var(--pinkprm);
     margin-top: 2vh;
     width: 100%;
+    color: var(--white);
 }
 
 .LoginInput::placeholder {
