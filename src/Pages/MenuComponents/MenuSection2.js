@@ -54,9 +54,13 @@ function MenuSection2() {
                         <div className='MS2TitleBox'>
                         <h3>{array2[0].product_name}</h3>
                         </div>
-                            <div className='MS2Content'>
-                                <p>{array2[0].product_description}</p>
-                            </div>
+                        <div className='MS2Content'>
+                            <p>{array2[0].product_description}</p>
+                                </div>
+                                <div>
+                                    <span>TWD</span>
+                                    <span>{ array2[0].price}</span>
+                                </div>
                         </div>
                     </div>
                     <div className='Msec2Image'>

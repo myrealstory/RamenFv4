@@ -57,7 +57,7 @@ width: 100vw;
 background-image: url('../img/MenuImg/MenuTopBg.jpg');
 background-position: top;
 background-repeat: no-repeat;
-background-size: auto;
+background-size: cover;
 position: relative;
 
 }
@@ -88,34 +88,37 @@ position: relative;
 
 .BannerContainer{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
 }
 
 .BannerImg{
-    width: 50%;
+    width: 50vw;
+    padding-bottom: 5vh;
+
 }
 .BannerImg img {
     width: 100%;
-
+    filter: drop-shadow(5px 10px 5px rgba(0,0,0,0.5));
 }
 
 .BContent {
     padding-top: 30vh;
-    width: 40%;
+    width: 45%;
     text-align: left;
     color: var(--white);
     padding-bottom: 10vh;
+    padding-left: 10vw;
 }
 
 .BContent h3 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     letter-spacing: 1rem;
 }
 
 .BContent p{
     padding-top: 3vh;
-    font-size: 1.5rem;
+    font-size: 2rem;
     letter-spacing: 0.2rem;
     font-weight: 300;
 }
@@ -143,8 +146,11 @@ position: relative;
     border-bottom: 1px solid var(--white);
     padding: 3vh 0;
     color: var(--secondary);
-    font-size: 2rem;
     margin-top: 1vh;
+}
+.MS2TitleBox h3{
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
 }
 
 .Msec2Content {
@@ -161,4 +167,13 @@ position: relative;
 .Msec2Image img {
     object-fit: contain;
     width: 100%;
+}
+
+.MS2Content {
+    padding-top: 3vh;
+}
+
+.MS2Content p {
+    font-size: 2rem;
+    text-align: left;
 }
