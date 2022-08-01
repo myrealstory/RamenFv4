@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost
--- 產生時間： 2022 年 07 月 26 日 04:42
--- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.4.29
+-- Host: localhost:3306:4306
+-- Generation Time: Aug 01, 2022 at 07:58 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫: `ramen`
+-- Database: `ramen`
 --
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -36,17 +36,18 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 傾印資料表的資料 `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`SID`, `username`, `password`, `valid_Time`, `created_at`) VALUES
 (1, 'admin', '$2a$10$4sje11/ZvDlJ2JtJIR1cEunOpEXPkJPe1czMZg3ox.cmSS08EiunC', '2030-07-01 23:52:41', '2022-07-07 17:52:41'),
-(2, 'chung', '$2a$10$QYaWdWtBSvyksvWZTnFiyeWnbwe4fJVqO3pC6.znNNuPdVR3A7pVK', '2022-07-21 09:27:35', '2022-07-21 09:27:35');
+(2, 'chung', '$2a$10$QYaWdWtBSvyksvWZTnFiyeWnbwe4fJVqO3pC6.znNNuPdVR3A7pVK', '2022-07-21 09:27:35', '2022-07-21 09:27:35'),
+(5, 'Gordon', '$2a$10$CAwQYQsFetBdb2.QLASoNOFFI3Sc9wRuK.bIBYNU6Z5DCSc8GXPG2', '2022-07-31 21:16:02', '2022-07-31 21:16:02');
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -59,7 +60,7 @@ CREATE TABLE `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 傾印資料表的資料 `cart`
+-- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`salesOrder`, `username`, `product_id`, `quality`, `TotalPrice`, `cart_created`) VALUES
@@ -70,30 +71,32 @@ INSERT INTO `cart` (`salesOrder`, `username`, `product_id`, `quality`, `TotalPri
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `member`
+-- Table structure for table `member`
 --
 
 CREATE TABLE `member` (
   `sid` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
-  `mobile` int(10) NOT NULL,
-  `address` text NOT NULL,
+  `mobile` int(10) DEFAULT NULL,
+  `address` text DEFAULT NULL,
   `birthday` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 傾印資料表的資料 `member`
+-- Dumping data for table `member`
 --
 
 INSERT INTO `member` (`sid`, `username`, `password`, `created_at`, `mobile`, `address`, `birthday`) VALUES
-(1, 'admintest', '$2a$10$CTRZ6TJoWyXWq.cGCkUwye5GflkjUjg3M1FOPVycupakjfIQLXfXi', '2022-07-01 09:39:02', 988123456, '12485798jbjfuvkbjhfgmj', '1989-12-06 15:39:02');
+(1, 'admintest', '$2a$10$CTRZ6TJoWyXWq.cGCkUwye5GflkjUjg3M1FOPVycupakjfIQLXfXi', '2022-07-01 09:39:02', 988123456, '12485798jbjfuvkbjhfgmj', '1989-12-06 15:39:02'),
+(3, 'Gordon', '$2a$10$huwo/nejZXa3RM6u747V3eWFoTfIHsZyL4xGaKm/7pSNksnsoVuJS', '2022-08-01 00:35:30', NULL, NULL, NULL),
+(4, 'chung', '$2a$10$JWp2hmvl7.LJeo.frXFwDe6x9tD5Z99Lz4NfXJTYEh7f4P7C//0BS', '2022-08-01 00:35:50', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -103,7 +106,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 傾印資料表的資料 `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`SID`, `Title`, `Created_at`) VALUES
@@ -116,7 +119,7 @@ INSERT INTO `news` (`SID`, `Title`, `Created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `product_detail`
+-- Table structure for table `product_detail`
 --
 
 CREATE TABLE `product_detail` (
@@ -131,7 +134,7 @@ CREATE TABLE `product_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 傾印資料表的資料 `product_detail`
+-- Dumping data for table `product_detail`
 --
 
 INSERT INTO `product_detail` (`product_sid`, `product_name`, `product_description`, `Publish_Date`, `price`, `Discount`, `Image`, `RemoveBG`) VALUES
@@ -157,7 +160,7 @@ INSERT INTO `product_detail` (`product_sid`, `product_name`, `product_descriptio
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `sessions`
+-- Table structure for table `sessions`
 --
 
 CREATE TABLE `sessions` (
@@ -167,78 +170,78 @@ CREATE TABLE `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 已傾印資料表的索引
+-- Indexes for dumped tables
 --
 
 --
--- 資料表索引 `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`SID`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- 資料表索引 `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`salesOrder`);
 
 --
--- 資料表索引 `member`
+-- Indexes for table `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`sid`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- 資料表索引 `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`SID`),
   ADD UNIQUE KEY `Title` (`Title`) USING HASH;
 
 --
--- 資料表索引 `product_detail`
+-- Indexes for table `product_detail`
 --
 ALTER TABLE `product_detail`
   ADD PRIMARY KEY (`product_sid`);
 
 --
--- 資料表索引 `sessions`
+-- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`session_id`);
 
 --
--- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `cart`
+-- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
   MODIFY `salesOrder` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `member`
+-- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `product_detail`
+-- AUTO_INCREMENT for table `product_detail`
 --
 ALTER TABLE `product_detail`
   MODIFY `product_sid` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
