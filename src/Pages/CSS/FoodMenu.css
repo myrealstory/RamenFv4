@@ -1,0 +1,164 @@
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  font-size: calc(16px + 2vmin);
+}
+
+:root {
+    --primary: #7a0000;
+    --secondary: #FFB710;
+    --orange:#EC391E;
+    --pinkprm:#FF9494;
+    --white: white;
+    --black: rgb(36, 36, 36);
+    --widths: 100%;
+    --height: 50vh;
+}
+
+.black {
+    color: rgb(36, 36, 36);
+}
+.BGwhite {
+    background-color: #fff;
+}
+
+
+.MBody {
+    background-image: url('../img/background/RedBG_All.png');
+    /* background-color: #7A0000; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    z-index: -1;
+
+}
+.MBody::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../img/background/pattern.png');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: auto;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.Mcontainer {
+width: 100vw;
+background-image: url('../img/MenuImg/MenuTopBg.jpg');
+background-position: top;
+background-repeat: no-repeat;
+background-size: auto;
+position: relative;
+
+}
+
+.Sec5Link {
+    text-align: right;
+    color: var(--secondary);
+    font-size: 0.6rem;
+    position: relative;
+    font-size: 1.5rem;
+    padding-right: 5vw;
+    margin-top: 5vh;
+}
+
+.Sec5Link::after {
+    position: absolute;
+    content: '';
+    display: block;
+    background-image:url('../img/SVG/Arrow_Yellow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;height: 100%;
+    top: 4vh;
+    left: 0;
+    z-index: 100;
+
+}
+
+.BannerContainer{
+    display: flex;
+    justify-content: center;
+
+}
+
+.BannerImg{
+    width: 50%;
+}
+.BannerImg img {
+    width: 100%;
+
+}
+
+.BContent {
+    padding-top: 30vh;
+    width: 40%;
+    text-align: left;
+    color: var(--white);
+    padding-bottom: 10vh;
+}
+
+.BContent h3 {
+    font-size: 3.5rem;
+    letter-spacing: 1rem;
+}
+
+.BContent p{
+    padding-top: 3vh;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    font-weight: 300;
+}
+
+/*___MenuSection02__*/
+
+.Mec2{
+    margin-top: 15vh;
+    width: 100%;
+    color: var(--white);
+}
+
+.Msec2Title{
+    text-align: center;
+    font-size: 3rem;
+}
+
+.Msec2Box{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.MS2TitleBox{
+    border-top: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
+    padding: 3vh 0;
+    color: var(--secondary);
+    font-size: 2rem;
+    margin-top: 1vh;
+}
+
+.Msec2Content {
+    width: 50vw;
+    padding-right: 3vw;
+}
+
+.Msec2Image{
+    width: 40vw;
+    height: 50vh;
+    border: 3px solid var(--primary);
+}
+
+.Msec2Image img {
+    object-fit: contain;
+    width: 100%;
+}

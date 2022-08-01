@@ -7,6 +7,15 @@ p{
 }
 
 /**_____NavBar_________**/
+
+.navbar{
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important; 
+  z-index: 1000;
+}
+
 .nav {
   display: flex;
   align-items: center;

@@ -85,6 +85,7 @@ img{
 .RamenSec1 {
     position: relative;
     overflow: hidden;
+    top: 20%;
 }
 .RamenMain {
     align-items: center;

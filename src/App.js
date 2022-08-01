@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { useState,useEffect } from 'react'
 import TestDraw from "./test/TestDraw";
 import FileMenuInfo, { LIST_GET_MENUS } from "./Pages/Api/MenuApi";
-import FileNewsInfo, { LIST_GET_NEWS } from "./configs/AjaxPath";
+import FileNewsInfo, { LIST_GET_NEWS, LOGIN_API }  from "./configs/AjaxPath";
 import {GlobalScrollProvider} from './Pages/components/hooks/useGlobalScroll'
 import {GlobalMouseMoveProvider} from './Pages/components/hooks/useGlobalMouseMove'
 import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
