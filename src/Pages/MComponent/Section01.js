@@ -12,9 +12,8 @@ import LoginModal from '../components/LoginComponents/LoginModal'
 function Section01() {
   const {activeLogin, setActiveLogin} = useContext(LoginProvider);
   return (
-    <div className="SecStyle">
-      <div className="MContainer">
-        <Nav />
+    <div className="SecStyle ">
+      <div className="MContainer BreakLimit">
         <LoginModal trigger ={activeLogin} setTrigger ={setActiveLogin}>
                  
         </LoginModal>

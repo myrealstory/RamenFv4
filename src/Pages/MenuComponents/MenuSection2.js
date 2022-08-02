@@ -48,8 +48,9 @@ function MenuSection2() {
                 if(index!==0) return <div key={value}></div>
 
                 return (
-                    <div key={array2[0].sid} className="d-flex justify-content-between">
-                    <div className='Msec2Content'>
+                    <>
+                    <div key={array2[0].sid} className="d-flex justify-content-between mt-5 pt-5 borderdotTop">
+                    <div className='Msec2Content Msec2cRight'>
                         <div style={{borderTop:'3px solid white'}}>
                         <div className='MS2TitleBox'>
                         <h3>{array2[0].product_name}</h3>
@@ -57,9 +58,12 @@ function MenuSection2() {
                         <div className='MS2Content'>
                             <p>{array2[0].product_description}</p>
                                 </div>
-                                <div>
-                                    <span>TWD</span>
+                                <div className='MS2Price'>
+                                    <span>NTD.</span>
                                     <span>{ array2[0].price}</span>
+                                </div>
+                                <div className='MS2Order'>
+                                    <button type=''>加入購物車</button>
                                 </div>
                         </div>
                     </div>
@@ -67,6 +71,76 @@ function MenuSection2() {
                     <img src={array2[0].Image} alt="" />
                     </div>
                 </div>
+                <div key={array2[1].sid} className="d-flex justify-content-between mt-5 pt-5 borderdotTop">
+                <div className='Msec2Image'>
+                    <img src={array2[1].Image} alt="" />
+                    </div>
+                    <div className='Msec2Content Msec2cLeft'> 
+                        <div style={{borderTop:'3px solid white'}}>
+                        <div className='MS2TitleBox'>
+                        <h3>{array2[1].product_name}</h3>
+                        </div>
+                        <div className='MS2Content'>
+                            <p>{array2[1].product_description}</p>
+                                </div>
+                                <div className='MS2Price'>
+                                    <span>NTD.</span>
+                                    <span>{ array2[1].price}</span>
+                                </div>
+                                <div className='MS2Order'>
+                                    <button type=''>加入購物車</button>
+                                </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div key={array2[2].sid} className="d-flex justify-content-between mt-5 pt-5 borderdotTop">
+                    <div className='Msec2Content Msec2cRight'>
+                        <div style={{borderTop:'3px solid white'}}>
+                        <div className='MS2TitleBox'>
+                        <h3>{array2[2].product_name}</h3>
+                        </div>
+                        <div className='MS2Content'>
+                            <p>{array2[2].product_description}</p>
+                                </div>
+                                <div className='MS2Price'>
+                                    <span>NTD.</span>
+                                    <span>{ array2[2].price}</span>
+                                </div>
+                                <div className='MS2Order'>
+                                    <button type=''>加入購物車</button>
+                                </div>
+                        </div>
+                    </div>
+                    <div className='Msec2Image'>
+                    <img src={array2[2].Image} alt="" />
+                    </div>
+                </div>
+                <div key={array2[3].sid} className="d-flex justify-content-between mt-5 mb-5 pt-5 pb-5 borderdotTop borderdotBottom ">
+                <div className='Msec2Image'>
+                    <img src={array2[3].Image} alt="" />
+                    </div>
+                    <div className='Msec2Content Msec2cLeft'> 
+                        <div style={{borderTop:'3px solid white'}}>
+                        <div className='MS2TitleBox'>
+                        <h3>{array2[3].product_name}</h3>
+                        </div>
+                        <div className='MS2Content'>
+                            <p>{array2[3].product_description}</p>
+                                </div>
+                                <div className='MS2Price'>
+                                    <span>NTD.</span>
+                                    <span>{ array2[3].price}</span>
+                                </div>
+                                <div className='MS2Order'>
+                                    <button type=''>加入購物車</button>
+                                </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                    </>
+                
                 )
             }):null}
             

@@ -123,6 +123,26 @@ position: relative;
     font-weight: 300;
 }
 
+@media screen and (max-width: 1280px) {
+
+    .BContent h3 {
+        font-size: 3.5rem;
+        letter-spacing: .5rem;
+    }
+    
+    .BContent p{
+        padding-top: 3vh;
+        font-size: 1.5rem;
+        letter-spacing: 0.1rem;
+    }
+    .Sec5Link::after {
+        top: 6vh;
+    }
+    .BannerImg{
+        width: 55vw;
+    }
+}
+
 /*___MenuSection02__*/
 
 .Mec2{
@@ -155,17 +175,27 @@ position: relative;
 
 .Msec2Content {
     width: 50vw;
+    padding-top: 5vh;
+}
+
+.Msec2cRight {
     padding-right: 3vw;
+}
+
+.Msec2cLeft{
+    padding-left: 3vw;
 }
 
 .Msec2Image{
     width: 40vw;
-    height: 50vh;
-    border: 3px solid var(--primary);
+    height: 37rem;
+    border: 5px solid var(--primary);
+    overflow: hidden;
 }
 
 .Msec2Image img {
-    object-fit: contain;
+    object-fit: cover;
+    height: 100%;
     width: 100%;
 }
 
@@ -176,4 +206,73 @@ position: relative;
 .MS2Content p {
     font-size: 2rem;
     text-align: left;
+}
+.MS2Price{
+    text-align: right;
+    color: var(--secondary);
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 5vh 0;
+    border-bottom: 1px solid var(--white);
+}
+.MS2Order{
+    margin-top: 2vh;
+    background-color: var(--primary);
+    padding: 3vh 0;
+    border-top: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
+}
+.MS2Order button {
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    color: var(--white);
+}
+
+.mt-7 {
+    margin-top: 3.5rem;
+}
+
+.mb-7{
+    margin-bottom: 3.5rem;
+}
+
+.borderdotTop {
+    position: relative;
+}
+
+.borderdotTop::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgb(255, 255, 255) 0%, #ccc 50%, transparent 50%);
+background-size: 10px 2px;
+background-repeat: repeat-x;
+    top: 0;left: 0;
+}
+
+.borderdotBottom {position: relative;}
+.borderdotBottom::after{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgb(255, 255, 255) 0%, #ccc 50%, transparent 50%);
+background-size: 10px 2px;
+background-repeat: repeat-x;
+    bottom: -110vh; left: 0;
+}
+
+@media screen and (max-width:1280px){
+    .MS2TitleBox h3{
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .MS2Content p {
+        font-size: 1.3rem;
+        text-align: left;
+    }
 }

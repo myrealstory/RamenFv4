@@ -22,7 +22,7 @@ function LoginModal(props) {
       method: "POST",
       body: JSON.stringify(myForm),
       headers: {
-        "Content-Type": "application.json",
+        "Content-Type": "application/json",
       },
     })
       .then((r => r.json()))

@@ -61,6 +61,9 @@ body {
     position: relative;
 }
 
+.BreakLimit {
+    height: 90vh !important;
+}
 img{
     width: 100%;
 }
@@ -202,6 +205,9 @@ content: '';
         .LemonAndGarlic::after {
             bottom: 10vh;
         }
+    .RamenSec1 {
+        top: 25%;
+    }
 }
 
 /*____Section02______*/

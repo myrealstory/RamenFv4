@@ -8,6 +8,7 @@ import MainPage from "./Pages/Main";
 import Recipe from './Pages/MComponent/Recipe'
 import RecipePage1 from "./Pages/MComponent/side/RecipePage1";
 import RecipePage2 from "./Pages/MComponent/side/RecipePage2";
+import Nav from "./Pages/components/nav";
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -68,6 +69,7 @@ function App() {
           {/* <Nav /> */}
           <FileNewsInfo.Provider value={[newsData, setNewsData]}>
             <FileMenuInfo.Provider value={[menuData, setMenuData]}>
+              <Nav/>
               <Routes>
                 <Route path="/" element={<MainPage />}></Route>
 
