@@ -10,7 +10,9 @@ function SliderContent({ activeIndex, imageSlider, index }) {
       >
         <div className="boxCenter">
           <div className="Sec5Content">
+            {/* 产品名称 */}
             <h3 className="Sec5H3">{imageSlider.product_name}</h3>
+            {/* 产品叙述 */}
             <p className="Sec5P">{imageSlider.product_description}</p>
             <div className="d-flex justify-content-end">
               <Link to="#/" className="Sec5Link">
