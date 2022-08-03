@@ -19,6 +19,7 @@ import FileNewsInfo, { LIST_GET_NEWS, LOGIN_API }  from "./configs/AjaxPath";
 import {GlobalScrollProvider} from './Pages/components/hooks/useGlobalScroll'
 import {GlobalMouseMoveProvider} from './Pages/components/hooks/useGlobalMouseMove'
 import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
+import AuthProvider from "./Pages/components/LoginComponents/AuthProvider";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // export const getMenuInfo = async () => {
 //   const response = await fetch(LIST_GET_NEWS);
@@ -30,13 +31,13 @@ function Wrapper ({children}) {
   const [activeLogin , setActiveLogin] =useState(false);
 
   return (
-    <LoginProvider.Provider value={{activeLogin, setActiveLogin}}>
-    <GlobalScrollProvider>
-      <GlobalMouseMoveProvider>
-        {children}
-      </GlobalMouseMoveProvider>
-    </GlobalScrollProvider>
-    </LoginProvider.Provider>
+    <AuthProvider>
+      <LoginProvider.Provider value={{ activeLogin, setActiveLogin }}>
+        <GlobalScrollProvider>
+          <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
+        </GlobalScrollProvider>
+      </LoginProvider.Provider>
+    </AuthProvider>
   );
 }
 
@@ -64,12 +65,12 @@ function App() {
   
 
     return (
-      <Wrapper>
-        <Router>
-          {/* <Nav /> */}
+      <Router>
+        <Wrapper>
+          {/* <Nav</Wrapper> /> */}
           <FileNewsInfo.Provider value={[newsData, setNewsData]}>
             <FileMenuInfo.Provider value={[menuData, setMenuData]}>
-              <Nav/>
+              <Nav />
               <Routes>
                 <Route path="/" element={<MainPage />}></Route>
 
@@ -84,13 +85,13 @@ function App() {
                   path="/Recipe/RecipePage2"
                   element={<RecipePage2 />}
                 ></Route>
-                
+
                 {/* <Route path="/" element={  }></Route> */}
               </Routes>
             </FileMenuInfo.Provider>
           </FileNewsInfo.Provider>
-        </Router>
-      </Wrapper>
+        </Wrapper>
+      </Router>
     );
 }
 

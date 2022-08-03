@@ -209,6 +209,11 @@ content: '';
         top: 25%;
     }
 }
+@media screen and (min-width:2000px){
+    .RamenSec1 {
+        top: 22%;
+    }
+}
 
 /*____Section02______*/
 

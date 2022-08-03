@@ -45,7 +45,7 @@ function MenuSection2() {
                 console.log(array2);
                 console.log("sec2:",value);
                 
-                if(index!==0) return <div key={value}></div>
+                if(index!==0) return <div key={array2[index]}></div>
 
                 return (
                     <>

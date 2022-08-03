@@ -10,9 +10,9 @@ p{
 
 .navbar{
   position: absolute !important;
-  top: 0 !important;
+  top: 5% !important;
   left: 50% !important;
-  transform: translateX(-50%) !important; 
+  transform: translateX(-45%) !important; 
   z-index: 1000;
 }
 

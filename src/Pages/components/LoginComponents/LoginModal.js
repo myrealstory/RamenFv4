@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
-import { LOGIN_API} from '../../../configs/AjaxPath'
+import { LOGIN_API } from '../../../configs/AjaxPath'
+import { useNavigate} from "react-router-dom"
 
 function LoginModal(props) {
+  const navigate = useNavigate();
   const [myForm, setMyForm] = useState({
     username:"",
     password:"",
@@ -28,6 +30,13 @@ function LoginModal(props) {
       .then((r => r.json()))
       .then(result => {
         console.log(result);
+        if (result.success) {
+          localStorage.setItem('auth', JSON.stringify(result.data));
+          props.setTrigger(false);
+          navigate('/');
+        } else { 
+          alert('帳密錯誤');
+        }
       });
   }
   //這裡做fetch auth功能
