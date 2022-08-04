@@ -213,7 +213,7 @@ position: relative;
     color: var(--secondary);
     font-size: 2rem;
     font-weight: 600;
-    padding: 5vh 0;
+    padding: 5vh 1vw 5vh 0;
     border-bottom: 1px solid var(--white);
 }
 .MS2Order{
@@ -278,6 +278,20 @@ background-repeat: repeat-x;
     }
 }
 
+@media screen and (min-width:2000px) {
+    
+    .borderdotBottom::after{
+    bottom: -85vh; left: 0;
+}
+
+.Msec2Image{
+    width: 40vw;
+    height: 50rem;
+    border: 5px solid var(--primary);
+    overflow: hidden;
+}
+}
+
 /*_____TabMenu_____*/
 
 .borderBottom{
@@ -335,6 +349,7 @@ background-repeat: repeat-x;
     font-size: 1rem;
     font-weight: 300;
     width: 55vh;
+    padding-top: 1.5vh;
 }
 
 .TabsContents span {
@@ -392,4 +407,34 @@ background-repeat: repeat-x;
     bottom: .7vh;
     right: .5vw;
     z-index: 1000;
+}
+
+@media screen and (min-width:2000px){
+
+    .TabsContents .AddtoCart {
+    padding-right: 3vw;
+    font-size: 1.3rem;
+}
+
+.cartBtn::after{
+    top: 2vh;
+    right: -1vw;
+    z-index: 1000;
+}
+
+.cartBtn::before {
+    bottom: .7vh;
+    right: .5vw;
+    z-index: 1000;
+}
+.TabsContents .ContentsDescription {
+    font-size: 1.1rem;
+    width: 28vw;
+}
+
+.TabsContents {
+    text-align: left;
+    width: 35vw;
+    padding:10vh 0;
+}
 }
