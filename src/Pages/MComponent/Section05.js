@@ -49,7 +49,7 @@ function Section05(props) {
           .map((imageSlider,index)=>{
             console.log("imageSlider: ",imageSlider);
             return (
-            <>
+            <React.Fragment key={index}>
             <SliderContent activeIndex={activeIndex} imageSlider={imageSlider} index={index}/>
           
           <Arrows prevSlide={() => {
@@ -66,7 +66,7 @@ function Section05(props) {
               setActiveIndex(activeIndex);
             }}
           />
-            </>
+            </React.Fragment>
             )
         
           }):null }

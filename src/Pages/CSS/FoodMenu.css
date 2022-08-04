@@ -277,3 +277,119 @@ background-repeat: repeat-x;
         text-align: left;
     }
 }
+
+/*_____TabMenu_____*/
+
+.borderBottom{
+    width: 100%;
+    height: 2px;
+    background-image: linear-gradient(to right, rgb(255, 255, 255) 0%, #ccc 50%, transparent 50%);
+background-size: 5px 1px;
+background-repeat: repeat-x;
+}
+
+.TabsBTN {
+    display:flex
+}
+
+.TabsBTN .w-100 {
+    width: 100%;
+    height: 100%;
+}
+
+.TabsHead {
+   width: 100%;
+   cursor:pointer;
+}
+.TabsHead .TabsInImg {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2vh 0;
+}
+.TabsInImg img {
+    width: 100%;
+}
+
+/*___Mains___*/
+
+.TabsBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.TabsContents {
+    text-align: left;
+    width: 35vw;
+    padding:10vh 0;
+}
+
+.TabsContents h3{
+    color: var(--secondary);
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.TabsContents .materials {
+    font-size: 1rem;
+    font-weight: 300;
+    width: 55vh;
+}
+
+.TabsContents span {
+    font-size: 1rem;
+}
+
+.TabsContents .TabsPrice {
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: 'Exo 2', sans-serif;
+    letter-spacing: .1rem;
+    margin-right: .5rem;
+}
+
+.TabsContents .ContentsDescription {
+    font-size: .9rem;
+    font-weight: 300;
+    width: 33vw;
+}
+
+.TabsBox .TContentImg{
+    width: 30vw;
+    padding: 10vh 0;
+}
+
+.TabsContents .AddtoCart {
+    display: flex;
+    justify-content: end;
+    color: var(--secondary);
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.cartBtn::after{
+    content: '';
+    position: absolute;
+    display: block;
+    background-image:url('../img/SVG/Arrow_Yellow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 11vw;height: 100%;
+    top: 3.5vh;
+    right: -1vw;
+    z-index: 1000;
+}
+
+.cartBtn::before {
+    content:'';
+    position: absolute;
+    display: block;
+    border: 1px dashed var(--secondary);
+    width: 9.5vw;
+    height: 100%;
+    bottom: .7vh;
+    right: .5vw;
+    z-index: 1000;
+}

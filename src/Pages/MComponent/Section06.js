@@ -5,6 +5,7 @@ import { ScrollableArea, ScrollableAreaContext } from '../components/interactive
 import { useGlobalMouseMove } from '../components/hooks/useGlobalMouseMove'
 import Driver6BG from '../img/Sec6/Driver_BG.png'
 import Driverpic from '../img/Sec6/driver_1.png'
+import Footer from "../components/footer";
 
 function Section06() {
   const OFFSET = 0.37;
@@ -32,6 +33,7 @@ function Section06() {
             </div>
           </ControlTranslate>
       </div>
+      <Footer />
     </div>
   );
 }

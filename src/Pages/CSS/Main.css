@@ -650,7 +650,7 @@ font-size: 1.5vw !important;
     font-size: 1.5rem;
 }
 
-@media screen and (max-width:1200px){
+@media screen and (max-width:1280px){
 
 .Sec6driverBG {
     width: 80vw;
@@ -660,13 +660,13 @@ font-size: 1.5vw !important;
 }
 .Sec6driver{
     width: 32vw;
-    height: 45vh;
-    top: 20vh;
-    right: 5vw;
+    height: 50vh;
+    top: 15vh;
+    right: 0vw;
 }
 
 .Sec6Orderbox{
-    width: 45vw;
+    width: 34vw;
     height: 45vh;
 }
 

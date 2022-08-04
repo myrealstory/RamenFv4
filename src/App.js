@@ -74,9 +74,10 @@ function App() {
               <Routes>
                 <Route path="/" element={<MainPage />}></Route>
 
-                <Route path="/FoodMenu" element={<FoodMenu />}></Route>
+                <Route path="/FoodMenu" element={<FoodMenu />} />
 
                 <Route path="/Recipe" element={<Recipe />}></Route>
+                <Route path="ppp" element={<>12313321</>}/>
                 <Route
                   path="/Recipe/RecipePage1"
                   element={<RecipePage1 />}
