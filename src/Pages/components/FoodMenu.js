@@ -1,18 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../CSS/FoodMenu.css";
-import Navbar from "../components/nav";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from '../components/nav'
 
-import MenuSection2 from "../MenuComponents/MenuSection2";
-import MenuSection3 from "../MenuComponents/MenuSection3";
+import MenuSection2 from '../MenuComponents/MenuSection2'
+import MenuSection3 from '../MenuComponents/MenuSection3'
 
-import BannerImg from "../img/MenuImg/banner.png";
+import BannerImg from '../img/MenuImg/banner.png'
 
 function FoodMenu() {
   return (
-    <section className="MBody">
+    <div className="MBodyMenu">
       <div className="Mcontainer">
-       
         <div className="BannerContainer">
           <div className="BContent">
             <h3>最正異國風味</h3>
@@ -32,9 +30,9 @@ function FoodMenu() {
         </div>
       </div>
       <MenuSection2 />
-      <MenuSection3/>
-    </section>
-  );
+      <MenuSection3 />
+    </div>
+  )
 }
 
-export default FoodMenu;
+export default FoodMenu

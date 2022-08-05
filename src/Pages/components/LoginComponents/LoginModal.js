@@ -1,43 +1,44 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LOGIN_API } from '../../../configs/AjaxPath'
-import { useNavigate} from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 
 function LoginModal(props) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [myForm, setMyForm] = useState({
-    username:"",
-    password:"",
-  });
+    username: '',
+    password: '',
+  })
 
-  const changeFields = (event)=>{
-    const id = event.target.id;
-    const val = event.target.value;
-    console.log({id,val});
-      setMyForm({...myForm,[id]: val })
-  };
+  const changeFields = (event) => {
+    const id = event.target.id
+    const val = event.target.value
+    console.log({ id, val })
+    setMyForm({ ...myForm, [id]: val })
+  }
 
-  const whenSubmit = (event)=>{
-    event.preventDefault();
-    console.log(myForm);
+  const whenSubmit = (event) => {
+    event.preventDefault()
+    console.log(myForm)
     fetch(LOGIN_API, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(myForm),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     })
-      .then((r => r.json()))
-      .then(result => {
-        console.log(result);
+      .then((r) => r.json())
+      .then((result) => {
+        console.log(result)
         if (result.success) {
-          localStorage.setItem('auth', JSON.stringify(result.data));
-          props.setTrigger(false);
-          navigate('/');
-        } else { 
-          alert('帳密錯誤');
+          localStorage.setItem('auth', JSON.stringify(result.data))
+          props.setTrigger(false)
+          
+          navigate('/')
+        } else {
+          alert('帳密錯誤')
         }
-      });
+      })
   }
   //這裡做fetch auth功能
 
@@ -48,7 +49,7 @@ function LoginModal(props) {
           to=""
           className="closeBTN"
           onClick={() => {
-            props.setTrigger(false);
+            props.setTrigger(false)
           }}
         ></button>
         <h3 className="LoginTitle">會員登入</h3>
@@ -71,7 +72,7 @@ function LoginModal(props) {
               placeholder="請輸入密碼"
               className="LoginInput"
               value={myForm.password}
-              onChange={ changeFields}
+              onChange={changeFields}
             />
             <div className="LoginBox2">
               <div>
@@ -101,7 +102,7 @@ function LoginModal(props) {
     </div>
   ) : (
     <></>
-  ); 
+  )
 }
 
 export default LoginModal
