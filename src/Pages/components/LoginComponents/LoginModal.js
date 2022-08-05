@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LOGIN_API } from '../../../configs/AjaxPath'
 import { useNavigate } from 'react-router-dom'
+import sqlLoginContext from './sqlLoginContext'
 
 function LoginModal(props) {
   const navigate = useNavigate()
@@ -9,6 +10,8 @@ function LoginModal(props) {
     username: '',
     password: '',
   })
+
+  const { setAuth } = useContext(sqlLoginContext)
 
   const changeFields = (event) => {
     const id = event.target.id
@@ -32,8 +35,11 @@ function LoginModal(props) {
         console.log(result)
         if (result.success) {
           localStorage.setItem('auth', JSON.stringify(result.data))
+          setAuth({
+            ...result.data,
+            authorized: true,
+          });
           props.setTrigger(false)
-          
           navigate('/')
         } else {
           alert('帳密錯誤')

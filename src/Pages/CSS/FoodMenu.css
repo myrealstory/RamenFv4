@@ -35,19 +35,22 @@ body {
     position: relative;
 
 }
-.MBodyMenu::after {
+/* .MBodyMenu::after {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../img/background/pattern.png');
+  
+} */
+.PatternBG {
+      background-image: url('../img/background/pattern.png');
     background-position: center;
     background-repeat: repeat;
     background-size: auto;
-    opacity: 0.3;
 }
+
 .Mcontainer {
 width: 100vw;
 background-image: url('../img/MenuImg/MenuTopBg.jpg');
@@ -203,6 +206,7 @@ position: relative;
 .MS2Content p {
     font-size: 2rem;
     text-align: left;
+    font-weight: 300;
 }
 .MS2Price{
     text-align: right;
@@ -286,6 +290,15 @@ background-repeat: repeat-x;
     border: 5px solid var(--primary);
     overflow: hidden;
 }
+.MS2Content p {
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: 300;
+}
+.MS2Price{
+
+    font-size: 3rem;
+}
 }
 
 /*_____TabMenu_____*/
@@ -364,6 +377,15 @@ background-repeat: repeat-x;
     font-size: .9rem;
     font-weight: 300;
     width: 33vw;
+}
+
+.TabsChili {
+    display: flex;
+    height: 6vh;
+}
+.TabsChili img{
+    width: 5%;
+    filter: drop-shadow(1px 1px 0px rgb(185, 83, 0));
 }
 
 .TabsBox .TContentImg{
