@@ -18,6 +18,7 @@ import { GlobalScrollProvider } from './Pages/components/hooks/useGlobalScroll'
 import { GlobalMouseMoveProvider } from './Pages/components/hooks/useGlobalMouseMove'
 import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
 import AuthProvider from './Pages/components/LoginComponents/AuthProvider'
+import RegisterModal from './Pages/components/LoginComponents/RegisterModal'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // export const getMenuInfo = async () => {
 //   const response = await fetch(LIST_GET_NEWS);
@@ -67,6 +68,7 @@ function App() {
               <Route path="/" element={<MainPage />}></Route>
 
               <Route path="/FoodMenu" element={<FoodMenu />} />
+              <Route path="/Register" element={<RegisterModal />} />
 
               <Route path="/Recipe" element={<Recipe />}></Route>
               <Route path="ppp" element={<>12313321</>} />

@@ -84,7 +84,7 @@ function Nav() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className="pl-2 Login_Red">
+                  <Link to="/Register" className="pl-2 Login_Red">
                     Register
                   </Link>
                 </li>
