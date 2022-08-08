@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fon
 import {faCheck, faTimes, faInfoCircle} from '../../../../node_modules/@fortawesome/free-solid-svg-icons'
 
 function RegisterModal() {
-  const USER_REGEX = /^[A-z\][A-z0-9-_]{3,23}$/
+  const USER_REGEX = /^[A-z\][a-z0-9-_]{3,23}$/
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
     
     const userRef = useRef();
@@ -58,7 +58,7 @@ function RegisterModal() {
           return;
       }
 
-       setMyForm({ username: { ...user }, password: { ...pwd } })
+       setMyForm({ username: { user }, password: { pwd } })
       console.log(myForm)
      
     fetch(REGISTER_API, {
