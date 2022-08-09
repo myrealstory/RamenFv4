@@ -8,6 +8,7 @@ import Recipe from './Pages/MComponent/Recipe'
 import RecipePage1 from './Pages/MComponent/side/RecipePage1'
 import RecipePage2 from './Pages/MComponent/side/RecipePage2'
 import Nav from './Pages/components/nav'
+import Footer from './Pages/components/footer'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
@@ -83,6 +84,7 @@ function App() {
 
               {/* <Route path="/" element={  }></Route> */}
             </Routes>
+            {/* <Footer /> */}
           </FileMenuInfo.Provider>
         </FileNewsInfo.Provider>
       </Wrapper>

@@ -48,10 +48,10 @@ function MainPage() {
 
         <FullpageSection style={SectionStyle}>
           <Section06 />
-          <Footer />
+          {/* <Footer /> */}
         </FullpageSection>
 
-        <Footer />
+        {/* <Footer /> */}
       </FullPageSections>
     </Fullpage>
   );

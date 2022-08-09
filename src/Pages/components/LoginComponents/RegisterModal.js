@@ -1,38 +1,42 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { REGISTER_API } from '../../../configs/AjaxPath'
 import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
-import {faCheck, faTimes, faInfoCircle} from '../../../../node_modules/@fortawesome/free-solid-svg-icons'
+import {
+  faCheck,
+  faTimes,
+  faInfoCircle,
+} from '../../../../node_modules/@fortawesome/free-solid-svg-icons'
 
 function RegisterModal() {
   const USER_REGEX = /^[A-z\][a-z0-9-_]{3,23}$/
-    const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
-    
-    const userRef = useRef();
-    const errRef = useRef();
-    const [user, setUser] = useState("");
-    const [validName, setValidName] = useState(false);
-    const [userFocus, setUserFocus] = useState(false);
-    const [pwd, setPwd] = useState("");
-    const [validPwd, setValidPwd] = useState(false);
-    const [pwdFocus, setPwdFocus] = useState(false);
-    const [matchPwd, setMatchPwd] = useState("");
-    const [validMatch, setValidMatch] = useState(false);
-    const [matchFocus, setMatchFocus] = useState(false);
-    const [errMsg, setErrMsg] = useState("");
-    const[success, setSuccess] = useState(false);
+  const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
 
-    useEffect(() => {
-        userRef.current.focus();
-    }, []);
-    useEffect(() => {
-        setValidName(USER_REGEX.test(user));
-    }, [user]);
-    useEffect(() => {
-        setValidPwd(PWD_REGEX.test(pwd));
-    }, [pwd, matchPwd]);
-    useEffect(() => {
-        setErrMsg("");
-    }, [user, pwd, matchPwd]);
+  const userRef = useRef()
+  const errRef = useRef()
+  const [user, setUser] = useState('')
+  const [validName, setValidName] = useState(false)
+  const [userFocus, setUserFocus] = useState(false)
+  const [pwd, setPwd] = useState('')
+  const [validPwd, setValidPwd] = useState(false)
+  const [pwdFocus, setPwdFocus] = useState(false)
+  const [matchPwd, setMatchPwd] = useState('')
+  const [validMatch, setValidMatch] = useState(false)
+  const [matchFocus, setMatchFocus] = useState(false)
+  const [errMsg, setErrMsg] = useState('')
+  const [success, setSuccess] = useState(false)
+
+  useEffect(() => {
+    userRef.current.focus()
+  }, [])
+  useEffect(() => {
+    setValidName(USER_REGEX.test(user))
+  }, [USER_REGEX, user])
+  useEffect(() => {
+    setValidPwd(PWD_REGEX.test(pwd))
+  }, [pwd, matchPwd, PWD_REGEX])
+  useEffect(() => {
+    setErrMsg('')
+  }, [user, pwd, matchPwd])
 
   const [myForm, setMyForm] = useState({
     username: '',
@@ -41,26 +45,26 @@ function RegisterModal() {
     address: '',
     birthday: '',
   })
-    
-    const changeFields = (event) => {
-      const id = event.target.id
-      const val = event.target.value
-      console.log({ id, val })
-      setMyForm({ ...myForm, [id]: val })
-    }
+
+  const changeFields = (event) => {
+    const id = event.target.id
+    const val = event.target.value
+    console.log({ id, val })
+    setMyForm({ ...myForm, [id]: val })
+  }
 
   const whenSubmit = (event) => {
-      event.preventDefault()
-      const v1 = USER_REGEX.test(user);
-      const v2 = PWD_REGEX.test(pwd);
-      if (!v1 || !v2) { 
-          setErrMsg("invalid Entry");
-          return;
-      }
+    event.preventDefault()
+    const v1 = USER_REGEX.test(user)
+    const v2 = PWD_REGEX.test(pwd)
+    if (!v1 || !v2) {
+      setErrMsg('invalid Entry')
+      return
+    }
 
-       setMyForm({ username: { user }, password: { pwd } })
-      console.log(myForm)
-     
+    setMyForm({ username: { user }, password: { pwd } })
+    console.log(myForm)
+
     fetch(REGISTER_API, {
       method: 'POST',
       body: JSON.stringify(myForm),
@@ -70,10 +74,10 @@ function RegisterModal() {
     })
       .then((r) => r.json())
       .then((result) => {
-          if (result.success) {
-              setSuccess(true);
-              setUser("")
-              setPwd("")
+        if (result.success) {
+          setSuccess(true)
+          setUser('')
+          setPwd('')
         }
       })
   }
@@ -144,8 +148,8 @@ function RegisterModal() {
           <input
             type="password"
             name="password"
-                      id="password"
-                      ref={userRef }
+            id="password"
+            ref={userRef}
             className="LoginInput"
             onChange={(e) => setPwd(e.target.value)}
             required
@@ -178,33 +182,33 @@ function RegisterModal() {
           </p>
           <label htmlFor="Mobile">Insert Your Mobile Number : </label>
           <input
-                      type="text"
-                      name="mobile"
-                      id="mobile"
-                      placeholder="請輸入手機號碼"
-                      className="LoginInput"
-                      value={myForm.mobile}
-                      onChange={changeFields }
+            type="text"
+            name="mobile"
+            id="mobile"
+            placeholder="請輸入手機號碼"
+            className="LoginInput"
+            value={myForm.mobile}
+            onChange={changeFields}
           />
           <label htmlFor="address">Insert Your Home address : </label>
           <input
-                      type="text"
-                      name="address"
-                      id="address"
-                      placeholder="請輸入地址"
-                      className="LoginInput"
-                      value={myForm.address}
-                      onChange={ changeFields}
+            type="text"
+            name="address"
+            id="address"
+            placeholder="請輸入地址"
+            className="LoginInput"
+            value={myForm.address}
+            onChange={changeFields}
           />
           <label htmlFor="Mobile">Insert Your birthday : </label>
           <input
-                      type="date"
-                      name="birthday"
-                      id="birthday"
-                      placeholder="請輸入手機號碼"
-                      className="LoginInput"
-                      value={myForm.birthday}
-                      onChange={ changeFields}
+            type="date"
+            name="birthday"
+            id="birthday"
+            placeholder="請輸入手機號碼"
+            className="LoginInput"
+            value={myForm.birthday}
+            onChange={changeFields}
           />
           <button type="submit" className="LoginBtn">
             登入
