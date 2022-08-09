@@ -13,10 +13,8 @@ function RegisterModal() {
 
   const userRef = useRef()
   const errRef = useRef()
-  const [user, setUser] = useState('')
   const [validName, setValidName] = useState(false)
   const [userFocus, setUserFocus] = useState(false)
-  const [pwd, setPwd] = useState('')
   const [validPwd, setValidPwd] = useState(false)
   const [pwdFocus, setPwdFocus] = useState(false)
   const [matchPwd, setMatchPwd] = useState('')
@@ -24,20 +22,6 @@ function RegisterModal() {
   const [matchFocus, setMatchFocus] = useState(false)
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
-
-  useEffect(() => {
-    userRef.current.focus()
-  }, [])
-  useEffect(() => {
-    setValidName(USER_REGEX.test(user))
-  }, [USER_REGEX, user])
-  useEffect(() => {
-    setValidPwd(PWD_REGEX.test(pwd))
-  }, [pwd, matchPwd, PWD_REGEX])
-  useEffect(() => {
-    setErrMsg('')
-  }, [user, pwd, matchPwd])
-
   const [myForm, setMyForm] = useState({
     username: '',
     password: '',
@@ -46,23 +30,41 @@ function RegisterModal() {
     birthday: '',
   })
 
+  useEffect(() => {
+    userRef.current.focus()
+  }, [])
+  useEffect(() => {
+    setValidName(USER_REGEX.test(myForm.username))
+  }, [USER_REGEX, myForm.username])
+  useEffect(() => {
+    setValidPwd(PWD_REGEX.test(myForm.password))
+  }, [myForm.password, matchPwd, PWD_REGEX])
+  useEffect(() => {
+    setErrMsg('')
+  }, [myForm.username, myForm.password, matchPwd])
+
+
   const changeFields = (event) => {
     const id = event.target.id
     const val = event.target.value
     console.log({ id, val })
+
+
     setMyForm({ ...myForm, [id]: val })
+
+    if(id in ['username', 'password']){
+      const v1 = USER_REGEX.test(myForm.username)
+      const v2 = PWD_REGEX.test(myForm.password)
+      if (!v1 || !v2) {
+        setErrMsg('invalid Entry')
+      
+      }
+
+    }
   }
 
   const whenSubmit = (event) => {
     event.preventDefault()
-    const v1 = USER_REGEX.test(user)
-    const v2 = PWD_REGEX.test(pwd)
-    if (!v1 || !v2) {
-      setErrMsg('invalid Entry')
-      return
-    }
-
-    setMyForm({ username: { user }, password: { pwd } })
     console.log(myForm)
 
     fetch(REGISTER_API, {
@@ -76,8 +78,7 @@ function RegisterModal() {
       .then((result) => {
         if (result.success) {
           setSuccess(true)
-          setUser('')
-          setPwd('')
+          alert(`'${myForm.username} Registered had been Successful'`)
         }
       })
   }
@@ -102,7 +103,7 @@ function RegisterModal() {
             />
             <FontAwesomeIcon
               icon={faTimes}
-              className={validName || !user ? 'hide' : 'invalid'}
+              className={validName || !myForm.username ? 'hide' : 'invalid'}
             />
           </label>
           <input
@@ -110,7 +111,7 @@ function RegisterModal() {
             name="username"
             id="username"
             autoComplete="off"
-            onChange={(e) => setUser(e.target.value)}
+            onChange={changeFields}
             ref={userRef}
             required
             aria-invalid={validName ? 'false' : 'true'}
@@ -118,12 +119,12 @@ function RegisterModal() {
             onFocus={() => setUserFocus(true)}
             onBlur={() => setUserFocus(false)}
             className="LoginInput"
-            value={user}
+            value={myForm.username}
           />
           <p
             id="uidnote"
             className={
-              userFocus && user && !validName ? 'instructions' : 'offscreen'
+              userFocus && myForm.username && !validName ? 'instructions' : 'offscreen'
             }
           >
             <FontAwesomeIcon icon={faInfoCircle} />
@@ -142,7 +143,7 @@ function RegisterModal() {
             />
             <FontAwesomeIcon
               icon={faTimes}
-              className={validPwd || !pwd ? 'hide' : 'invalid'}
+              className={validPwd || !myForm.password ? 'hide' : 'invalid'}
             />
           </label>
           <input
@@ -151,13 +152,13 @@ function RegisterModal() {
             id="password"
             ref={userRef}
             className="LoginInput"
-            onChange={(e) => setPwd(e.target.value)}
+            onChange={changeFields}
             required
             aria-invalid={validPwd ? 'false' : 'true'}
             aria-describedby="pwdnote"
             onFocus={() => setPwdFocus(true)}
             onBlur={() => setPwdFocus(false)}
-            value={pwd}
+            value={myForm.password}
           />
           <p
             id="pwdnote"
