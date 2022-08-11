@@ -5,6 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Button } from "react-bootstrap";
 import LoginProvider from "./LoginComponents/LoginProvider";
 import sqlLoginContext from "./LoginComponents/sqlLoginContext"
+import CartIcon from "./CartComponent/CartIcon";
 // import '../App.css'
 
 function Nav() {
@@ -54,15 +55,15 @@ function Nav() {
         </div>
         <div className="navLogin">
           <ul className="d-flex ">
-            <li className="navLi">
-              {/* <i className="fa-solid fa-cart-arrow-down white"></i> */}
-              <Link to="/">
-                {/* <AiOutlineShoppingCart className='Cart-log'/> */}
-                <i className="fa-solid fa-cart-arrow-down white mr-3"></i>
-              </Link>
-            </li>
+           
             {authorized ? (
               <>
+               <li className="navLi">
+              {/* <i className="fa-solid fa-cart-arrow-down white"></i> */}
+              <Link to="/Cart" >
+                <CartIcon />
+              </Link>
+            </li>
                 <li className="Login_Red">{account} /</li>
                 <li>
                   <button to="/" className="pl-2 btn btn-warning" onClick={() => { logout() }}>

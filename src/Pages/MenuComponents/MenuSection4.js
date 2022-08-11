@@ -5,6 +5,7 @@ import M4Main from './M3Component/M4Main'
 import M4Dot from './M3Component/M4Dot'
 
 function MenuSection4(props) {
+  const {showModal} = props
   const [arrayData, setArrayData] = useState(0)
 
   const [menuData] = useContext(FileMenuInfo)
@@ -25,6 +26,7 @@ function MenuSection4(props) {
                         value={value}
                         index={index}
                         arrayData={arrayData}
+                        showModal = {showModal}
                       />
                     </React.Fragment>
                   )
