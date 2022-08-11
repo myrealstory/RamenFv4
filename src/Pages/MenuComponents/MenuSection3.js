@@ -7,6 +7,8 @@ import M3Dot from './M3Component/M3Dot'
 
 
 function MenuSection3(props) {
+
+  const  { showModal } = props;
   const [arrayData, setArrayData] = useState(0)
 
   const [menuData] = useContext(FileMenuInfo)
@@ -27,6 +29,7 @@ function MenuSection3(props) {
                         value={value}
                         index={index}
                         arrayData={arrayData}
+                        showModal = {showModal}
                       />
                     </React.Fragment>
                   )

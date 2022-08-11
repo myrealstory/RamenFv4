@@ -1,8 +1,11 @@
 import React from 'react'
 import ChilliIcon from '../../img/SVG/ChiliIcon.svg'
+import { useCart } from '../../components/CartComponent/Utils/useCart'
 
-function M3Main({ value, index, arrayData }) {
+function M3Main({ value, index, arrayData }, props) {
   console.log('insideM4Main:', index)
+  const { showModal } = props
+  const {addItem} = useCart();
   const M4file = value
   const spicyLevel = value.SpicyLevel
   return (
@@ -49,11 +52,19 @@ function M3Main({ value, index, arrayData }) {
         <p className="materials mb-2">{M4file.Materials}</p>
         <span className="TabsPrice">NTD .</span>
         <span className="TabsPrice">{M4file.price}</span>
-       
+
         <div className="borderBottom mt-2 mb-2"></div>
         <p className="ContentsDescription mb-2">{M4file.product_description}</p>
-        <button className="AddtoCart btn mt-4">
-          <div className="cartBtn">馬上加入購物車</div>
+        <button
+          className="AddtoCart btn mt-4"
+          type="button"
+          onClick={() => {
+            const item = { ...M4file, quantity: 1 }
+            addItem(item)
+            showModal(M4file.product_name)
+          }}
+        >
+          馬上加入購物車
         </button>
       </div>
       <div className="TContentImg">

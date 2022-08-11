@@ -1,6 +1,7 @@
 import './App.css'
 
 import './Pages/CSS/FoodMenu.css'
+import './Pages/CSS/Cart.css'
 
 import FoodMenu from './Pages/components/FoodMenu'
 import MainPage from './Pages/Main'
@@ -9,6 +10,7 @@ import RecipePage1 from './Pages/MComponent/side/RecipePage1'
 import RecipePage2 from './Pages/MComponent/side/RecipePage2'
 import Nav from './Pages/components/nav'
 import Footer from './Pages/components/footer'
+import Cart from './Pages/components/CartComponent/Cart'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
@@ -20,6 +22,9 @@ import { GlobalMouseMoveProvider } from './Pages/components/hooks/useGlobalMouse
 import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
 import AuthProvider from './Pages/components/LoginComponents/AuthProvider'
 import RegisterModal from './Pages/components/LoginComponents/RegisterModal'
+
+import { CartProvider } from './Pages/components/CartComponent/Utils/useCart'
+import { secondCartProvider } from './Pages/components/CartComponent/Utils/useSecondCart'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // export const getMenuInfo = async () => {
 //   const response = await fetch(LIST_GET_NEWS);
@@ -33,9 +38,13 @@ function Wrapper({ children }) {
   return (
     <AuthProvider>
       <LoginProvider.Provider value={{ activeLogin, setActiveLogin }}>
-        <GlobalScrollProvider>
-          <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
-        </GlobalScrollProvider>
+        <secondCartProvider localStorageKey="secondCart">
+          <CartProvider>
+            <GlobalScrollProvider>
+              <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
+            </GlobalScrollProvider>
+          </CartProvider>
+        </secondCartProvider>
       </LoginProvider.Provider>
     </AuthProvider>
   )
@@ -70,6 +79,7 @@ function App() {
 
               <Route path="/FoodMenu" element={<FoodMenu />} />
               <Route path="/Register" element={<RegisterModal />} />
+              <Route path="/Cart" element = {<Cart />} />
 
               <Route path="/Recipe" element={<Recipe />}></Route>
               <Route path="ppp" element={<>12313321</>} />

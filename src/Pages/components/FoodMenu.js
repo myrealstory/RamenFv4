@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/nav'
 
 import MenuSection2 from '../MenuComponents/MenuSection2'
@@ -9,7 +9,45 @@ import Footer from './footer'
 
 import BannerImg from '../img/MenuImg/banner.png'
 
-function FoodMenu() {
+import { useCart } from '../components/CartComponent/Utils/useCart'
+import { Modal, Button } from 'react-bootstrap'
+
+function FoodMenu(props) {
+  const [show, setShow] = useState(false)
+  const [productName, setProductName] = useState('')
+  const navigate = useNavigate()
+  const { addItem } = useCart()
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
+  const showModal = (name) => {
+    setProductName('餐點：' + name + '已成功加入購物車')
+    handleShow()
+  }
+
+  const messageModal = (
+    <Modal
+      show={show}
+      onHide={handleClose}
+      backdrop="static"
+      keyboard={false}
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>加入購物車</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{productName}</Modal.Body>
+      <Modal.Footer>
+        <Button variant='secondary' onClick={handleClose}>
+          繼續購物
+        </Button>
+        <Button variant='primary' onClick={()=>{
+          navigate('/CartModel',{replace : true})
+        }}></Button>
+      </Modal.Footer>
+    </Modal>
+  )
+
   return (
     <>
       <section className="MBodyMenu">
@@ -33,9 +71,9 @@ function FoodMenu() {
               </div>
             </div>
           </div>
-          <MenuSection2 />
-          <MenuSection3 />
-          <MenuSection4 />
+          <MenuSection2 showModal={showModal} />
+          <MenuSection3 showModal={showModal}/>
+          <MenuSection4 showModal={showModal} />
         </div>
 
         <Footer />
