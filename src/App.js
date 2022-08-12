@@ -79,7 +79,7 @@ function App() {
 
               <Route path="/FoodMenu" element={<FoodMenu />} />
               <Route path="/Register" element={<RegisterModal />} />
-              <Route path="/Cart" element = {<Cart />} />
+              <Route path="/Cart" element={<Cart />} />
 
               <Route path="/Recipe" element={<Recipe />}></Route>
               <Route path="ppp" element={<>12313321</>} />

@@ -55,18 +55,23 @@ function Nav() {
         </div>
         <div className="navLogin">
           <ul className="d-flex ">
-           
             {authorized ? (
               <>
-               <li className="navLi">
-              {/* <i className="fa-solid fa-cart-arrow-down white"></i> */}
-              <Link to="/Cart" >
-                <CartIcon />
-              </Link>
-            </li>
+                <li className="navLi">
+                  {/* <i className="fa-solid fa-cart-arrow-down white"></i> */}
+                  <Link to="/Cart">
+                    <CartIcon />
+                  </Link>
+                </li>
                 <li className="Login_Red">{account} /</li>
                 <li>
-                  <button to="/" className="pl-2 btn btn-warning" onClick={() => { logout() }}>
+                  <button
+                    to="/"
+                    className="pl-2 btn btn-warning"
+                    onClick={() => {
+                      logout()
+                    }}
+                  >
                     Logout
                   </button>
                 </li>
@@ -78,7 +83,7 @@ function Nav() {
                     to="/"
                     className="Login_Red"
                     onClick={() => {
-                      setActiveLogin(true);
+                      setActiveLogin(true)
                     }}
                   >
                     Login /
@@ -95,7 +100,7 @@ function Nav() {
         </div>
       </div>
     </nav>
-  );
+  )
 }
 
 export default Nav;

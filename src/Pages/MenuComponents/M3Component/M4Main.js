@@ -2,9 +2,9 @@ import React from 'react'
 import ChilliIcon from '../../img/SVG/ChiliIcon.svg'
 import { useCart } from '../../components/CartComponent/Utils/useCart'
 
-function M3Main({ value, index, arrayData }, props) {
+function M3Main(props) {
   console.log('insideM4Main:', index)
-  const { showModal } = props
+  const { showModal, value, index, arrayData } = props
   const {addItem} = useCart();
   const M4file = value
   const spicyLevel = value.SpicyLevel

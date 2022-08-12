@@ -6,23 +6,30 @@ function CartModal() {
   return (
     <>
       <div>
-        <table className="table" width="100%" cellSpacing="0">
-          <thead>
+        <table className="table CartTable" width="100%" cellSpacing="0">
+          <thead className="noBorder">
             <tr>
-              <th>商品</th>
+              <th className="TableBigTitle">商品</th>
               <th>單價</th>
               <th>數量</th>
-              <th>總數</th>
+              <th className="CartTHTotal">總數</th>
             </tr>
           </thead>
           <tbody>
             {items.map((v, i) => {
+              console.log('cart items:', v)
               return (
                 <tr key={v.id}>
-                  <td> {v.product_name}</td>
-                  <td>{v.price}</td>
+                  <td className="noBorder">
+                    <div className="CartImg "> {v.RemoveBG}</div>
+                  </td>
+                  <td className="CartName"> {v.product_name}</td>
+                  <td className="Yellow CartPrice">
+                    NTD{''}
+                    {v.price}
+                  </td>
                   <td>
-                    <div className="btn-group mr-2" role="group">
+                    <div className="btn-group mr-2 CartBtn" role="group">
                       <button
                         type="button"
                         className="btn btn-light"
@@ -46,6 +53,19 @@ function CartModal() {
                         {' '}
                         +{' '}
                       </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="CartListTotal">
+                      <button type='button' className='noBorder ' onClick={() => { removeItem(v.id) }}>
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                      <div>
+                        <span>總計:</span>
+                        <span className="Yellow TotalPrice">
+                          NTD{v.price * v.quantity}
+                        </span>
+                      </div>
                     </div>
                   </td>
                 </tr>

@@ -1,10 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react'
 import FileMenuInfo from '../Api/MenuApi'
-import {useCart} from '../components/CartComponent/Utils/useCart'
+import { useCart } from '../components/CartComponent/Utils/useCart'
 
 function MenuSection2(props) {
-  const  { showModal } = props;
-  const addItem = useCart();
+  const { showModal } = props
+  const {addItem} = useCart()
   const [arrayData, setArrayData] = useState([])
 
   const [menuData] = useContext(FileMenuInfo)
@@ -17,8 +17,8 @@ function MenuSection2(props) {
 
     while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex)
-        currentIndex--;
-        [array[currentIndex], array[randomIndex]] = [
+      currentIndex--
+      ;[array[currentIndex], array[randomIndex]] = [
         array[randomIndex],
         array[currentIndex],
       ]
@@ -63,11 +63,16 @@ function MenuSection2(props) {
                             <span>{array2[0].price}</span>
                           </div>
                           <div className="MS2Order">
-                            <button type="button" onClick={()=>{
-                              const item ={...array2[0],quantity:1}
-                              addItem(item)
-                              showModal(array2[0].product_name)
-                            }}>加入購物車</button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const item = { ...array2[0], quantity: 1 }
+                                addItem(item)
+                                showModal(array2[0].product_name)
+                              }}
+                            >
+                              加入購物車
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -92,13 +97,18 @@ function MenuSection2(props) {
                             <span>NTD.</span>
                             <span>{array2[1].price}</span>
                           </div>
-                          <div className="MS2Order">
-                            <button type="button" onClick={()=>{
-                              const item ={...array2[1],quantity:1}
+
+                          <button
+                            className="MS2button"
+                            type="button"
+                            onClick={() => {
+                              const item = { ...array2[1], quantity: 1 }
                               addItem(item)
                               showModal(array2[1].product_name)
-                            }}>加入購物車</button>
-                          </div>
+                            }}
+                          >
+                            <div className="MS2Order">加入購物車</div>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -117,11 +127,16 @@ function MenuSection2(props) {
                             <span>{array2[2].price}</span>
                           </div>
                           <div className="MS2Order">
-                            <button type="button" onClick={()=>{
-                              const item ={...array2[2],quantity:1}
-                              addItem(item)
-                              showModal(array2[2].product_name)
-                            }}>加入購物車</button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const item = { ...array2[2], quantity: 1 }
+                                addItem(item)
+                                showModal(array2[2].product_name)
+                              }}
+                            >
+                              加入購物車
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -146,11 +161,16 @@ function MenuSection2(props) {
                             <span>{array2[3].price}</span>
                           </div>
                           <div className="MS2Order">
-                            <button type="button" onClick={()=>{
-                              const item ={...array2[3],quantity:1}
-                              addItem(item)
-                              showModal(array2[3].product_name)
-                            }}>加入購物車</button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const item = { ...array2[3], quantity: 1 }
+                                addItem(item)
+                                showModal(array2[3].product_name)
+                              }}
+                            >
+                              加入購物車
+                            </button>
                           </div>
                         </div>
                       </div>
