@@ -63,8 +63,9 @@ function Nav() {
                     <CartIcon />
                   </Link>
                 </li>
-                <li className="Login_Red">{account} /</li>
+                <li className="Login_Red">{account}</li>
                 <li>
+                  <span className="WhiteSpace"> | </span>
                   <button
                     to="/"
                     className="pl-2 btn btn-warning"

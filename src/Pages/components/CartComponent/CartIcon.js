@@ -6,9 +6,9 @@ function CartIcon(props) {
   const { cart } = useCart()
 
   return (
-    <button type="button" className="btn btn-primary">
+    <button type="button" className="CartIcon">
       <FaShoppingCart className="cart-icon" />{' '}
-      <span className="badge badge-danger badge-pill">{cart.totalItems}</span>{' '}
+      <span className="CartAmount">{cart.totalItems}</span>{' '}
       {/* <span className="badge badge-info badge-pill">{cart.cartTotal}</span> */}
     </button>
   )

@@ -27,23 +27,23 @@ function FoodMenu(props) {
   }
 
   const messageModal = (
-    <Modal
-      show={show}
-      onHide={handleClose}
-      backdrop="static"
-      keyboard={false}
-    >
+    <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
       <Modal.Header closeButton>
         <Modal.Title>加入購物車</Modal.Title>
       </Modal.Header>
       <Modal.Body>{productName}</Modal.Body>
       <Modal.Footer>
-        <Button variant='secondary' onClick={handleClose}>
+        <Button variant="secondary" onClick={handleClose}>
           繼續購物
         </Button>
-        <Button variant='primary' onClick={()=>{
-          navigate('/CartModel',{replace : true})
-        }}></Button>
+        <Button
+          variant="primary"
+          onClick={() => {
+            navigate('/Cart', { replace: true })
+          }}
+        >
+          前往購物車結帳
+        </Button>
       </Modal.Footer>
     </Modal>
   )
@@ -52,6 +52,7 @@ function FoodMenu(props) {
     <>
       <section className="MBodyMenu">
         <div className="PatternBG">
+          {messageModal}
           <div className="Mcontainer">
             <div className="BannerContainer">
               <div className="BContent">
@@ -72,7 +73,7 @@ function FoodMenu(props) {
             </div>
           </div>
           <MenuSection2 showModal={showModal} />
-          <MenuSection3 showModal={showModal}/>
+          <MenuSection3 showModal={showModal} />
           <MenuSection4 showModal={showModal} />
         </div>
 

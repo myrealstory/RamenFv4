@@ -14,7 +14,7 @@ p{
   left: 50% !important;
   transform: translateX(-45%) !important; 
   z-index: 1000;
-  width: 100vw;
+  /* width: 100vw; */
 }
 
 .nav {
@@ -93,7 +93,13 @@ p{
 .Login_Red {
   font-size: 0.8vw;
   padding-top: 0.5rem !important;
-  margin-right: 1rem;
+  margin-left: 1vw;
+  color: #fff;
+}
+.WhiteSpace{
+  margin: 0 1vw;
+  color: #fff;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 1200px ){

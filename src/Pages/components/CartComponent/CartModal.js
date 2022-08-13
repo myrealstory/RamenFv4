@@ -19,9 +19,11 @@ function CartModal() {
             {items.map((v, i) => {
               console.log('cart items:', v)
               return (
-                <tr key={v.id}>
+                <tr key={v.RandomKey}>
                   <td className="noBorder">
-                    <div className="CartImg "> {v.RemoveBG}</div>
+                    <div className="CartImg ">
+                      <img src={v.RemoveBG} alt="" />
+                    </div>
                   </td>
                   <td className="CartName"> {v.product_name}</td>
                   <td className="Yellow CartPrice">
@@ -57,7 +59,13 @@ function CartModal() {
                   </td>
                   <td>
                     <div className="CartListTotal">
-                      <button type='button' className='noBorder ' onClick={() => { removeItem(v.id) }}>
+                      <button
+                        type="button"
+                        className="noBorder "
+                        onClick={() => {
+                          removeItem(v.id)
+                        }}
+                      >
                         <i class="fa-solid fa-trash-can"></i>
                       </button>
                       <div>
