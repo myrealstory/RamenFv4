@@ -13,18 +13,19 @@ import Footer from './Pages/components/footer'
 import Cart from './Pages/components/CartComponent/Cart'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import TestDraw from './test/TestDraw'
 import FileMenuInfo, { LIST_GET_MENUS } from './Pages/Api/MenuApi'
 import FileNewsInfo, { LIST_GET_NEWS, LOGIN_API } from './configs/AjaxPath'
 import { GlobalScrollProvider } from './Pages/components/hooks/useGlobalScroll'
 import { GlobalMouseMoveProvider } from './Pages/components/hooks/useGlobalMouseMove'
 import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
+import LoginModal from './Pages/components/LoginComponents/LoginModal'
 import AuthProvider from './Pages/components/LoginComponents/AuthProvider'
 import RegisterModal from './Pages/components/LoginComponents/RegisterModal'
 
 import { CartProvider } from './Pages/components/CartComponent/Utils/useCart'
-import { secondCartProvider } from './Pages/components/CartComponent/Utils/useSecondCart'
+import { SecondCartProvider } from './Pages/components/CartComponent/Utils/useSecondCart'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // export const getMenuInfo = async () => {
 //   const response = await fetch(LIST_GET_NEWS);
@@ -38,19 +39,20 @@ function Wrapper({ children }) {
   return (
     <AuthProvider>
       <LoginProvider.Provider value={{ activeLogin, setActiveLogin }}>
-        <secondCartProvider localStorageKey="secondCart">
-          <CartProvider>
-            <GlobalScrollProvider>
-              <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
-            </GlobalScrollProvider>
-          </CartProvider>
-        </secondCartProvider>
+          <SecondCartProvider localStorageKey="secondCart">
+            <CartProvider>
+              <GlobalScrollProvider>
+                <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
+              </GlobalScrollProvider>
+            </CartProvider>
+          </SecondCartProvider>
       </LoginProvider.Provider>
     </AuthProvider>
   )
 }
 
 function App() {
+  // const { activeLogin, setActiveLogin } = useContext(LoginProvider);
   const [menuData, setMenuData] = useState({})
   const [newsData, setNewsData] = useState({})
 
@@ -73,6 +75,7 @@ function App() {
         {/* <Nav</Wrapper> /> */}
         <FileNewsInfo.Provider value={[newsData, setNewsData]}>
           <FileMenuInfo.Provider value={[menuData, setMenuData]}>
+            {/* <LoginModal trigger={activeLogin} setTrigger={ setActiveLogin} /> */}
             <Nav />
             <Routes>
               <Route path="/" element={<MainPage />}></Route>
@@ -94,7 +97,7 @@ function App() {
 
               {/* <Route path="/" element={  }></Route> */}
             </Routes>
-            {/* <Footer /> */}
+              {/* <Footer /> */}
           </FileMenuInfo.Provider>
         </FileNewsInfo.Provider>
       </Wrapper>

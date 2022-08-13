@@ -5,7 +5,7 @@ import M4Main from './M3Component/M4Main'
 import M4Dot from './M3Component/M4Dot'
 
 function MenuSection4(props) {
-  const {showModal} = props
+  const { showModal } = props
   const [arrayData, setArrayData] = useState(0)
 
   const [menuData] = useContext(FileMenuInfo)
@@ -21,14 +21,13 @@ function MenuSection4(props) {
                 .map((value, index) => {
                   console.log('menu3Main:', index)
                   return (
-                    <React.Fragment key={value.RandomKey}>
-                      <M4Main
-                        value={value}
-                        index={index}
-                        arrayData={arrayData}
-                        showModal = {showModal}
-                      />
-                    </React.Fragment>
+                    <M4Main
+                      value={value}
+                      index={index}
+                      arrayData={arrayData}
+                      showModal={showModal}
+                      key={value.RandomKey}
+                    />
                   )
                 })
             : null}
@@ -47,7 +46,7 @@ function MenuSection4(props) {
                         setArrayData(index)
                       }}
                       arrayData={arrayData}
-                      key={index}
+                      key={value.RandomKey2}
                     />
                   )
                 })

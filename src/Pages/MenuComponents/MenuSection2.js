@@ -4,7 +4,7 @@ import { useCart } from '../components/CartComponent/Utils/useCart'
 
 function MenuSection2(props) {
   const { showModal } = props
-  const {addItem} = useCart()
+  const { addItem } = useCart()
   const [arrayData, setArrayData] = useState([])
 
   const [menuData] = useContext(FileMenuInfo)
@@ -39,7 +39,7 @@ function MenuSection2(props) {
           ? shuffle(menuData[0])
               .filter((v, i, array) => {
                 console.log('this is i:', i)
-                return i < 4
+                return i < 5
               })
               .map((value, index, array2) => {
                 console.log(array2)
@@ -48,8 +48,11 @@ function MenuSection2(props) {
                 if (index !== 0) return <div key={array2[index]}></div>
 
                 return (
-                  <React.Fragment key={index}>
-                    <div className="d-flex justify-content-between mt-5 pt-5 borderdotTop">
+                  <div key={array2[4].RandomKey2}>
+                    <div
+                      className="d-flex justify-content-between mt-5 pt-5 borderdotTop"
+                      key={array2[0].RandomKey2}
+                    >
                       <div className="Msec2Content Msec2cRight">
                         <div style={{ borderTop: '3px solid white' }}>
                           <div className="MS2TitleBox">
@@ -62,18 +65,17 @@ function MenuSection2(props) {
                             <span>NTD.</span>
                             <span>{array2[0].price}</span>
                           </div>
-                          <div className="MS2Order">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const item = { ...array2[0], quantity: 1 }
-                                addItem(item)
-                                showModal(array2[0].product_name)
-                              }}
-                            >
-                              加入購物車
-                            </button>
-                          </div>
+                          <button
+                            className="MS2button"
+                            type="button"
+                            onClick={() => {
+                              const item = { ...array2[0], quantity: 1 }
+                              addItem(item)
+                              showModal(array2[0].product_name)
+                            }}
+                          >
+                            <div className="MS2Order">加入購物車</div>
+                          </button>
                         </div>
                       </div>
                       <div className="Msec2Image">
@@ -81,7 +83,10 @@ function MenuSection2(props) {
                       </div>
                     </div>
 
-                    <div className="d-flex justify-content-between mt-5 pt-5 borderdotTop">
+                    <div
+                      className="d-flex justify-content-between mt-5 pt-5 borderdotTop"
+                      key={array2[1].RandomKey2}
+                    >
                       <div className="Msec2Image">
                         <img src={array2[1].Image} alt="" />
                       </div>
@@ -113,7 +118,10 @@ function MenuSection2(props) {
                       </div>
                     </div>
 
-                    <div className="d-flex justify-content-between mt-5 pt-5 borderdotTop">
+                    <div
+                      className="d-flex justify-content-between mt-5 pt-5 borderdotTop"
+                      key={array2[2].RandomKey2}
+                    >
                       <div className="Msec2Content Msec2cRight">
                         <div style={{ borderTop: '3px solid white' }}>
                           <div className="MS2TitleBox">
@@ -126,25 +134,27 @@ function MenuSection2(props) {
                             <span>NTD.</span>
                             <span>{array2[2].price}</span>
                           </div>
-                          <div className="MS2Order">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const item = { ...array2[2], quantity: 1 }
-                                addItem(item)
-                                showModal(array2[2].product_name)
-                              }}
-                            >
-                              加入購物車
-                            </button>
-                          </div>
+                          <button
+                            className="MS2button"
+                            type="button"
+                            onClick={() => {
+                              const item = { ...array2[2], quantity: 1 }
+                              addItem(item)
+                              showModal(array2[2].product_name)
+                            }}
+                          >
+                            <div className="MS2Order">加入購物車</div>
+                          </button>
                         </div>
                       </div>
                       <div className="Msec2Image">
                         <img src={array2[2].Image} alt="" />
                       </div>
                     </div>
-                    <div className="d-flex justify-content-between mt-5 mb-5 pt-5 pb-5 borderdotTop borderdotBottom ">
+                    <div
+                      className="d-flex justify-content-between mt-5 mb-5 pt-5 pb-5 borderdotTop borderdotBottom "
+                      key={array2[3].RandomKey2}
+                    >
                       <div className="Msec2Image">
                         <img src={array2[3].Image} alt="" />
                       </div>
@@ -160,22 +170,21 @@ function MenuSection2(props) {
                             <span>NTD.</span>
                             <span>{array2[3].price}</span>
                           </div>
-                          <div className="MS2Order">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                const item = { ...array2[3], quantity: 1 }
-                                addItem(item)
-                                showModal(array2[3].product_name)
-                              }}
-                            >
-                              加入購物車
-                            </button>
-                          </div>
+                          <button
+                            className="MS2button"
+                            type="button"
+                            onClick={() => {
+                              const item = { ...array2[3], quantity: 1 }
+                              addItem(item)
+                              showModal(array2[3].product_name)
+                            }}
+                          >
+                            <div className="MS2Order">加入購物車</div>
+                          </button>
                         </div>
                       </div>
                     </div>
-                  </React.Fragment>
+                  </div>
                 )
               })
           : null}

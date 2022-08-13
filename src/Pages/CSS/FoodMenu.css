@@ -124,7 +124,9 @@ position: relative;
 }
 
 @media screen and (max-width: 1280px) {
-
+      .MBodyMenu{
+        height: 780vh;
+    }
     .BContent h3 {
         font-size: 3.5rem;
         letter-spacing: .5rem;
@@ -140,6 +142,11 @@ position: relative;
     }
     .BannerImg{
         width: 55vw;
+    }
+}
+@media screen and (min-width:2000px) {
+    .MBodyMenu{
+        height: 715vh;
     }
 }
 
@@ -228,6 +235,7 @@ position: relative;
     background-color: rgba(0,0,0,0);
     border: 0;
     color: var(--white);
+    width: 100%;
 }
 
 .mt-7 {

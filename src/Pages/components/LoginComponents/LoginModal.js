@@ -52,7 +52,7 @@ function LoginModal(props) {
     <div className="popLogin">
       <div className="LoginInner">
         <button
-          to=""
+          type="button"
           className="closeBTN"
           onClick={() => {
             props.setTrigger(false)
