@@ -42,6 +42,20 @@
     border-radius: 25px;
 }
 
+@media screen and (max-width: 1280px){
+    .CartIcon{
+        font-size: 3rem;
+    }
+
+    .CartAmount{
+        width: 4vw;
+        height: 8vh;
+        padding-top: 4%;
+        right: -2vw;
+    }
+}
+
+
 
 /*_______CART_________*/
 .CartContainer{

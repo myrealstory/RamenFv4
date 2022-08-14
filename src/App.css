@@ -102,20 +102,28 @@ p{
   font-size: 1.5rem;
 }
 
-@media screen and (max-width: 1200px ){
+@media screen and (max-width: 1280px ){
+  .navbar {
+    transform: translateX(-50%) !important;
+  }
   .navLi > a,i {
     transform: scale(0.5);
   }
 
+  .navUL {
+    width: 45vw;  
+  }
+
   .navUL li{
-  font-size: 1.2vw;
-  padding: .5vh 1vw;
+  font-size: 1.1vw;
+  padding: .5vh .5vw;
   font-weight: 100;
 }
+.navLi{
+  width: 5vw;
+}
 .Login_Red {
-  font-size: 1.1vw;
-  padding-top: 1rem !important;
-  margin-right: 1rem;
+  font-size: 1.4vw;
 }
 } 
 
