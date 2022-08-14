@@ -875,14 +875,10 @@ font-size: 1.5vw !important;
   }
   
   .LoginInner {
-      position: relative;
-      padding: 32px;
-      width: 100%;
-      height: 100%;
-      max-width: 530px;
-      max-height: 530px;
-      background-color: var(--primary);
-      color: var(--pinkprm);
+    max-width: 530px;
+      max-height: 450px;
+      background-size: cover;
+      margin-top: 10vh;
   }
   
   .LoginInner .closeBTN {
@@ -892,7 +888,7 @@ font-size: 1.5vw !important;
     border: 3px solid var(--pinkprm);
     border-radius: 50%;
     background-color: rgba(0,0,0,0);
-    width: 5vw;
+    width: 4.7vw;
     height: 10vh;
   }
 

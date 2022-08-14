@@ -8,7 +8,7 @@ import MemberProvider from '../LoginComponents/MemberProvider'
 function Cart(props) {
   const [pickSend, setPickSend] = useState('')
   const [fillDocument, setFillDocument] = useState(false)
-  const [memberData, setMemberData] = useContext(MemberProvider)
+  // const [memberData] = useContext(MemberProvider)
   const {
     cart,
     items,
@@ -21,32 +21,33 @@ function Cart(props) {
     minusOne,
   } = useCart()
 
-  const finalAmount = () => {
-    // if (pickSend === 'UberEat') return setPickSend(120);
-    // else if (pickSend === "GrabFood") return setPickSend(120);
-    // else if
-    switch (pickSend) {
-      case 'UberEat':
-        return setPickSend(120)
-      case 'GrabFood':
-        return setPickSend(120)
-      case 'FoodPanda':
-        return setPickSend(120)
-      case 'SelfDev':
-        return setPickSend(50)
-      default:
-        return setPickSend(120)
-    }
-    return cart.totalItems + pickSend
-  }
+  // const finalAmount = () => {
+  //   // if (pickSend === 'UberEat') return setPickSend(120);
+  //   // else if (pickSend === "GrabFood") return setPickSend(120);
+  //   // else if
+  //   switch (pickSend) {
+  //     case 'UberEat':
+  //       return setPickSend(120)
+  //     case 'GrabFood':
+  //       return setPickSend(120)
+  //     case 'FoodPanda':
+  //       return setPickSend(120)
+  //     case 'SelfDev':
+  //       return setPickSend(50)
+  //     default:
+  //       return setPickSend(120)
+  //   }
+  //   return cart.totalItems + pickSend
+  // }
   return (
     <div className="CartContainer">
       <div className="CartRow">
         <div className="CartList">
           <h4 className="CLTitle">購物車</h4>
           <div className="ProcessBar"></div>
+          <div className={fillDocument?"activeHideBar":"hidden activeHideBar"}></div>
           {/* 這裡設定整個CartBox的地方 */}
-          <div className=" d-flex justify-content-between">
+          <div className={!fillDocument?"d-flex justify-content-between":"hidebox "}>
             <div className="CartBox">
               <CartModal />
             </div>
@@ -66,36 +67,33 @@ function Cart(props) {
                   <input
                     type="Radio"
                     label="UberEat配送到府"
-                    checked={pickSend === 'UberEat'}
                     value="UberEat"
                     onClick={() => setPickSend('UberEat')}
                   />
                   <input
                     type="Radio"
                     label="GrabFood配送到府"
-                    checked={pickSend === 'GrabFood'}
-                    value="UberEat"
+                    value="GrabFood"
                     onClick={() => setPickSend('GrabFood')}
                   />
                   <input
                     type="Radio"
                     label="FoodPanda配送到府"
-                    checked={pickSend === 'FoodPanda'}
-                    value="UberEat"
+                    value="FoodPanda"
                     onClick={() => setPickSend('FoodPanda')}
                   />
                   <input
                     type="Radio"
                     label="《燒》外送服務"
-                    checked={pickSend === 'SelfDev'}
-                    value="UberEat"
+                    
+                    value="SelfDev"
                     onClick={() => setPickSend('SelfDev')}
                   />
 
                   <div className="d-flex justify-content-between">
                     <span className="STtitle">結帳總計： </span>
                     <span className="STPrice">
-                      NTD {`${cart.cartTotal + pickSend}`}
+                      NTD ${pickSend}
                     </span>
                     {/* {`${cart.cartTotal +pickSend}`} */}
                   </div>
@@ -106,7 +104,8 @@ function Cart(props) {
               </div>
             </div>
           </div>
-          這裡要寫
+          {/* 這裡要寫 */}
+          <div className={fillDocument?"active CartInfoBox":"hidden CartInfoBox"}> </div>
         </div>
       </div>
     </div>
