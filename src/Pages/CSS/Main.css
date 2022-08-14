@@ -11,8 +11,9 @@ body {
     --secondary: #FFB710;
     --orange:#EC391E;
     --pinkprm:#FF9494;
-    --white: white;
+    --HollowW: rgba(255,255,255,0.3);
     --black: rgb(36, 36, 36);
+    --grey: #4B4B4B;
     --widths: 100%;
     --height: 50vh;
 }
@@ -796,17 +797,8 @@ font-size: 1.5vw !important;
     justify-content: center;
   }
 
-.LoginTitle {
-    padding-top: 5vh;
-    font-size: 3rem;
-    letter-spacing: 1rem;
-    text-align: left;
-    margin-left: 3vw;
-    opacity: 0.4;
-}
-.Formbox {
-    width: 80%;
-}
+
+
 
 .LoginInput{
     background-color: var(--primary);
@@ -964,4 +956,46 @@ font-size: 1.5vw !important;
     color: var(--orange);
     
 }
+}
+
+/*____Register_____*/
+.RegContainer {
+    width: 100vw;
+    height: 100%;
+    background-color: var(--primary);
+    background-image: url(../img//background//Hollow_logo_W.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 40vw 0vh;
+
+}
+.RegRow {
+    width: 80vw;
+    margin: 0 auto;
+    padding-top: 20vh;
+}
+
+.RegRow .LoginTitle{
+    text-align: right;
+    letter-spacing: 0;
+    color: var(--white);
+    font-size: 3rem;
+    margin-right: 8vw;
+    margin-bottom: 5vh;
+}
+
+.Formbox {
+    width: 100%;
+    text-align: left !important;
+    display: flex;
+}
+
+.Formbox label {
+    color: white;
+    margin: 2vh 0;
+    
+}
+
+.Formbox .mr-3, .Formbox .ml-3{
+    width: 45%;
 }

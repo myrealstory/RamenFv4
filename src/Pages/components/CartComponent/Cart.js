@@ -6,7 +6,7 @@ import { Form } from 'react-bootstrap'
 import MemberProvider from '../LoginComponents/MemberProvider'
 
 function Cart(props) {
-  const [pickSend, setPickSend] = useState('')
+  // const [pickSend, setPickSend] = useState('')
   const [fillDocument, setFillDocument] = useState(false)
   // const [memberData] = useContext(MemberProvider)
   const {
@@ -39,6 +39,7 @@ function Cart(props) {
   //   }
   //   return cart.totalItems + pickSend
   // }
+  // console.log(pickSend);
   return (
     <div className="CartContainer">
       <div className="CartRow">
@@ -68,32 +69,32 @@ function Cart(props) {
                     type="Radio"
                     label="UberEat配送到府"
                     value="UberEat"
-                    onClick={() => setPickSend('UberEat')}
+                    // onClick={() => setPickSend('UberEat')}
                   />
                   <input
                     type="Radio"
                     label="GrabFood配送到府"
                     value="GrabFood"
-                    onClick={() => setPickSend('GrabFood')}
+                    // onClick={() => setPickSend('GrabFood')}
                   />
                   <input
                     type="Radio"
                     label="FoodPanda配送到府"
                     value="FoodPanda"
-                    onClick={() => setPickSend('FoodPanda')}
+                    // onClick={() => setPickSend('FoodPanda')}
                   />
                   <input
                     type="Radio"
                     label="《燒》外送服務"
                     
                     value="SelfDev"
-                    onClick={() => setPickSend('SelfDev')}
+                    // onClick={() => setPickSend('SelfDev')}
                   />
 
                   <div className="d-flex justify-content-between">
                     <span className="STtitle">結帳總計： </span>
                     <span className="STPrice">
-                      NTD ${pickSend}
+                      {/* NTD ${pickSend} */}
                     </span>
                     {/* {`${cart.cartTotal +pickSend}`} */}
                   </div>
