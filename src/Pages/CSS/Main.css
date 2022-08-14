@@ -185,6 +185,7 @@ content: '';
     filter:drop-shadow(11px 5px 5px rgba(0,0,0,0.3));
 }
 
+
 @media screen and (max-width:1280px) {
     .CupRamen {
     width: 35%;
@@ -215,6 +216,27 @@ content: '';
         top: 22%;
     }
 }
+@media screen and (max-width: 401px){
+    .RamenFBG {
+        top: -63vh;
+        width: 400%;
+        height: 400%;
+    }
+    .RamenSec1 {
+        overflow:visible;
+    }
+    .RamenMain>.RamenTitle {
+        width: 90vw;
+        top: -7vh;
+    }
+    .CupRamen {
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 7vh;
+}
+}
+
 
 /*____Section02______*/
 
