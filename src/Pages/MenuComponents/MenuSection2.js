@@ -35,6 +35,7 @@ function MenuSection2(props) {
     <div className="Mec2 position-relative">
       <h3 className="Msec2Title">推薦菜單</h3>
       <div className="Msec2Box">
+        {/* 這裡使用Shuffle以後規定只取5件物件 */}
         {!!menuData[0] && menuData[0].length
           ? shuffle(menuData[0])
               .filter((v, i, array) => {
@@ -44,11 +45,14 @@ function MenuSection2(props) {
               .map((value, index, array2) => {
                 console.log(array2)
                 console.log('sec2:', value)
+                {/* 這裡Map因為不做循環，所以用Array2一個個刻排版 */}
 
                 if (index !== 0) return <div key={array2[index]}></div>
 
                 return (
+
                   <div key={array2[4].RandomKey2}>
+                    {/* random的第一個物件設計 */}
                     <div
                       className="d-flex justify-content-between mt-5 pt-5 borderdotTop"
                       key={array2[0].RandomKey2}
@@ -82,7 +86,7 @@ function MenuSection2(props) {
                         <img src={array2[0].Image} alt="" />
                       </div>
                     </div>
-
+                    {/* Random的第二件物件 */}
                     <div
                       className="d-flex justify-content-between mt-5 pt-5 borderdotTop"
                       key={array2[1].RandomKey2}
@@ -117,7 +121,7 @@ function MenuSection2(props) {
                         </div>
                       </div>
                     </div>
-
+                            {/* Random第三件物件 */}
                     <div
                       className="d-flex justify-content-between mt-5 pt-5 borderdotTop"
                       key={array2[2].RandomKey2}
@@ -151,6 +155,7 @@ function MenuSection2(props) {
                         <img src={array2[2].Image} alt="" />
                       </div>
                     </div>
+                    {/* Random第四件物件的設定 */}
                     <div
                       className="d-flex justify-content-between mt-5 mb-5 pt-5 pb-5 borderdotTop borderdotBottom "
                       key={array2[3].RandomKey2}

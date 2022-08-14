@@ -16,13 +16,18 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import React, { useState, useEffect, useContext } from 'react'
 import TestDraw from './test/TestDraw'
 import FileMenuInfo, { LIST_GET_MENUS } from './Pages/Api/MenuApi'
-import FileNewsInfo, { LIST_GET_NEWS, LOGIN_API } from './configs/AjaxPath'
+import FileNewsInfo, {
+  LIST_GET_NEWS,
+  LOGIN_API,
+  LIST_GET_MEMBER,
+} from './configs/AjaxPath'
 import { GlobalScrollProvider } from './Pages/components/hooks/useGlobalScroll'
 import { GlobalMouseMoveProvider } from './Pages/components/hooks/useGlobalMouseMove'
 import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
 import LoginModal from './Pages/components/LoginComponents/LoginModal'
 import AuthProvider from './Pages/components/LoginComponents/AuthProvider'
 import RegisterModal from './Pages/components/LoginComponents/RegisterModal'
+import MemberProvider from './Pages/components/LoginComponents/MemberProvider'
 
 import { CartProvider } from './Pages/components/CartComponent/Utils/useCart'
 import { SecondCartProvider } from './Pages/components/CartComponent/Utils/useSecondCart'
@@ -55,14 +60,18 @@ function App() {
   // const { activeLogin, setActiveLogin } = useContext(LoginProvider);
   const [menuData, setMenuData] = useState({})
   const [newsData, setNewsData] = useState({})
+  const [memberData, setMemberData] = useState({})
 
   const getMenuInfo = async () => {
     const response = await fetch(LIST_GET_MENUS)
     const rNews = await fetch(LIST_GET_NEWS)
+    const rMember = await fetch(LIST_GET_MEMBER)
     const rNewJson = await rNews.json()
     const responseJson = await response.json()
+    const rNewMember = await rMember.json();
     setNewsData(rNewJson)
     setMenuData(responseJson)
+    setMemberData(rNewMember);
   }
   useEffect(() => {
     getMenuInfo()
@@ -75,29 +84,28 @@ function App() {
         {/* <Nav</Wrapper> /> */}
         <FileNewsInfo.Provider value={[newsData, setNewsData]}>
           <FileMenuInfo.Provider value={[menuData, setMenuData]}>
-            {/* <LoginModal trigger={activeLogin} setTrigger={ setActiveLogin} /> */}
-            <Nav />
-            <Routes>
-              <Route path="/" element={<MainPage />}></Route>
-
-              <Route path="/FoodMenu" element={<FoodMenu />} />
-              <Route path="/Register" element={<RegisterModal />} />
-              <Route path="/Cart" element={<Cart />} />
-
-              <Route path="/Recipe" element={<Recipe />}></Route>
-              <Route path="ppp" element={<>12313321</>} />
-              <Route
-                path="/Recipe/RecipePage1"
-                element={<RecipePage1 />}
-              ></Route>
-              <Route
-                path="/Recipe/RecipePage2"
-                element={<RecipePage2 />}
-              ></Route>
-
-              {/* <Route path="/" element={  }></Route> */}
-            </Routes>
-              {/* <Footer /> */}
+            <MemberProvider value={ [memberData, setMemberData]}>
+              {/* <LoginModal trigger={activeLogin} setTrigger={ setActiveLogin} /> */}
+              <Nav />
+              <Routes>
+                <Route path="/" element={<MainPage />}></Route>
+                <Route path="/FoodMenu" element={<FoodMenu />} />
+                <Route path="/Register" element={<RegisterModal />} />
+                <Route path="/Cart" element={<Cart />} />
+                <Route path="/Recipe" element={<Recipe />}></Route>
+                <Route path="ppp" element={<>12313321</>} />
+                <Route
+                  path="/Recipe/RecipePage1"
+                  element={<RecipePage1 />}
+                ></Route>
+                <Route
+                  path="/Recipe/RecipePage2"
+                  element={<RecipePage2 />}
+                ></Route>
+                {/* <Route path="/" element={  }></Route> */}
+              </Routes>
+                {/* <Footer /> */}
+            </MemberProvider>
           </FileMenuInfo.Provider>
         </FileNewsInfo.Provider>
       </Wrapper>

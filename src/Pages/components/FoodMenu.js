@@ -13,11 +13,14 @@ import { useCart } from '../components/CartComponent/Utils/useCart'
 import { Modal, Button } from 'react-bootstrap'
 
 function FoodMenu(props) {
+  //打開確認購買pop out 
   const [show, setShow] = useState(false)
   const [productName, setProductName] = useState('')
   const navigate = useNavigate()
+  //增加進購物車
   const { addItem } = useCart()
-
+  
+  //setShow的開關
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
@@ -25,7 +28,7 @@ function FoodMenu(props) {
     setProductName('餐點：' + name + '已成功加入購物車')
     handleShow()
   }
-
+  //Popout的模型設定
   const messageModal = (
     <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
       <Modal.Header closeButton>
@@ -56,6 +59,7 @@ function FoodMenu(props) {
           <div className="Mcontainer">
             <div className="BannerContainer">
               <div className="BContent">
+                {/* //大Banner的設定 */}
                 <h3>最正異國風味</h3>
                 <p>
                   鮮蝦與香料為基底熬煮，嚐起來帶有嗆辣感好是滋味！...
@@ -72,6 +76,7 @@ function FoodMenu(props) {
               </div>
             </div>
           </div>
+          {/* 用Section Components 插入  */}
           <MenuSection2 showModal={showModal} />
           <MenuSection3 showModal={showModal} />
           <MenuSection4 showModal={showModal} />
