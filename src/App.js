@@ -44,13 +44,13 @@ function Wrapper({ children }) {
   return (
     <AuthProvider>
       <LoginProvider.Provider value={{ activeLogin, setActiveLogin }}>
-          <SecondCartProvider localStorageKey="secondCart">
-            <CartProvider>
-              <GlobalScrollProvider>
-                <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
-              </GlobalScrollProvider>
-            </CartProvider>
-          </SecondCartProvider>
+        <SecondCartProvider localStorageKey="secondCart">
+          <CartProvider>
+            <GlobalScrollProvider>
+              <GlobalMouseMoveProvider>{children}</GlobalMouseMoveProvider>
+            </GlobalScrollProvider>
+          </CartProvider>
+        </SecondCartProvider>
       </LoginProvider.Provider>
     </AuthProvider>
   )
@@ -68,10 +68,10 @@ function App() {
     const rMember = await fetch(LIST_GET_MEMBER)
     const rNewJson = await rNews.json()
     const responseJson = await response.json()
-    const rNewMember = await rMember.json();
+    const rMemberJson = await rMember.json()
     setNewsData(rNewJson)
     setMenuData(responseJson)
-    setMemberData(rNewMember);
+    setMemberData(rMemberJson)
   }
   useEffect(() => {
     getMenuInfo()
@@ -84,7 +84,7 @@ function App() {
         {/* <Nav</Wrapper> /> */}
         <FileNewsInfo.Provider value={[newsData, setNewsData]}>
           <FileMenuInfo.Provider value={[menuData, setMenuData]}>
-            <MemberProvider value={ [memberData, setMemberData]}>
+            <MemberProvider.Provider value={[memberData, setMemberData]}>
               {/* <LoginModal trigger={activeLogin} setTrigger={ setActiveLogin} /> */}
               <Nav />
               <Routes>
@@ -104,8 +104,8 @@ function App() {
                 ></Route>
                 {/* <Route path="/" element={  }></Route> */}
               </Routes>
-                {/* <Footer /> */}
-            </MemberProvider>
+              {/* <Footer /> */}
+            </MemberProvider.Provider>
           </FileMenuInfo.Provider>
         </FileNewsInfo.Provider>
       </Wrapper>
