@@ -818,8 +818,15 @@ font-size: 1.5vw !important;
     align-items: center;
     justify-content: center;
   }
+  .LoginTitle {
+    font-size: 3rem;
+    margin-top: 1vh;
+  }
 
-
+.LogIn.Formbox {
+        width: 80%;
+        margin-top: 1vh;
+}
 
 
 .LoginInput{
@@ -924,7 +931,7 @@ font-size: 1.5vw !important;
     margin-left: 3vw;
     opacity: 0.4;
 }
-.Formbox {
+.LogIn.Formbox {
     width: 80%;
 }
 
@@ -997,7 +1004,7 @@ font-size: 1.5vw !important;
     padding-top: 20vh;
 }
 
-.RegRow .LoginTitle{
+.RegRow .RegTitle{
     text-align: right;
     letter-spacing: 0;
     color: var(--white);
@@ -1005,12 +1012,13 @@ font-size: 1.5vw !important;
     margin-right: 8vw;
     margin-bottom: 5vh;
 }
-
-.Formbox {
+.RegRow .Formbox {
+    display: flex;
     width: 100%;
     text-align: left !important;
-    display: flex;
 }
+
+
 
 .Formbox label {
     color: white;

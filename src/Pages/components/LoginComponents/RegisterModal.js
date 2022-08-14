@@ -90,7 +90,7 @@ function RegisterModal() {
       </p>
       <div className="RegContainer">
         <div className="RegRow">
-          <h3 className="LoginTitle">會員註冊 Member Sign up </h3>
+          <h3 className="RegTitle">會員註冊 Member Sign up </h3>
           <form action="" name="form1" onSubmit={whenSubmit}>
             <div className="Formbox">
               <div className="mr-3">

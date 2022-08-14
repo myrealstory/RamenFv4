@@ -60,7 +60,7 @@ function LoginModal(props) {
         ></button>
         <h3 className="LoginTitle">會員登入</h3>
         <form action="" name="form1" onSubmit={whenSubmit}>
-          <div className="Formbox">
+          <div className="LogIn Formbox">
             <input
               type="text"
               name="username"
