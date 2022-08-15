@@ -11,6 +11,7 @@ import RecipePage2 from './Pages/MComponent/side/RecipePage2'
 import Nav from './Pages/components/nav'
 import Footer from './Pages/components/footer'
 import Cart from './Pages/components/CartComponent/Cart'
+import Cart01 from './Pages/components/CartComponent/Cart01'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import React, { useState, useEffect, useContext } from 'react'

@@ -9,17 +9,17 @@ function Cart(props) {
   // const [pickSend, setPickSend] = useState('')
   const [fillDocument, setFillDocument] = useState(false)
   // const [memberData] = useContext(MemberProvider)
-  const {
-    cart,
-    items,
-    addItem,
-    removeItem,
-    updateItem,
-    clearCart,
-    isInCart,
-    plusOne,
-    minusOne,
-  } = useCart()
+  // const {
+  //   cart,
+  //   items,
+  //   addItem,
+  //   removeItem,
+  //   updateItem,
+  //   clearCart,
+  //   isInCart,
+  //   plusOne,
+  //   minusOne,
+  // } = useCart()
 
   // const finalAmount = () => {
   //   // if (pickSend === 'UberEat') return setPickSend(120);
@@ -46,9 +46,15 @@ function Cart(props) {
         <div className="CartList">
           <h4 className="CLTitle">購物車</h4>
           <div className="ProcessBar"></div>
-          <div className={fillDocument?"activeHideBar":"hidden activeHideBar"}></div>
+          <div
+            className={fillDocument ? 'activeHideBar' : 'hidden activeHideBar'}
+          ></div>
           {/* 這裡設定整個CartBox的地方 */}
-          <div className={!fillDocument?"d-flex justify-content-between":"hidebox "}>
+          <div
+            className={
+              !fillDocument ? 'd-flex justify-content-between' : 'hidebox '
+            }
+          >
             <div className="CartBox">
               <CartModal />
             </div>
@@ -56,16 +62,18 @@ function Cart(props) {
               <div className="CTRow">
                 <div className="ShowTotal">
                   <span> 即將結帳一共</span>
-                  <span className="Total Red">{cart.totalItems}</span>
+                  {/* <span className="Total Red">{cart.totalItems}</span> */}
+                  <span className="Total Red">3000</span>
                   <span>餐點</span>
                 </div>
                 <div className="d-flex justify-content-between">
                   <span className="STtitle">餐點總計： </span>
-                  <span className="STPrice">NTD {cart.cartTotal}</span>
+                  {/* <span className="STPrice">NTD {cart.cartTotal}</span> */}
+                  <span className="STPrice">NTD 3000</span>
                 </div>
                 <h4>運費選擇：</h4>
                 <div>
-                  <input
+                  {/* <input
                     type="Radio"
                     label="UberEat配送到府"
                     value="UberEat"
@@ -86,16 +94,13 @@ function Cart(props) {
                   <input
                     type="Radio"
                     label="《燒》外送服務"
-                    
                     value="SelfDev"
                     // onClick={() => setPickSend('SelfDev')}
-                  />
+                  /> */}
 
                   <div className="d-flex justify-content-between">
                     <span className="STtitle">結帳總計： </span>
-                    <span className="STPrice">
-                      {/* NTD ${pickSend} */}
-                    </span>
+                    <span className="STPrice">{/* NTD ${pickSend} */}</span>
                     {/* {`${cart.cartTotal +pickSend}`} */}
                   </div>
                   <button type="button" onChange={setFillDocument(true)}>
@@ -106,7 +111,7 @@ function Cart(props) {
             </div>
           </div>
           {/* 這裡要寫 */}
-          <div className={fillDocument?"active CartInfoBox":"hidden CartInfoBox"}> </div>
+          {/* <div className={fillDocument?"active CartInfoBox":"hidden CartInfoBox"}> </div> */}
         </div>
       </div>
     </div>

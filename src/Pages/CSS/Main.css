@@ -216,9 +216,9 @@ content: '';
         top: 22%;
     }
 }
-@media screen and (max-width: 401px){
+@media screen and (max-width: 375px){
     .RamenFBG {
-        top: -63vh;
+        top: -30vh;
         width: 400%;
         height: 400%;
     }
@@ -230,10 +230,44 @@ content: '';
         top: -7vh;
     }
     .CupRamen {
-        width: 100%;
+        width: 110%;
         left: 50%;
         transform: translateX(-50%);
-        top: 7vh;
+        top: 10vh;
+    }
+    .AniseAndChili::after {
+   
+    top: 10vh;
+    left: 10vw;
+     width: 20%;
+    height: 20%;
+}
+
+.AniseAndChili::before{
+
+    top: 10vh;
+    left: 50vw;
+     width: 35%;
+    height: 35%;
+  
+}
+
+.LemonAndGarlic::after {
+
+    bottom: -2vh;
+    right: 5vw;
+     width: 35%;
+    height: 35%;
+ 
+}
+
+.LemonAndGarlic::before{
+
+    bottom: 3vh;
+    left: 5vw;
+     width: 30%;
+    height: 30%;
+
 }
 }
 
@@ -302,6 +336,26 @@ content: '';
         width: 700px;
         transform: translateX(-32rem);
     }
+}
+@media screen and (max-width: 375px){
+    .Sectitle h2{
+        font-size: 10vw;
+    }
+    .Sectitle {
+    top: 30%;
+    width: 80%;
+    height: 100%;
+    /* padding-top: 50%; */
+    
+    letter-spacing: 10px;
+}
+.ScrollBG{
+    
+    width: 300px;
+    height: 100%;
+    transform: translateX(-9rem);
+    position: relative;
+}
 }
 /*_____Section03___*/
 
