@@ -32,9 +32,17 @@ function Cart() {
         <div className="CartList">
           <h4 className="CLTitle">購物車</h4>
           <div className="ProcessBar"></div>
-          <div
-            className={fillDocument ? 'activeHideBar' : 'hidden activeHideBar'}
-          ></div>
+          <div className={fillDocument ? 'activeHideBar' : 'hidden'}>
+            <h4>即將結帳的總金額是： </h4>
+            <div className="barBig">
+              <h4>NTD {`${cart.cartTotal + pickSend}`}</h4>
+              <button className="OpenBox" type='button' onClick={() => { 
+                setFillDocument(false);
+              }}>
+                <i class="fa-solid fa-angles-down"></i>
+              </button>
+            </div>
+          </div>
           {/* 這裡設定整個CartBox的地方 */}
           <div
             className={
@@ -59,36 +67,61 @@ function Cart() {
                 </div>
                 <h4>運費選擇：</h4>
                 <div>
-                  <input
-                    name='delivery'
-                    type="Radio"
-                    label="UberEat配送到府"
-                    value="UberEat"
-                    onClick={() => setPickSend(120)}
-                  />
-                  <input
-                   name='delivery'
-                    type="Radio"
-                    label="GrabFood配送到府"
-                    value="GrabFood"
-                    onClick={() => setPickSend(120)}
-                  />
-                  <input
-                   name='delivery'
-                    type="Radio"
-                    label="FoodPanda配送到府"
-                    value="FoodPanda"
-                    onClick={() => setPickSend(120)}
-                  />
-                  <input
-                   name='delivery'
-                    type="Radio"
-                    label="《燒》外送服務"
-                    value="SelfDev"
-                    onClick={() => setPickSend(50)}
-                  />
+                  <div className="d-flex justify-content-between SelectInput">
+                    {/* 當有name以後input - radio 才可以做到選擇單一選項 */}
+                    <input
+                      name="delivery"
+                      type="Radio"
+                      label="UberEat配送到府"
+                      value="UberEat"
+                      onClick={() => setPickSend(120)}
+                    />
+                    <div className="PickSelection">
+                      <p className="SelectTitle">UberEat配送到府</p>
+                      <p>+ NTD 120</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between SelectInput">
+                    <input
+                      name="delivery"
+                      type="Radio"
+                      label="GrabFood配送到府"
+                      value="GrabFood"
+                      onClick={() => setPickSend(120)}
+                    />
+                    <div className="PickSelection">
+                      <p className="SelectTitle">GrabFood配送到府</p>
+                      <p>+ NTD 120</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between SelectInput">
+                    <input
+                      name="delivery"
+                      type="Radio"
+                      label="FoodPanda配送到府"
+                      value="FoodPanda"
+                      onClick={() => setPickSend(120)}
+                    />
+                    <div className="PickSelection">
+                      <p className="SelectTitle">FoodPanda配送到府</p>
+                      <p>+ NTD 120</p>
+                    </div>
+                  </div>
+                  <div className="d-flex justify-content-between SelectInput">
+                    <input
+                      name="delivery"
+                      type="Radio"
+                      label="《燒》外送服務"
+                      value="SelfDev"
+                      onClick={() => setPickSend(50)}
+                    />
+                    <div className="PickSelection">
+                      <p className="SelectTitle">《燒》為你配送(30公里內)</p>
+                      <p>+ NTD 50</p>
+                    </div>
+                  </div>
 
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between SelectInput">
                     <span className="STtitle">結帳總計： </span>
                     <span className="STPrice">
                       {' '}

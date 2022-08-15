@@ -61,7 +61,7 @@
 .CartContainer{
     background-color: var(--grey);
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
 }
 .CartRow{
@@ -69,7 +69,7 @@
     background-size: cover;
     background-position: -10vw 0vh;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
 }
 
 .CartList {
@@ -194,6 +194,12 @@
     width: 80%;
 }
 
+.CTRow h4{
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
 .ShowTotal {
     font-size: 1.5rem;
     margin: 1.5vh 0;
@@ -208,4 +214,57 @@
 .STtitle {
     font-size: 1.5rem;
 
+}
+.PickSelection p{
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.PickSelection .SelectTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.SelectInput {
+    margin-bottom: 1.5rem;
+}
+.SelectInput input {
+    width: 1vw;
+    margin-left: 2vw;
+    
+}
+.SelectInput input:checked {
+    accent-color: var(--secondary);
+}
+
+.activeHideBar{
+    display: block;
+    background-color: var(--secondary);
+    color: var(--grey);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;align-items: center;
+    padding: 1.5vh 2vw;
+}
+.hidden {
+    display: none;
+}
+.activeHideBar .barBig{
+    color: var(--ThirdRed);
+    display: flex;
+}
+.barBig h4{
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.activeHideBar .OpenBox {
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    width: 3vw;
+    color: var(--grey);
+}
+
+.hidebox {
+    display: none;
 }
