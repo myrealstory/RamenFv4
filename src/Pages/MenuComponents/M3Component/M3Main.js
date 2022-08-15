@@ -4,8 +4,8 @@ import { useCart } from '../../components/CartComponent/Utils/useCart'
 
 function M3Main(props) {
   console.log('insideM3Main:', index)
-  const { value, index, arrayData ,showModal } = props
-  const {addItem} = useCart();
+  const { value, index, arrayData, showModal } = props
+  const { addItem } = useCart()
   const M3file = value
   const spicyLevel = value.SpicyLevel
   return (
@@ -61,7 +61,8 @@ function M3Main(props) {
           className="AddtoCart btn mt-4"
           type="button"
           onClick={() => {
-            const item = { ...M3file, quantity: 1 }
+            const item = { ...M3file, quantity: 1, id: M3file.product_sid, name: M3file.product_name }
+            console.log('addtocart:', M3file)
             addItem(item)
             showModal(M3file.product_name)
           }}
