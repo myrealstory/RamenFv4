@@ -1,6 +1,7 @@
 :root {
     --primary: #7a0000;
     --secondary: #FFB710;
+    --thirdYew:#FEDA85;
     --ThirdRed: #D84444;
     --orange:#EC391E;
     --pinkprm:#FF9494;
@@ -235,6 +236,16 @@
 }
 .SelectInput input:checked {
     accent-color: var(--secondary);
+}
+
+.payButton {
+    width: 90%;
+    background-color: var(--secondary);
+    color: var(--white);
+    padding: 1vh 0;
+    border: 0;
+    font-size: 1rem;
+    border-radius: 25px;
 }
 
 .activeHideBar{
