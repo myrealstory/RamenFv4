@@ -8,6 +8,17 @@ import MemberProvider from '../LoginComponents/MemberProvider'
 function Cart() {
   const [pickSend, setPickSend] = useState('')
   const [fillDocument, setFillDocument] = useState(false)
+  const [CartGo , setCartGo] = useState({
+    sid: '',
+    product_sid:'',
+    username:'',
+    Total_price:'',
+    product_sid:'',
+    amount:'',
+    price_amount:'',
+    status:'',
+    Sales_Order:''
+  })
   const [memberData] = useContext(MemberProvider)
   const {
     cart,
@@ -219,6 +230,12 @@ function Cart() {
                                   value={v.address}
                                 />
                               </div>
+                              <span className='UnderLine'> </span>
+                              <div>
+                                <label name="CreditCardNumber">
+                                  信用卡卡號
+                                </label>
+                              </div>
                             </div>
                           )
                         })
@@ -246,6 +263,11 @@ function Cart() {
                         <span>{`${cart.cartTotal + pickSend}`}</span>
                       </span>
                     </div>
+                  </div>
+                  <div>
+                    <button type='submit' name='LineButton' className='LinePay'>LinePay</button>
+                    <button type="submit" name='CreditCardPay' className='CreditCardPay'>信用卡結帳</button>
+                    <button type='submit' name='CollectSelf' className='CollectSelf'>餐點到付款</button>
                   </div>
                 </div>
               </form>
