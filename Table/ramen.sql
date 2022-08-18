@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306:4306
--- Generation Time: Aug 14, 2022 at 08:54 AM
+-- Generation Time: Aug 18, 2022 at 09:22 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -54,9 +54,11 @@ CREATE TABLE `member` (
   `sid` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `CustomerName` varchar(10) NOT NULL,
   `created_at` datetime NOT NULL,
   `mobile` int(10) DEFAULT NULL,
   `address` text DEFAULT NULL,
+  `Email` varchar(255) NOT NULL,
   `birthday` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -64,12 +66,13 @@ CREATE TABLE `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`sid`, `username`, `password`, `created_at`, `mobile`, `address`, `birthday`) VALUES
-(1, 'admintest', '$2a$10$CTRZ6TJoWyXWq.cGCkUwye5GflkjUjg3M1FOPVycupakjfIQLXfXi', '2022-07-01 09:39:02', 988123456, '12485798jbjfuvkbjhfgmj', '1989-12-06 15:39:02'),
-(3, 'Gordon', '$2a$10$huwo/nejZXa3RM6u747V3eWFoTfIHsZyL4xGaKm/7pSNksnsoVuJS', '2022-08-01 00:35:30', NULL, NULL, NULL),
-(4, 'chung', '$2a$10$JWp2hmvl7.LJeo.frXFwDe6x9tD5Z99Lz4NfXJTYEh7f4P7C//0BS', '2022-08-01 00:35:50', 985112346, '台北市 火星區 夢芭拉沙卡沙卡區 做夢街 666巷 1號 1樓', '1990-08-08 13:27:50'),
-(5, 'friend', '$2a$10$xrgdVPig0bEyasM.E51vMObFSw3VZhQctPdOmn8SDbl5.eiFq/w0K', '0000-00-00 00:00:00', 978653256, 'asdasfasdasdasdaasdasdasdasd', '2022-08-16 00:00:00'),
-(6, 'Lalala67', '$2a$10$ckeCaqh0pesPtPLnBHknjOF9Lr/gIToChOJSvP2F2Vc7rb.Q2EJ5i', '2022-08-08 01:40:57', 988555555, 'asdasfasdasdasdaasdasdasdasd', '2022-08-08 00:00:00');
+INSERT INTO `member` (`sid`, `username`, `password`, `CustomerName`, `created_at`, `mobile`, `address`, `Email`, `birthday`) VALUES
+(1, 'admintest', '$2a$10$CTRZ6TJoWyXWq.cGCkUwye5GflkjUjg3M1FOPVycupakjfIQLXfXi', '叫我主人', '2022-07-01 09:39:02', 988123456, '12485798jbjfuvkbjhfgmj', 'Helloworld123@gmail.com', '1989-12-06 15:39:02'),
+(3, 'Gordon', '$2a$10$huwo/nejZXa3RM6u747V3eWFoTfIHsZyL4xGaKm/7pSNksnsoVuJS', '高登', '2022-08-01 00:35:30', NULL, NULL, 'sqllogin32142@gmail.com', '1975-08-14 00:35:46'),
+(4, 'chung', '$2a$10$JWp2hmvl7.LJeo.frXFwDe6x9tD5Z99Lz4NfXJTYEh7f4P7C//0BS', '忠仔', '2022-08-01 00:35:50', 985112346, '台北市 火星區 夢芭拉沙卡沙卡區 做夢街 666巷 1號 1樓', 'nonoo1231252@gmail.com', '1990-08-08 13:27:50'),
+(5, 'friend', '$2a$10$xrgdVPig0bEyasM.E51vMObFSw3VZhQctPdOmn8SDbl5.eiFq/w0K', '好朋友', '0000-00-00 00:00:00', 978653256, 'asdasfasdasdasdaasdasdasdasd', 'friendfriend123@gmail.com', '2022-08-16 00:00:00'),
+(6, 'Lalala67', '$2a$10$ckeCaqh0pesPtPLnBHknjOF9Lr/gIToChOJSvP2F2Vc7rb.Q2EJ5i', '地板很濕', '2022-08-08 01:40:57', 988555555, 'asdasfasdasdasdaasdasdasdasd', 'lalalal1234@gmail.com', '2022-08-08 00:00:00'),
+(7, 'Lalala02', '$2a$10$leKp6Vzy4gAyVEwRQsPT8.DQ.QvfPqLi75XUcdn/2bkfPqzlmoUqq', '周杰倫', '2022-08-14 23:25:14', 988555555, 'asdasfasdasdasdaasdasdasdasd', 'cometomyhouse@gmail.com', '2022-08-16 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -103,24 +106,25 @@ INSERT INTO `news` (`SID`, `Title`, `Created_at`) VALUES
 CREATE TABLE `order_detail` (
   `sid` int(11) NOT NULL,
   `Sales_Order` int(11) NOT NULL,
-  `product_id` varchar(500) NOT NULL,
+  `product_sid` varchar(500) NOT NULL,
   `username` varchar(500) NOT NULL,
   `amount` int(11) NOT NULL,
-  `price_amount` int(11) NOT NULL
+  `price_amount` int(11) NOT NULL,
+  `Create_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `order_detail`
 --
 
-INSERT INTO `order_detail` (`sid`, `Sales_Order`, `product_id`, `username`, `amount`, `price_amount`) VALUES
-(1, 1, '1', 'admintest', 1, 230),
-(2, 1, '2', 'admintest', 1, 150),
-(5, 1, '18', 'admintest', 2, 300),
-(6, 2, '26', 'admintest', 2, 240),
-(7, 2, '12', 'admintest', 2, 200),
-(8, 3, '7', 'admintest', 1, 300),
-(9, 3, '3', 'admintest', 1, 250);
+INSERT INTO `order_detail` (`sid`, `Sales_Order`, `product_sid`, `username`, `amount`, `price_amount`, `Create_at`) VALUES
+(1, 1, '1', 'admintest', 1, 230, '2022-08-18'),
+(2, 1, '2', 'admintest', 1, 150, '2022-08-18'),
+(5, 1, '18', 'admintest', 2, 300, '2022-08-18'),
+(6, 2, '26', 'admintest', 2, 240, '2022-08-18'),
+(7, 2, '12', 'admintest', 2, 200, '2022-08-18'),
+(8, 3, '7', 'admintest', 1, 300, '2022-08-18'),
+(9, 3, '3', 'admintest', 1, 250, '2022-08-18');
 
 -- --------------------------------------------------------
 
@@ -308,7 +312,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `news`
