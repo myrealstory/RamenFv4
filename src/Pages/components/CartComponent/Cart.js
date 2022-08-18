@@ -1,24 +1,19 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import { useCart } from './Utils/useCart'
 import { Link } from 'react-router-dom'
 import CartModal from './CartModal'
 import { Form } from 'react-bootstrap'
 import MemberProvider from '../LoginComponents/MemberProvider'
+import { LIST_CART } from '../../../configs/AjaxPath'
+import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
 
 function Cart() {
-  const [pickSend, setPickSend] = useState('')
+  const ref = useRef(null)
+  const [pickSend, setPickSend] = useState(0)
   const [fillDocument, setFillDocument] = useState(false)
-  const [CartGo , setCartGo] = useState({
-    sid: '',
-    product_sid:'',
-    username:'',
-    Total_price:'',
-    product_sid:'',
-    amount:'',
-    price_amount:'',
-    status:'',
-    Sales_Order:''
-  })
+
+  const localMember = JSON.parse(localStorage.getItem('auth'))
+  const localCart = JSON.parse(localStorage.getItem('cart'))
   const [memberData] = useContext(MemberProvider)
   const {
     cart,
@@ -31,17 +26,54 @@ function Cart() {
     plusOne,
     minusOne,
   } = useCart()
-  function whenSubmit() { 
+  const [CartStorage, setCartStorage] = useState({
+    username: '',
+    mobile: '',
+    address: '',
+    Email: '',
+  })
+  const changeFields = (event) => {
+    const id = event.target.id
+    const val = event.target.value
+    console.log({ id, val })
 
+    setCartStorage({ ...CartStorage, [id]: val })
+  }
+
+  const whenSubmit = (event) => {
+    event.preventDefault();
+
+    const packagetoSend = {
+      usersid: localMember.sid,
+      username: localMember.account,
+      Total_Price: cart.cartTotal + pickSend,
+      status: '餐點到付款',
+      OrderDetail: localCart,
+      CustomerName: CartStorage.username,
+      CustomerEmail: CartStorage.Email,
+      CustomerMobile: CartStorage.mobile,
+      CustomerAddress: CartStorage.address,
+      Discount:null,
+    }
+    fetch(LIST_CART, {
+      method: 'POST',
+      body: JSON.stringify(packagetoSend),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((r) => r.json())
+      .then((result) => {
+        if (result.success) {
+          console.log('訂單：', result)
+          alert(`訂單已完成！馬上為您配送`)
+        }
+      })
   }
 
   useEffect(() => {
     return () => {}
   }, [])
-  const localMember = JSON.parse(localStorage.getItem('auth'))
-  const localCart = JSON.parse(localStorage.getItem('cart'))
-  console.log('localMember', localMember)
-  console.log('localCart', localCart)
   return (
     <div className="CartContainer">
       <div className="CartRow">
@@ -59,7 +91,7 @@ function Cart() {
                   setFillDocument(false)
                 }}
               >
-                <i class="fa-solid fa-angles-down"></i>
+                <i className="fa-solid fa-angles-down"></i>
               </button>
             </div>
           </div>
@@ -133,7 +165,7 @@ function Cart() {
                       type="Radio"
                       label="《燒》外送服務"
                       value="SelfDev"
-                      onClick={() => setPickSend(50)}
+                      onChange={() => setPickSend(50)}
                     />
                     <div className="PickSelection">
                       <p className="SelectTitle">《燒》為你配送(30公里內)</p>
@@ -149,15 +181,14 @@ function Cart() {
                     </span>
                     {/* {`${cart.cartTotal +pickSend}`} */}
                   </div>
-                  <button
-                    type="button"
+                  <div
                     onClick={() => {
                       setFillDocument(true)
                     }}
-                    className="payButton"
+                    className="payButton mt-5"
                   >
                     <div> 付費方式</div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -168,107 +199,171 @@ function Cart() {
               fillDocument ? 'active CartInfoBox' : 'hidden CartInfoBox'
             }
           >
-            <div>
+            <div className="">
               <form
                 action=""
                 name="form2"
-                onSubmit={whenSubmit()}
+                onSubmit={whenSubmit}
                 className="d-flex justify-content-between"
               >
-                <div className="CartBox">
-                  {!!memberData && memberData.length
-                    ? memberData
-                        .filter((v, i) => {
-                          return v.sid === localMember.sid
-                        })
-                        .map((v, i) => {
-                          return (
-                            <div key={v.sid} className>
-                              <div className="d-flex justify-content-around">
-                                <div>
-                                  <label htmlFor="" name="CustomerName">
-                                    姓名：
-                                  </label>
-                                  <input
-                                    type="text"
-                                    className="CustomerName"
-                                    name="CustomerName"
-                                    value={v.CustomerName}
-                                  />
+                <div className="CartBox yellowBG mt-5">
+                  <div className="CartDetail">
+                    {!!memberData && memberData.length
+                      ? memberData
+                          .filter((v, i) => {
+                            return v.sid === localMember.sid
+                          })
+                          .map((v, i) => {
+                            return (
+                              <div key={v.sid} className>
+                                <div className="d-flex justify-content-around mt-3">
+                                  <div>
+                                    <label htmlFor="" name="CustomerName">
+                                      姓名：
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="DetailInput CName"
+                                      name="CustomerName"
+                                      value={
+                                        v.CustomerName
+                                          ? (CartStorage.username =
+                                              v.CustomerName)
+                                          : CartStorage.username
+                                      }
+                                      ref={ref}
+                                      onChange={changeFields}
+                                    />
+                                  </div>
+                                  <div>
+                                    <label htmlFor="" name="CustomerEmail">
+                                      郵箱：
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="DetailInput"
+                                      name="CustomerEmail"
+                                      ref={ref}
+                                      value={
+                                        v.Email.length
+                                          ? (CartStorage.Email = v.Email)
+                                          : CartStorage.Email
+                                      }
+                                      onChange={changeFields}
+                                    />
+                                  </div>
+                                  <div>
+                                    <label htmlFor="" name="CustomerMobile">
+                                      電話號碼：
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="DetailInput CMobile"
+                                      name="CustomerMobile"
+                                      ref={ref}
+                                      value={
+                                        v.mobile
+                                          ? (CartStorage.mobile = v.mobile)
+                                          : CartStorage.mobile
+                                      }
+                                      onChange={changeFields}
+                                    />
+                                  </div>
                                 </div>
                                 <div>
-                                  <label htmlFor="" name="CustomerEmail">
-                                    郵箱：
-                                  </label>
-                                  <input
-                                    type="text"
-                                    className="CustomerEmail"
-                                    name="CustomerEmail"
-                                    value={v.Email}
-                                  />
+                                  <div>
+                                    <label htmlFor="" name="CustomerAddress">
+                                      配送地址：
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="DetailInput CAddress"
+                                      name="CustomerAddress"
+                                      ref={ref}
+                                      value={
+                                        v.address
+                                          ? (CartStorage.address = v.address)
+                                          : CartStorage.address
+                                      }
+                                      onChange={changeFields}
+                                    />
+                                  </div>
                                 </div>
+                                <div className="UnderLine mt-5 mb-5"> </div>
                                 <div>
-                                  <label htmlFor="" name="CustomerMobile">
-                                    電話號碼：
-                                  </label>
-                                  <input
-                                    type="text"
-                                    className="CustomerMobile"
-                                    name="CustomerMobile"
-                                    value={v.mobile}
-                                  />
+                                  <div>
+                                    <h4 className="IconSize DarkColor">
+                                      <i class="fa-solid fa-lock mr-3"></i>
+                                      謹慎理財 信用至上
+                                    </h4>
+                                    <p className="DarkColor Psize">
+                                      回饋與(或寄送)當日前，正卡申請人有以下情況者，即自動喪失參加本活動之資格，申請人所獲得之好禮回饋應於滙豐銀行查明或知悉有該等情事時立即失效，申請人亦不得要求將好禮回饋折換現金或折抵消費金額。(1)信用卡(含正、附卡)遭強制停用、停卡、掛失不補發。(2)非持卡本人交易款項(如遺失被竊、偽卡交易、偽冒申請)。(3)持卡人有信用卡約定條款所列喪失期限利益等情事。
+                                    </p>
+                                  </div>
+                                </div>
+                                <div className="d-flex justify-content-around mt-5">
+                                  <button
+                                    type="submit"
+                                    name="LineButton"
+                                    className="LinePay mb-3 mr-3 SubmitBtn"
+                                  >
+                                    LinePay
+                                  </button>
+                                  <button
+                                    type="submit"
+                                    name="CreditCardPay"
+                                    className="CreditCardPay mb-3 mr-3 SubmitBtn"
+                                  >
+                                    信用卡結帳
+                                  </button>
+                                  <button
+                                    type="submit"
+                                    name="CollectSelf"
+                                    className="CollectSelf mb-3 SubmitBtn"
+                                  >
+                                    餐點到付款
+                                  </button>
                                 </div>
                               </div>
-                              <div>
-                                <label htmlFor="" name="CustomerAddress">
-                                  配送地址：
-                                </label>
-                                <input
-                                  type="text"
-                                  className="CustomerAddress"
-                                  name="CustomerAddress"
-                                  value={v.address}
-                                />
-                              </div>
-                              <span className='UnderLine'> </span>
-                              <div>
-                                <label name="CreditCardNumber">
-                                  信用卡卡號
-                                </label>
-                              </div>
-                            </div>
-                          )
-                        })
-                    : null}
+                            )
+                          })
+                      : null}
+                  </div>
                 </div>
-                <div className="CartTotal">
-                  <div className="CTRow">
-                    <h4>即將為您準備餐點...</h4>
-                    {localCart.map((v, i) => {
-                      return (
-                        <div className="" key={v.product_sid}>
-                          <h4>{v.product_name}</h4>
-                          <div className="d-flex justify-content-between">
-                            <span>{`+ ${v.quantity}`}</span>
-                            <span>{`NTD ${v.price * v.quantity}`}</span>
+                <div className="CartTotal mt-5">
+                  <div className="d-flex justify-content-center">
+                    <div className="CTRow">
+                      <h4>即將為您準備餐點...</h4>
+                      {localCart.map((v, i) => {
+                        return (
+                          <div key={v.product_sid}>
+                            <h4 className="FTotalTitle">{v.product_name}</h4>
+                            <div className="d-flex justify-content-between">
+                              <span className="FTotalPrice">{`+ ${v.quantity}`}</span>
+                              <span className="FTotalPrice">{`NTD ${
+                                v.price * v.quantity
+                              }`}</span>
+                            </div>
                           </div>
-                        </div>
-                      )
-                    })}
-                    <div className="d-flex justify-content-between SecondTotal">
-                      <span>結帳總計</span>
-                      <span>
-                        {' '}
-                        <p className="SecondMoneylogo">NTD</p>
-                        <span>{`${cart.cartTotal + pickSend}`}</span>
-                      </span>
+                        )
+                      })}
+                      <div className="d-flex justify-content-between SecondTotal mt-5">
+                        <span className="FSTitle onepb">結帳總計</span>
+                        <p>
+                          {' '}
+                          <span className="FSTitle">NTD</span>
+                          <span className="STotalMoney">{`${
+                            cart.cartTotal + pickSend
+                          }`}</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <button type='submit' name='LineButton' className='LinePay'>LinePay</button>
-                    <button type="submit" name='CreditCardPay' className='CreditCardPay'>信用卡結帳</button>
-                    <button type='submit' name='CollectSelf' className='CollectSelf'>餐點到付款</button>
-                  </div>
+                  <div></div>
                 </div>
               </form>
             </div>

@@ -18,8 +18,6 @@ function RegisterModal() {
   const [validPwd, setValidPwd] = useState(false)
   const [pwdFocus, setPwdFocus] = useState(false)
   const [matchPwd, setMatchPwd] = useState('')
-  const [validMatch, setValidMatch] = useState(false)
-  const [matchFocus, setMatchFocus] = useState(false)
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
   const [myForm, setMyForm] = useState({

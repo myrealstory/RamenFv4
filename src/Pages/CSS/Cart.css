@@ -94,9 +94,48 @@
 }
 
 .CartBox {
-    width: 70%;
+    width: 58vw;
+    text-align: left;
 }
 
+.CartDetail{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.CartDetail label{
+    font-size: 1rem;
+    color: var(--orange);
+}
+
+.DetailInput {
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    border-bottom: 2px solid var(--orange) !important;
+    margin-right: 2vw;
+    margin-bottom: 2vh;
+    font-size: 2rem;
+} 
+.CMobile {
+    width: 12vw;
+}
+.CName {
+    width: 10vw;
+}
+
+.CAddress {
+    width: 100%;
+}
+
+.UnderLine {
+    border-bottom: 3px dashed var(--secondary);
+}
+
+
+.yellowBG {
+    background-color: #feda85bc;
+    border-radius: 25px;
+}
 
 
 .CartTable thead{
@@ -107,6 +146,8 @@
 .CartTable tr {
     display: flex;
     text-align: center;
+    /* border-top: 1px solid var(--secondary) !important; */
+    border-bottom: 1px solid var(--secondary);
 }
 
 .CartTable tr th {
@@ -131,11 +172,6 @@
 }
 .Yellow {
     color: var(--secondary) !important;
-}
-
-.CartTable tbody {
-    border-top: 1px solid var(--secondary) !important;
-    border-bottom: 1px solid var(--secondary);
 }
 
 .CartImg {
@@ -188,11 +224,10 @@
     width: 25%;
     background-color: var(--HollowW);
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
 }
 .CTRow {
     width: 80%;
+    margin: 0 auto;
 }
 
 .CTRow h4{
@@ -219,6 +254,7 @@
 .PickSelection p{
     font-size: 1.2rem;
     text-align: right;
+    color: var(--grey);
 }
 
 .PickSelection .SelectTitle {
@@ -238,8 +274,12 @@
     accent-color: var(--secondary);
 }
 
+.SelectInput input:checked + .PickSelection p {
+    color: var(--black);
+}
+
 .payButton {
-    width: 90%;
+    width: 100%;
     background-color: var(--secondary);
     color: var(--white);
     padding: 1vh 0;
@@ -278,4 +318,68 @@
 
 .hidebox {
     display: none;
+}
+
+.SubmitBtn {
+     padding: 1vh;
+    color: var(--white);
+    font-size: 1rem;
+    width: 80%;
+    border-radius: 25px;
+    border: 0;
+}
+
+.LinePay {
+    background-color:#06C755;
+}
+
+.CreditCardPay{
+    background-color: rgb(24, 103, 200);
+}
+
+.CollectSelf{
+     background-color:var(--secondary);
+}
+
+.DarkColor {
+    color: var(--black);
+}
+.DarkColor i{
+    height: 2vh;
+}
+.IconSize {
+    font-size: 2rem;
+}
+
+.CartInfoBox {
+    width: 100%;
+}
+.Psize {
+    font-size: 1rem;
+}
+
+/*______CartTotal___Final before Submit last Checked_____*/
+.SecondTotal {
+    align-items: end;
+}
+.FTotalTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.FTotalPrice {
+    color: var(--secondary);
+    font-size: 1.3rem;
+}
+.FSTitle{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.STotalMoney {
+    color: var(--primary);
+    font-size: 3rem;
+    font-weight: 700;
+}
+.onepb {
+    padding-bottom: 1vh;
 }
