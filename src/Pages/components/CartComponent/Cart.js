@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from 'react'
 import { useCart } from './Utils/useCart'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import CartModal from './CartModal'
 import { Form } from 'react-bootstrap'
 import MemberProvider from '../LoginComponents/MemberProvider'
@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fon
 
 function Cart() {
   const ref = useRef(null)
+  const navigate = useNavigate()
   const [pickSend, setPickSend] = useState(0)
   const [fillDocument, setFillDocument] = useState(false)
 
@@ -41,7 +42,7 @@ function Cart() {
   }
 
   const whenSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     const packagetoSend = {
       usersid: localMember.sid,
@@ -53,7 +54,7 @@ function Cart() {
       CustomerEmail: CartStorage.Email,
       CustomerMobile: CartStorage.mobile,
       CustomerAddress: CartStorage.address,
-      Discount:null,
+      Discount: null,
     }
     fetch(LIST_CART, {
       method: 'POST',
@@ -64,9 +65,12 @@ function Cart() {
     })
       .then((r) => r.json())
       .then((result) => {
+        // console.log(result);
         if (result.success) {
           console.log('訂單：', result)
-          alert(`訂單已完成！馬上為您配送`)
+          alert(`訂單已完成！幫您跳轉到商品頁面...`)
+          localStorage.removeItem('cart')
+          window.location.href = '/FoodMenu'
         }
       })
   }
@@ -125,8 +129,7 @@ function Cart() {
                       name="delivery"
                       type="Radio"
                       label="UberEat配送到府"
-                      value="UberEat"
-                      onChange={() => setPickSend(120)}
+                      onClick={() => setPickSend(120)}
                     />
                     <div className="PickSelection">
                       <p className="SelectTitle">UberEat配送到府</p>
@@ -138,8 +141,7 @@ function Cart() {
                       name="delivery"
                       type="Radio"
                       label="GrabFood配送到府"
-                      value="GrabFood"
-                      onChange={() => setPickSend(120)}
+                      onClick={() => setPickSend(120)}
                     />
                     <div className="PickSelection">
                       <p className="SelectTitle">GrabFood配送到府</p>
@@ -151,8 +153,7 @@ function Cart() {
                       name="delivery"
                       type="Radio"
                       label="FoodPanda配送到府"
-                      value="FoodPanda"
-                      onChange={() => setPickSend(120)}
+                      onClick={() => setPickSend(120)}
                     />
                     <div className="PickSelection">
                       <p className="SelectTitle">FoodPanda配送到府</p>
@@ -164,8 +165,10 @@ function Cart() {
                       name="delivery"
                       type="Radio"
                       label="《燒》外送服務"
-                      value="SelfDev"
-                      onChange={() => setPickSend(50)}
+                      onClick={() => {
+                        setPickSend(50)
+                        console.log(pickSend)
+                      }}
                     />
                     <div className="PickSelection">
                       <p className="SelectTitle">《燒》為你配送(30公里內)</p>

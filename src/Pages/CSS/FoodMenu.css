@@ -125,7 +125,7 @@ position: relative;
 
 @media screen and (max-width: 1280px) {
       .MBodyMenu{
-        height: 780vh;
+        height: 850vh;
     }
     .BContent h3 {
         font-size: 3.5rem;
@@ -144,7 +144,7 @@ position: relative;
         width: 55vw;
     }
 }
-@media screen and (min-width:2000px) {
+@media screen and (min-width:1920px) {
     .MBodyMenu{
         height: 715vh;
     }
