@@ -6,6 +6,7 @@ import { Form } from 'react-bootstrap'
 import MemberProvider from '../LoginComponents/MemberProvider'
 import { LIST_CART } from '../../../configs/AjaxPath'
 import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
+import { LIST_GET_MEMBER } from '../../../Pages/components/LoginComponents/MemberProvider'
 
 function Cart() {
   const ref = useRef(null)
@@ -15,7 +16,13 @@ function Cart() {
 
   const localMember = JSON.parse(localStorage.getItem('auth'))
   const localCart = JSON.parse(localStorage.getItem('cart'))
-  const [memberData] = useContext(MemberProvider)
+  const [memberData, setMemberData] = useState({})
+
+  const getInfo = async () => {
+    const rMember = await fetch(LIST_GET_MEMBER)
+    const rMemberJson = await rMember.json()
+    setMemberData(rMemberJson)
+  }
   const {
     cart,
     items,
@@ -76,6 +83,7 @@ function Cart() {
   }
 
   useEffect(() => {
+    getInfo()
     return () => {}
   }, [])
   return (
@@ -190,7 +198,7 @@ function Cart() {
                     }}
                     className="payButton mt-5"
                   >
-                    <div> 付費方式</div>
+                    <div> 資料填寫</div>
                   </div>
                 </div>
               </div>
@@ -202,7 +210,7 @@ function Cart() {
               fillDocument ? 'active CartInfoBox' : 'hidden CartInfoBox'
             }
           >
-            <div className="">
+            <div className="mb-5">
               <form
                 action=""
                 name="form2"
@@ -211,7 +219,7 @@ function Cart() {
               >
                 <div className="CartBox yellowBG mt-5">
                   <div className="CartDetail">
-                    {!!memberData && memberData.length
+                    {!!localMember && !!memberData && memberData.length
                       ? memberData
                           .filter((v, i) => {
                             return v.sid === localMember.sid
@@ -267,6 +275,7 @@ function Cart() {
                                       className="DetailInput CMobile"
                                       name="CustomerMobile"
                                       ref={ref}
+                                      pattern="09\d{8}\"
                                       value={
                                         v.mobile
                                           ? (CartStorage.mobile = v.mobile)

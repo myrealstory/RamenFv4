@@ -3,7 +3,6 @@ import ChilliIcon from '../../img/SVG/ChiliIcon.svg'
 import { useCart } from '../../components/CartComponent/Utils/useCart'
 
 function M3Main(props) {
-  console.log('insideM3Main:', index)
   const { value, index, arrayData, showModal } = props
   const { addItem } = useCart()
   const M3file = value
@@ -58,11 +57,16 @@ function M3Main(props) {
         <div className="borderBottom mt-2 mb-2"></div>
         <p className="ContentsDescription mb-2">{M3file.product_description}</p>
         <button
-          className="AddtoCart btn mt-4"
+          className="AddtoCart btn mt-4 Yellow"
           type="button"
           onClick={() => {
-            const item = { ...M3file, quantity: 1, id: M3file.product_sid, name: M3file.product_name }
-            console.log('addtocart:', M3file)
+            const item = {
+              ...M3file,
+              quantity: 1,
+              id: M3file.product_sid,
+              name: M3file.product_name,
+            }
+            // console.log('addtocart:', M3file)
             addItem(item)
             showModal(M3file.product_name)
           }}

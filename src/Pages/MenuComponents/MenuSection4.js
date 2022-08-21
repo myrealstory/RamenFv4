@@ -9,8 +9,8 @@ function MenuSection4(props) {
   const [arrayData, setArrayData] = useState(0)
 
   const [menuData] = useContext(FileMenuInfo)
-  console.log('MenuSec4:', menuData)
-  console.log('menuData', menuData)
+  // console.log('MenuSec4:', menuData)
+  // console.log('menuData', menuData)
   return (
     <>
       <div className="Mec2 pb-8">
@@ -37,7 +37,7 @@ function MenuSection4(props) {
             ? menuData[0]
                 .filter((v, i) => v.FoodType === 'Sub')
                 .map((value, index) => {
-                  console.log('menu3dot:', value)
+                  {/* console.log('menu3dot:', value) */}
                   return (
                     <M4Dot
                       value={value}

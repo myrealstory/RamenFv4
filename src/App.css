@@ -132,6 +132,14 @@ p{
   font-size: 1.4vw;
 }
 } 
+@media screen and (max-width: 1903px) {
+  .navbar{
+  left: 50% !important;
+  transform: translateX(-50%) !important; 
+  z-index: 1000;
+  /* width: 100vw; */
+}
+}
 
 /*___Footer____*/
 
@@ -331,7 +339,7 @@ p{
   }
   
 }
-@media screen and (min-width:2000px){
+@media screen and (min-width:1903px){
   .FootContainer {
     padding-top:2vh;
   }

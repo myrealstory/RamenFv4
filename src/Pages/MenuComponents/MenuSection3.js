@@ -9,8 +9,8 @@ function MenuSection3(props) {
   const [arrayData, setArrayData] = useState(0)
 
   const [menuData] = useContext(FileMenuInfo)
-  console.log('MenuSec3:', menuData)
-  console.log('menuData', menuData)
+  // console.log('MenuSec3:', menuData)
+  // console.log('menuData', menuData)
   return (
     <>
       <div className="Mec2">
@@ -19,7 +19,7 @@ function MenuSection3(props) {
             ? menuData[0]
                 .filter((v, i) => v.FoodType === 'Main')
                 .map((value, index) => {
-                  console.log('menu3Main:', index)
+                  {/* console.log('menu3Main:', index) */}
                   return (
                     <M3Main
                       value={value}

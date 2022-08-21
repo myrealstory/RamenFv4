@@ -287,10 +287,11 @@ background-repeat: repeat-x;
     }
 }
 
-@media screen and (min-width:2000px) {
+@media screen and (min-width:1903px) {
     
     .borderdotBottom::after{
-    bottom: -85vh; left: 0;
+    bottom: -5vh; left: 0;
+    height: 2px;
 }
 
 .Msec2Image{
@@ -307,6 +308,9 @@ background-repeat: repeat-x;
 .MS2Price{
 
     font-size: 3rem;
+}
+.MBodyMenu {
+    height: 802vh;
 }
 }
 
@@ -409,7 +413,7 @@ background-repeat: repeat-x;
 .TabsContents .AddtoCart {
     display: flex;
     justify-content: end;
-    color: var(--secondary);
+    color: var(--orange);
     position: relative;
     width: 100%;
     cursor: pointer;
@@ -471,4 +475,8 @@ background-repeat: repeat-x;
     width: 35vw;
     padding:10vh 0;
 }
+}
+
+.Yellow {
+    color: var(--secondary) !important;
 }

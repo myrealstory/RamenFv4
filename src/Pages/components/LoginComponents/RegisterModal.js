@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect ,useContext} from 'react'
 import { REGISTER_API } from '../../../configs/AjaxPath'
 import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
 import {
@@ -6,10 +6,14 @@ import {
   faTimes,
   faInfoCircle,
 } from '../../../../node_modules/@fortawesome/free-solid-svg-icons'
+import sqlLoginContext from './sqlLoginContext'
+import { useNavigate} from 'react-router-dom'
 
 function RegisterModal() {
   const USER_REGEX = /^[A-z\][a-z0-9-_]{3,23}$/
   const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
+  const { setAuth } = useContext(sqlLoginContext);
+  const navigate = useNavigate();
 
   const userRef = useRef()
   const errRef = useRef()
@@ -23,6 +27,8 @@ function RegisterModal() {
   const [myForm, setMyForm] = useState({
     username: '',
     password: '',
+    CustomerName: '',
+    Email: '',
     mobile: '',
     address: '',
     birthday: '',
@@ -73,6 +79,8 @@ function RegisterModal() {
         if (result.success) {
           setSuccess(true)
           alert(`'${myForm.username} Registered had been Successful'`)
+         navigate('/')
+
         }
       })
   }
@@ -136,6 +144,17 @@ function RegisterModal() {
                   Letters, numbers, underscores, htphens allowed.
                 </p>
 
+                <label htmlFor="CustomerName">Insert Your Name : </label>
+                <input
+                  type="text"
+                  name="CustomerName"
+                  id="CustomerName"
+                  placeholder="請輸入您的名字"
+                  className="LoginInput"
+                  value={myForm.CustomerName}
+                  onChange={changeFields}
+                />
+
                 <label htmlFor="Mobile">Insert Your Mobile Number : </label>
                 <input
                   type="text"
@@ -156,7 +175,6 @@ function RegisterModal() {
                   value={myForm.birthday}
                   onChange={changeFields}
                 />
-               
               </div>
               <div className="ml-3">
                 <label htmlFor="password">
@@ -208,6 +226,17 @@ function RegisterModal() {
                   <span aria-label="percent">%</span>
                 </p>
 
+                <label htmlFor="Email">Insert Your Email : </label>
+                <input
+                  type="text"
+                  name="Email"
+                  id="Email"
+                  placeholder="請輸入您的郵箱"
+                  className="LoginInput"
+                  value={myForm.Email}
+                  onChange={changeFields}
+                />
+
                 <label htmlFor="address">Insert Your Home address : </label>
                 <input
                   type="text"
@@ -218,13 +247,11 @@ function RegisterModal() {
                   value={myForm.address}
                   onChange={changeFields}
                 />
-                 
               </div>
-              
             </div>
             <button type="submit" className="LoginBtn">
-                  確認註冊
-                </button>
+              確認註冊
+            </button>
           </form>
         </div>
       </div>

@@ -211,7 +211,7 @@ content: '';
         top: 25%;
     }
 }
-@media screen and (min-width:2000px){
+@media screen and (min-width:1903px){
     .RamenSec1 {
         top: 22%;
     }
@@ -335,6 +335,12 @@ content: '';
     .ScrollBG {
         width: 700px;
         transform: translateX(-32rem);
+    }
+}
+@media screen and (max-width: 1903px){
+      .ScrollBG {
+        width: 841px;
+        transform: translateX(-48rem);
     }
 }
 @media screen and (max-width: 375px){
@@ -685,6 +691,11 @@ font-size: 1.5vw !important;
 
     }
 }
+@media screen and (max-width: 1903px){
+    .Sec5Image {
+        width: 60%;
+}
+}
 
 /*_____Sec6_____*/
 
@@ -800,7 +811,17 @@ font-size: 1.5vw !important;
     font-size: 1rem;
 }
 
-} /* @media css*/
+} 
+/* @media css*/
+@media screen and (max-width: 1903px){
+
+    .Sec6Orderbox{
+    width: 31vw;
+}
+.sec6Title span{
+    font-size: 4.3rem;
+}
+}
 
 
 /*___Login page__*/
