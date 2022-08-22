@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306:4306
--- Generation Time: Aug 18, 2022 at 09:22 PM
+-- Generation Time: Aug 22, 2022 at 07:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -56,7 +56,7 @@ CREATE TABLE `member` (
   `password` varchar(255) NOT NULL,
   `CustomerName` varchar(10) NOT NULL,
   `created_at` datetime NOT NULL,
-  `mobile` int(10) DEFAULT NULL,
+  `mobile` varchar(10) DEFAULT NULL,
   `address` text DEFAULT NULL,
   `Email` varchar(255) NOT NULL,
   `birthday` datetime DEFAULT NULL
@@ -67,12 +67,21 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`sid`, `username`, `password`, `CustomerName`, `created_at`, `mobile`, `address`, `Email`, `birthday`) VALUES
-(1, 'admintest', '$2a$10$CTRZ6TJoWyXWq.cGCkUwye5GflkjUjg3M1FOPVycupakjfIQLXfXi', '叫我主人', '2022-07-01 09:39:02', 988123456, '12485798jbjfuvkbjhfgmj', 'Helloworld123@gmail.com', '1989-12-06 15:39:02'),
-(3, 'Gordon', '$2a$10$huwo/nejZXa3RM6u747V3eWFoTfIHsZyL4xGaKm/7pSNksnsoVuJS', '高登', '2022-08-01 00:35:30', NULL, NULL, 'sqllogin32142@gmail.com', '1975-08-14 00:35:46'),
-(4, 'chung', '$2a$10$JWp2hmvl7.LJeo.frXFwDe6x9tD5Z99Lz4NfXJTYEh7f4P7C//0BS', '忠仔', '2022-08-01 00:35:50', 985112346, '台北市 火星區 夢芭拉沙卡沙卡區 做夢街 666巷 1號 1樓', 'nonoo1231252@gmail.com', '1990-08-08 13:27:50'),
-(5, 'friend', '$2a$10$xrgdVPig0bEyasM.E51vMObFSw3VZhQctPdOmn8SDbl5.eiFq/w0K', '好朋友', '0000-00-00 00:00:00', 978653256, 'asdasfasdasdasdaasdasdasdasd', 'friendfriend123@gmail.com', '2022-08-16 00:00:00'),
-(6, 'Lalala67', '$2a$10$ckeCaqh0pesPtPLnBHknjOF9Lr/gIToChOJSvP2F2Vc7rb.Q2EJ5i', '地板很濕', '2022-08-08 01:40:57', 988555555, 'asdasfasdasdasdaasdasdasdasd', 'lalalal1234@gmail.com', '2022-08-08 00:00:00'),
-(7, 'Lalala02', '$2a$10$leKp6Vzy4gAyVEwRQsPT8.DQ.QvfPqLi75XUcdn/2bkfPqzlmoUqq', '周杰倫', '2022-08-14 23:25:14', 988555555, 'asdasfasdasdasdaasdasdasdasd', 'cometomyhouse@gmail.com', '2022-08-16 00:00:00');
+(1, 'admintest', '$2a$10$CTRZ6TJoWyXWq.cGCkUwye5GflkjUjg3M1FOPVycupakjfIQLXfXi', '叫我主人', '2022-07-01 09:39:02', '0988123456', '12485798jbjfuvkbjhfgmj', 'Helloworld123@gmail.com', '1989-12-06 15:39:02'),
+(3, 'Gordon', '$2a$10$huwo/nejZXa3RM6u747V3eWFoTfIHsZyL4xGaKm/7pSNksnsoVuJS', '高登', '2022-08-01 00:35:30', '0966365985', NULL, 'sqllogin32142@gmail.com', '1975-08-14 00:35:46'),
+(4, 'chung', '$2a$10$JWp2hmvl7.LJeo.frXFwDe6x9tD5Z99Lz4NfXJTYEh7f4P7C//0BS', '忠仔', '2022-08-01 00:35:50', '0985112346', '台北市 火星區 夢芭拉沙卡沙卡區 做夢街 666巷 1號 1樓', 'nonoo1231252@gmail.com', '1990-08-08 13:27:50'),
+(5, 'friend', '$2a$10$xrgdVPig0bEyasM.E51vMObFSw3VZhQctPdOmn8SDbl5.eiFq/w0K', '好朋友', '0000-00-00 00:00:00', '0978653256', 'asdasfasdasdasdaasdasdasdasd', 'friendfriend123@gmail.com', '2022-08-16 00:00:00'),
+(6, 'Lalala67', '$2a$10$ckeCaqh0pesPtPLnBHknjOF9Lr/gIToChOJSvP2F2Vc7rb.Q2EJ5i', '地板很濕', '2022-08-08 01:40:57', '0988555555', 'asdasfasdasdasdaasdasdasdasd', 'lalalal1234@gmail.com', '2022-08-08 00:00:00'),
+(7, 'Lalala02', '$2a$10$leKp6Vzy4gAyVEwRQsPT8.DQ.QvfPqLi75XUcdn/2bkfPqzlmoUqq', '周杰倫', '2022-08-14 23:25:14', '0988555555', 'asdasfasdasdasdaasdasdasdasd', 'cometomyhouse@gmail.com', '2022-08-16 00:00:00'),
+(8, 'lalala3', '$2a$10$6SLky.Q/YpRoltA5ov.ILOKvXkfKwYyeH0PzNYh6COMX5Cv1IXv4a', '', '2022-08-21 00:13:39', '0955664433', '新北市三重區靠海邊地區55號', '', '2022-08-21 00:00:00'),
+(9, 'lalala4', '$2a$10$K4OrP.QkEljfgKTqqF2jsuiyO2zTblr.JILv7CZljdpgH6inLY1ea', '', '2022-08-21 00:16:26', '0988555555', '新北市三重區靠海邊地區55號', '', '2022-08-21 00:00:00'),
+(10, 'lalala5', '$2a$10$ihy5XGebhfVDfmFOaEgVpulFvx1K/O9GBpOCeZKfUJJxqYnCKViRS', '', '2022-08-21 00:18:56', '0988555555', '台北市外星區在大樹旁邊99號', '', '2022-08-21 00:00:00'),
+(11, 'lalala6', '$2a$10$Mzv/bSiaIZULPmM6BIpkSuyob39c9fnlVZkYjTw7cEnirQ.nXbx9a', '流口水', '2022-08-21 11:59:20', '0988555555', '新北市三重區靠海邊地區77號', '321365asdasd@gmail.com', '2022-08-23 00:00:00'),
+(12, 'lalala7', '$2a$10$B9mCEv1cYtBfw0yax9mXQOS0iVdrfP7z7bQ5WgEUgkL9h.Xj.NSi2', '劉嘉玲', '2022-08-21 12:51:31', '0956333222', '新北市三重區靠海邊地區55號', '15641651asd@gmail.com', '2022-08-09 00:00:00'),
+(13, 'lalala8', '$2a$10$lQfyYoDtFIGcad0iN4kgPetsoYSKc/uKR1FNI9KJV7EVFfjqv9GoW', '劉莉莉', '2022-08-21 13:17:26', '0988555555', '新北市三重區靠海邊地區55號', '321365asdasd@gmail.com', '2022-08-24 00:00:00'),
+(14, 'lalala9', '$2a$10$XOOiG4oPlx1qFDLQJw8jLOyfsil8N5qKc38WRptUPnCVBgofytqW6', '劉莉哭', '2022-08-21 13:34:59', '0988555555', '新北市三重區靠海邊地區55號', '321365asdasd@gmail.com', '2022-08-26 00:00:00'),
+(16, 'lalala10', '$2a$10$fpxfeXGh2ZF0s1mCCKG1uuwXStXOc5HLeZSICBDGQc0XTjE1VTy3i', '靠北考步', '2022-08-21 14:19:08', '0966334477', '新北市三重區靠海邊地區33號', '321365asdasd@gmail.com', '2022-08-10 00:00:00'),
+(17, 'lalala11', '$2a$10$xm13Nc/ouPAEV6ToBb2pyeil8NfdAghwOZp1mQ6FYbwdizfmGSRFi', '靠北考妹', '2022-08-21 14:19:58', '0933665544', '新北市三重區靠海邊地區88號', '321365asdasd@gmail.com', '2022-08-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -107,7 +116,10 @@ CREATE TABLE `order_detail` (
   `sid` int(11) NOT NULL,
   `Sales_Order` int(11) NOT NULL,
   `product_sid` varchar(500) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
   `username` varchar(500) NOT NULL,
+  `CustomerName` varchar(255) NOT NULL,
+  `Mobile` varchar(10) NOT NULL,
   `amount` int(11) NOT NULL,
   `price_amount` int(11) NOT NULL,
   `Create_at` date NOT NULL DEFAULT current_timestamp()
@@ -117,14 +129,26 @@ CREATE TABLE `order_detail` (
 -- Dumping data for table `order_detail`
 --
 
-INSERT INTO `order_detail` (`sid`, `Sales_Order`, `product_sid`, `username`, `amount`, `price_amount`, `Create_at`) VALUES
-(1, 1, '1', 'admintest', 1, 230, '2022-08-18'),
-(2, 1, '2', 'admintest', 1, 150, '2022-08-18'),
-(5, 1, '18', 'admintest', 2, 300, '2022-08-18'),
-(6, 2, '26', 'admintest', 2, 240, '2022-08-18'),
-(7, 2, '12', 'admintest', 2, 200, '2022-08-18'),
-(8, 3, '7', 'admintest', 1, 300, '2022-08-18'),
-(9, 3, '3', 'admintest', 1, 250, '2022-08-18');
+INSERT INTO `order_detail` (`sid`, `Sales_Order`, `product_sid`, `product_name`, `username`, `CustomerName`, `Mobile`, `amount`, `price_amount`, `Create_at`) VALUES
+(1, 1, '1', '', 'admintest', '', '', 1, 230, '2022-08-18'),
+(2, 1, '2', '', 'admintest', '', '', 1, 150, '2022-08-18'),
+(5, 1, '18', '', 'admintest', '', '', 2, 300, '2022-08-18'),
+(6, 2, '26', '', 'admintest', '', '', 2, 240, '2022-08-18'),
+(7, 2, '12', '', 'admintest', '', '', 2, 200, '2022-08-18'),
+(8, 3, '7', '', 'admintest', '', '', 1, 300, '2022-08-18'),
+(9, 3, '3', '', 'admintest', '', '', 1, 250, '2022-08-18'),
+(17, 6, '4', '家鄉炸雞椰漿飯', 'lalala6', '流口水', '0988555555', 1, 180, '2022-08-21'),
+(18, 6, '2', '青檸酸酸粉', 'lalala6', '流口水', '0988555555', 1, 180, '2022-08-21'),
+(19, 6, '8', '三八炸雞椰漿飯', 'lalala6', '流口水', '0988555555', 1, 320, '2022-08-21'),
+(20, 7, '6', '乾辣椒烤魚飯', 'lalala7', '劉嘉玲', '0956333222', 1, 280, '2022-08-21'),
+(21, 7, '8', '三八炸雞椰漿飯', 'lalala7', '劉嘉玲', '0956333222', 1, 320, '2022-08-21'),
+(22, 7, '3', '照燒日式蓋飯', 'lalala7', '劉嘉玲', '0956333222', 1, 250, '2022-08-21'),
+(23, 8, '6', '乾辣椒烤魚飯', 'lalala8', '劉莉莉', '0988555555', 1, 280, '2022-08-21'),
+(24, 8, '3', '照燒日式蓋飯', 'lalala8', '劉莉莉', '0988555555', 1, 250, '2022-08-21'),
+(25, 8, '18', '老闆最愛的清酒', 'lalala8', '劉莉莉', '0988555555', 2, 300, '2022-08-21'),
+(26, 9, '27', '台灣原創牛肉麵', 'lalala9', '劉莉哭', '0988555555', 1, 150, '2022-08-21'),
+(27, 9, '3', '照燒日式蓋飯', 'lalala9', '劉莉哭', '0988555555', 1, 250, '2022-08-21'),
+(28, 9, '18', '老闆最愛的清酒', 'lalala9', '劉莉哭', '0988555555', 2, 300, '2022-08-21');
 
 -- --------------------------------------------------------
 
@@ -148,7 +172,11 @@ CREATE TABLE `order_list` (
 INSERT INTO `order_list` (`SID`, `username`, `Total_Price`, `Cart_Created`, `status`, `Discount`) VALUES
 (1, 'admintest', 0, '2022-08-08', '完成訂單', ''),
 (2, 'admintest', 0, '2022-08-06', '完成訂單', ''),
-(3, 'admintest', 0, '2022-08-05', '完成訂單', '');
+(3, 'admintest', 0, '2022-08-05', '完成訂單', ''),
+(6, 'lalala6', 730, '2022-08-21', '餐點到付款', '0'),
+(7, 'lalala7', 900, '2022-08-21', '餐點到付款', '0'),
+(8, 'lalala8', 880, '2022-08-21', '餐點到付款', '0'),
+(9, 'lalala9', 750, '2022-08-21', '餐點到付款', '0');
 
 -- --------------------------------------------------------
 
@@ -209,6 +237,13 @@ CREATE TABLE `sessions` (
   `expires` int(11) UNSIGNED NOT NULL,
   `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
+('e24-dGLhS2lMzY0ZiGw95IqiisFqOY2G', 1661245713, '{\"cookie\":{\"originalMaxAge\":60000000,\"expires\":\"2022-08-22T22:57:11.405Z\",\"httpOnly\":true,\"path\":\"/\"},\"admin\":{\"username\":\"admin\"}}');
 
 -- --------------------------------------------------------
 
@@ -312,7 +347,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -324,13 +359,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `product_detail`

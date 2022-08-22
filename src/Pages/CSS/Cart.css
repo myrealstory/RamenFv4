@@ -122,7 +122,9 @@
 .CName {
     width: 10vw;
 }
-
+.CEmail {
+    width: 25vw;
+}
 .CAddress {
     width: 100%;
 }

@@ -254,7 +254,7 @@ function Cart() {
                                     <br />
                                     <input
                                       type="text"
-                                      className="DetailInput"
+                                      className="DetailInput CEmail"
                                       name="CustomerEmail"
                                       ref={ref}
                                       value={

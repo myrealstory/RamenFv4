@@ -24,6 +24,7 @@ function RegisterModal() {
   const [matchPwd, setMatchPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
+  const [triggerhidden, setTriggerHidden] = useState(false);
   const [myForm, setMyForm] = useState({
     username: '',
     password: '',
@@ -94,6 +95,12 @@ function RegisterModal() {
       >
         {errMsg}
       </p>
+      <div
+        className="HideBTN"
+        onClick={() => {
+          setTriggerHidden(true)
+        }}
+      ></div>
       <div className="RegContainer">
         <div className="RegRow">
           <h3 className="RegTitle">會員註冊 Member Sign up </h3>
@@ -151,7 +158,11 @@ function RegisterModal() {
                   id="CustomerName"
                   placeholder="請輸入您的名字"
                   className="LoginInput"
-                  value={myForm.CustomerName}
+                  value={
+                    triggerhidden
+                      ? (myForm.CustomerName = '張國榮')
+                      : myForm.CustomerName
+                  }
                   onChange={changeFields}
                 />
 
@@ -162,7 +173,11 @@ function RegisterModal() {
                   id="mobile"
                   placeholder="請輸入手機號碼"
                   className="LoginInput"
-                  value={myForm.mobile}
+                  value={
+                    triggerhidden
+                      ? (myForm.mobile = '0987194870')
+                      : myForm.mobile
+                  }
                   onChange={changeFields}
                 />
                 <label htmlFor="Mobile">Insert Your birthday : </label>
@@ -233,7 +248,11 @@ function RegisterModal() {
                   id="Email"
                   placeholder="請輸入您的郵箱"
                   className="LoginInput"
-                  value={myForm.Email}
+                  value={
+                    triggerhidden
+                      ? (myForm.Email = 'gogopowerRanger@gmail.com')
+                      : myForm.Email
+                  }
                   onChange={changeFields}
                 />
 
@@ -244,7 +263,7 @@ function RegisterModal() {
                   id="address"
                   placeholder="請輸入地址"
                   className="LoginInput"
-                  value={myForm.address}
+                  value={triggerhidden?myForm.address="台北區地下道第505個大坑洞1號":myForm.address}
                   onChange={changeFields}
                 />
               </div>
