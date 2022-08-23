@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { LOGIN_API } from '../../../configs/AjaxPath'
 import { useNavigate } from 'react-router-dom'
 import sqlLoginContext from './sqlLoginContext'
+import Swal from 'sweetalert2'
 
 function LoginModal(props) {
   const navigate = useNavigate()
@@ -42,7 +43,11 @@ function LoginModal(props) {
           props.setTrigger(false)
           navigate('/')
         } else {
-          alert('帳密錯誤')
+          Swal.fire({
+            icon: 'error',
+            title: '帳密錯誤',
+            text: '麻煩重新登入',
+          })
         }
       })
   }

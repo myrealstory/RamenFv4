@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect ,useContext} from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import { REGISTER_API } from '../../../configs/AjaxPath'
 import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
 import {
@@ -7,13 +7,14 @@ import {
   faInfoCircle,
 } from '../../../../node_modules/@fortawesome/free-solid-svg-icons'
 import sqlLoginContext from './sqlLoginContext'
-import { useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function RegisterModal() {
   const USER_REGEX = /^[A-z\][a-z0-9-_]{3,23}$/
   const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
-  const { setAuth } = useContext(sqlLoginContext);
-  const navigate = useNavigate();
+  const { setAuth } = useContext(sqlLoginContext)
+  const navigate = useNavigate()
 
   const userRef = useRef()
   const errRef = useRef()
@@ -24,7 +25,7 @@ function RegisterModal() {
   const [matchPwd, setMatchPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
-  const [triggerhidden, setTriggerHidden] = useState(false);
+  const [triggerhidden, setTriggerHidden] = useState(false)
   const [myForm, setMyForm] = useState({
     username: '',
     password: '',
@@ -79,9 +80,14 @@ function RegisterModal() {
       .then((result) => {
         if (result.success) {
           setSuccess(true)
-          alert(`'${myForm.username} Registered had been Successful'`)
-         navigate('/')
-
+          Swal.fire({
+            icon: 'success',
+            title: `'${myForm.username} 已註冊成功！'`,
+            text: '幫您跳轉到首頁頁...',
+            confirmButtonText: 'OK',
+          }).then((result) => {
+            navigate('/')
+          })
         }
       })
   }
@@ -263,7 +269,11 @@ function RegisterModal() {
                   id="address"
                   placeholder="請輸入地址"
                   className="LoginInput"
-                  value={triggerhidden?myForm.address="台北區地下道第505個大坑洞1號":myForm.address}
+                  value={
+                    triggerhidden
+                      ? (myForm.address = '台北區地下道第505個大坑洞1號')
+                      : myForm.address
+                  }
                   onChange={changeFields}
                 />
               </div>

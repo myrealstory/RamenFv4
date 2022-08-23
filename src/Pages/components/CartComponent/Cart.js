@@ -7,6 +7,7 @@ import MemberProvider from '../LoginComponents/MemberProvider'
 import { LIST_CART } from '../../../configs/AjaxPath'
 import { FontAwesomeIcon } from '../../../../node_modules/@fortawesome/react-fontawesome'
 import { LIST_GET_MEMBER } from '../../../Pages/components/LoginComponents/MemberProvider'
+import Swal from 'sweetalert2'
 
 function Cart() {
   const ref = useRef(null)
@@ -75,9 +76,15 @@ function Cart() {
         // console.log(result);
         if (result.success) {
           console.log('訂單：', result)
-          alert(`訂單已完成！幫您跳轉到商品頁面...`)
-          localStorage.removeItem('cart')
-          window.location.href = '/FoodMenu'
+          Swal.fire({
+            icon: 'success',
+            title: '訂單已完成！',
+            text: '幫您跳轉到商品頁面...',
+            confirmButtonText: 'OK',
+          }).then((result) => {
+            localStorage.removeItem('cart')
+            window.location.href = '/FoodMenu'
+          })
         }
       })
   }
