@@ -11,21 +11,27 @@ import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 function RegisterModal() {
+  //regular Expression 設定
   const USER_REGEX = /^[A-z\][a-z0-9-_]{3,23}$/
   const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
+
+  //從Logic傳來的認證
   const { setAuth } = useContext(sqlLoginContext)
   const navigate = useNavigate()
 
   const userRef = useRef()
   const errRef = useRef()
+  //為了username做的hook
   const [validName, setValidName] = useState(false)
   const [userFocus, setUserFocus] = useState(false)
+  //為了password做的hook
   const [validPwd, setValidPwd] = useState(false)
   const [pwdFocus, setPwdFocus] = useState(false)
   const [matchPwd, setMatchPwd] = useState('')
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
   const [triggerhidden, setTriggerHidden] = useState(false)
+  //拿到東西傳到node的hook
   const [myForm, setMyForm] = useState({
     username: '',
     password: '',
@@ -49,6 +55,7 @@ function RegisterModal() {
     setErrMsg('')
   }, [myForm.username, myForm.password, matchPwd])
 
+  //傳入setMyForm所需格式的onchange 功能
   const changeFields = (event) => {
     const id = event.target.id
     const val = event.target.value
@@ -56,6 +63,7 @@ function RegisterModal() {
 
     setMyForm({ ...myForm, [id]: val })
 
+    //在裡面先做好篩檢如果不行就不給塞值
     if (id in ['username', 'password']) {
       const v1 = USER_REGEX.test(myForm.username)
       const v2 = PWD_REGEX.test(myForm.password)
