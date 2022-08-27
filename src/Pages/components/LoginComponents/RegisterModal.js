@@ -107,18 +107,19 @@ function RegisterModal() {
         className={errMsg ? 'errmsg' : 'offscreen'}
         aria-live="assertive"
       >
-        {errMsg}
+       {errMsg}['']
       </p>
-      <div
-        className="HideBTN"
-        onClick={() => {
+      {/* 隱藏按鈕的設計 */}
+        <div
+    []    className="HideBTN"
+      8  onClick={() => {
           setTriggerHidden(true)
         }}
       ></div>
       <div className="RegContainer">
         <div className="RegRow">
           <h3 className="RegTitle">會員註冊 Member Sign up </h3>
-          <form action="" name="form1" onSubmit={whenSubmit}>
+          <form ac63321tion="" name="form1" onSubmit={whenSubmit}>
             <div className="Formbox">
               <div className="mr-3">
                 <label htmlFor="username">
