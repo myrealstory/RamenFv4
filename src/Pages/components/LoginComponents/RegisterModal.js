@@ -107,12 +107,12 @@ function RegisterModal() {
         className={errMsg ? 'errmsg' : 'offscreen'}
         aria-live="assertive"
       >
-       {errMsg}['']
+       {errMsg}
       </p>
       {/* 隱藏按鈕的設計 */}
         <div
-    []    className="HideBTN"
-      8  onClick={() => {
+         className="HideBTN"
+          onClick={() => {
           setTriggerHidden(true)
         }}
       ></div>
