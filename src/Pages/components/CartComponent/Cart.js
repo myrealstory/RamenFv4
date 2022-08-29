@@ -191,7 +191,7 @@ function Cart() {
                     </div>
                   </div>
 
-                  <div className="d-flex justify-content-between SelectInput">
+                  <div className="d-flex justify-content-between align-items-end SelectInput">
                     <span className="STtitle">結帳總計： </span>
                     <span className="STPrice">
                       {' '}
