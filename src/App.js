@@ -31,6 +31,7 @@ import MemberProvider,{LIST_GET_MEMBER} from './Pages/components/LoginComponents
 
 import { CartProvider } from './Pages/components/CartComponent/Utils/useCart'
 import { SecondCartProvider } from './Pages/components/CartComponent/Utils/useSecondCart'
+import Testing from './testing'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // export const getMenuInfo = async () => {
 //   const response = await fetch(LIST_GET_NEWS);
@@ -93,7 +94,7 @@ function App() {
                 <Route path="/Register" element={<RegisterModal />} />
                 <Route path="/Cart" element={<Cart />} />
                 <Route path="/Recipe" element={<Recipe />}></Route>
-                <Route path="ppp" element={<>12313321</>} />
+                <Route path="/ppp" element={<Testing />} />
                 <Route
                   path="/Recipe/RecipePage1"
                   element={<RecipePage1 />}
