@@ -283,16 +283,49 @@ content: '';
     position: relative;
 }
 
-.ScrollBG{
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 868px;
+.horizontalScroll {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    transform: translateX(-52rem);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    /* scroll-snap-type: x mandatory; */
+    /* -webkit-overflow-scrolling: touch; */
+    z-index: 1;
+    flex:0 0 100%;
+}
+
+.horizontalScroll::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+}
+.horizontalScroll::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+.horizontalScroll::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.ScrollBG{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 118.9vw;
+    height: 100%;
+    display: flex;
+}
+
+.bg{
+    width: 100%;height: 100%;
+    object-fit: contain;
     position: relative;
 }
-.SecondBG .ScrollBG::before {
+.ScrollBG:before {
     content: '';
     position: absolute;
     background-color: rgba(00,00,00,0.5);
@@ -300,7 +333,8 @@ content: '';
     top: 0;
     left: 0;
     width: 100%;height: 100%;
-    z-index: 1;
+    z-index: 2;
+
 }
 
 .bG1 {
@@ -315,16 +349,15 @@ content: '';
 
 .Sectitle {
     position: absolute;
+    top: 50%;
+    left: 0;
     color: white;
-   
-    left: 50%;
-    transform: translateX(-50%);
-    top: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 100%;
-    /* padding-top: 50%; */
-    
     letter-spacing: 10px;
+    z-index:2;
 }
 .Sectitle h2 {
      font-size: 3vw;
