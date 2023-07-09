@@ -1,17 +1,13 @@
 import React, { useContext, useState } from 'react' //ES6 JS
 import { Link } from 'react-router-dom'
 import LOGO from '../img/Logo.png'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
-import { Button } from 'react-bootstrap'
 import LoginProvider from './LoginComponents/LoginProvider'
 import sqlLoginContext from './LoginComponents/sqlLoginContext'
 import CartIcon from './CartComponent/CartIcon'
-import LoginModal from './LoginComponents/LoginModal'
 // import '../App.css'
 
 function Nav() {
-  const [timedPopup, setTimedPopup] = useState(false)
-  const { activeLogin, setActiveLogin } = useContext(LoginProvider)
+  const { setActiveLogin } = useContext(LoginProvider)
   const { authorized, account, logout } = useContext(sqlLoginContext)
   const sqlLoginContext1 = useContext(sqlLoginContext)
   console.log(sqlLoginContext1)

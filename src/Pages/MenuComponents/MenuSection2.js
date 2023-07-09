@@ -1,11 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import FileMenuInfo from '../Api/MenuApi'
 import { useCart } from '../components/CartComponent/Utils/useCart'
 
 function MenuSection2(props) {
   const { showModal } = props
   const { addItem } = useCart()
-  const [arrayData, setArrayData] = useState([])
 
   const [menuData] = useContext(FileMenuInfo)
   // console.log('MenuSec2:', menuData)
@@ -39,18 +38,13 @@ function MenuSection2(props) {
         {!!menuData[0] && menuData[0].length
           ? shuffle(menuData[0])
               .filter((v, i, array) => {
-                {/* console.log('this is i:', i) */}
                 return i < 5
               })
               .map((value, index, array2) => {
-                {/* console.log(array2)
-                console.log('sec2:', value) */}
-                {/* 這裡Map因為不做循環，所以用Array2一個個刻排版 */}
 
                 if (index !== 0) return <div key={array2[index]}></div>
 
                 return (
-
                   <div key={array2[4].RandomKey2}>
                     {/* random的第一個物件設計 */}
                     <div

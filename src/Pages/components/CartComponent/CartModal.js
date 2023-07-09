@@ -2,7 +2,7 @@ import React from 'react'
 import { useCart } from './Utils/useCart'
 
 function CartModal() {
-  const { cart, items, plusOne, minusOne, removeItem } = useCart()
+  const { items, plusOne, minusOne, removeItem } = useCart()
   return (
     <>
       <div>

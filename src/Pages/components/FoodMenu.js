@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import Navbar from '../components/nav'
 
 import MenuSection2 from '../MenuComponents/MenuSection2'
 import MenuSection3 from '../MenuComponents/MenuSection3'

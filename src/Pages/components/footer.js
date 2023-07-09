@@ -1,6 +1,5 @@
 import React from 'react'
 import LOGO from '../img/Logo.png'
-import FooterBG from "../img/Footer/b25dd607a1171378f5d5fa42bb785a45.jpg";
 import '../../App.css'
 
 function footer () {
