@@ -1,16 +1,9 @@
-import React, {useState} from 'react'
-import { useEffect } from 'react';
+import React, { useState } from 'react'
+
+export const portMain = '8080'
 
 function testing() {
-    const [count, setCount] = useState(0);
-    useEffect(() => { 
-        setInterval(() => {
-            setCount(count + 1);
-        }, 1000);
-    },[])
-  return (
-      <div>Counting:{count }</div>
-  )
+  ;<></>
 }
 
 export default testing

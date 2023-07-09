@@ -9,36 +9,25 @@ import Recipe from './Pages/MComponent/Recipe'
 import RecipePage1 from './Pages/MComponent/side/RecipePage1'
 import RecipePage2 from './Pages/MComponent/side/RecipePage2'
 import Nav from './Pages/components/nav'
-import Footer from './Pages/components/footer'
 import Cart from './Pages/components/CartComponent/Cart'
-import Cart01 from './Pages/components/CartComponent/Cart01'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import React, { useState, useEffect, useContext } from 'react'
-import TestDraw from './test/TestDraw'
+import React, { useState, useEffect } from 'react'
 import FileMenuInfo, { LIST_GET_MENUS } from './Pages/Api/MenuApi'
-import FileNewsInfo, {
-  LIST_GET_NEWS,
-  LOGIN_API
-} from './configs/AjaxPath'
+import FileNewsInfo, { LIST_GET_NEWS } from './configs/AjaxPath'
 import { GlobalScrollProvider } from './Pages/components/hooks/useGlobalScroll'
 import { GlobalMouseMoveProvider } from './Pages/components/hooks/useGlobalMouseMove'
 import LoginProvider from './Pages/components/LoginComponents/LoginProvider'
-import LoginModal from './Pages/components/LoginComponents/LoginModal'
 import AuthProvider from './Pages/components/LoginComponents/AuthProvider'
 import RegisterModal from './Pages/components/LoginComponents/RegisterModal'
-import MemberProvider,{LIST_GET_MEMBER} from './Pages/components/LoginComponents/MemberProvider'
+import MemberProvider, {
+  LIST_GET_MEMBER,
+} from './Pages/components/LoginComponents/MemberProvider'
 
 import { CartProvider } from './Pages/components/CartComponent/Utils/useCart'
 import { SecondCartProvider } from './Pages/components/CartComponent/Utils/useSecondCart'
 import Testing from './testing'
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// export const getMenuInfo = async () => {
-//   const response = await fetch(LIST_GET_NEWS);
-//   const responseJson = await response.json();
-//   console.log(responseJson);
-//   return responseJson;
-// };
+
 function Wrapper({ children }) {
   const [activeLogin, setActiveLogin] = useState(false)
 
